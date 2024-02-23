@@ -1,3 +1,3 @@
-function renderContent(parentElement, parentElementMarkup) {
-  // simply replaces existent element HTML markup with a new one //
+export function renderContent(parentElement, ...markups) {
+  parentElement.innerHTML = markups.reduce((acc, x) => acc + x, '');
 }
