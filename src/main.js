@@ -1,8 +1,10 @@
-import { fetchData } from './js/fetchData';
-// const result = await fetchData(
-//   'https://books-backend.p.goit.global/books/category-list'
-// );
+import * as request from './js/fetchData';
+import { createCategoryList } from './js/createCategoryList';
 
-console.log(
-  fetchData('https://books-backend.p.goit.global/books/category-list')
-);
+const refs = {
+  categoryList: document.querySelector('.category-list'),
+};
+
+const categories = await request.fetchData(request.endPoints.list);
+const categoryListMarkup = createCategoryList(categories);
+refs.categoryList.innerHTML = categoryListMarkup;
