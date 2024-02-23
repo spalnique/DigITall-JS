@@ -11,11 +11,11 @@
 //     return parentElementMarkup;
 // }
 
-function createParentMarkup(childElementMarkup, n) {
-  const childrenElementMarkup = childElementMarkup.join('');
-  const parentElementMarkup = `<div class='parent'>${childrenElementMarkup.repeat(
-    n
-  )}</div>`;
+// function createParentMarkup(childElementMarkup, n) {
+//   const childrenElementMarkup = childElementMarkup.join('');
+//   const parentElementMarkup = `<div class='parent'>${childrenElementMarkup.repeat(
+//     n
+//   )}</div>`;
 
-  return parentElementMarkup;
-}
+//   return parentElementMarkup;
+// }
