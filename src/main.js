@@ -1,5 +1,8 @@
 import { fetchData } from './js/fetchData';
 import { createCategoryList } from './js/createCategoryList';
+import { createButton } from './js/createButton';
+import { createElementMarkup } from './js/createElementMarkup';
+import { renderContent } from './js/renderContent';
 
 const refs = {
   mainCatCont: document.querySelector('.main-category-container'),
@@ -21,7 +24,13 @@ refs.catList.innerHTML = createCategoryList(categories);
 
 refs.catList.addEventListener('click', async e => {
   if (e.target === e.currentTarget) return;
-  const mainCatsData = await fetchData(BASE_URL, endPoints.category, e.target.textContent);
+  const mainCatsData = await fetchData(
+    BASE_URL,
+    endPoints.category,
+    e.target.textContent
+  );
   console.log(mainCatsData);
+  const catMarkup = mainCatsData.map(x => createElementMarkup(x)).join('');
   refs.mainTitle.textContent = e.target.textContent;
+  renderContent(refs.mainCatCont, catMarkup);
 });
