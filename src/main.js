@@ -1,10 +1,18 @@
-import * as request from './js/fetchData';
+import { fetchData } from './js/fetchData';
 import { createCategoryList } from './js/createCategoryList';
 
 const refs = {
   categoryList: document.querySelector('.category-list'),
 };
 
-const categories = await request.fetchData(request.endPoints.list);
-const categoryListMarkup = createCategoryList(categories);
-refs.categoryList.innerHTML = categoryListMarkup;
+const BASE_URL = 'https://books-backend.p.goit.global/books';
+
+const endPoints = {
+  list: '/category-list',
+  topbooks: '/top-books',
+  category: '/category?category=',
+  id: '/{id}',
+};
+
+const categories = await fetchData(BASE_URL, endPoints.list);
+refs.categoryList.innerHTML = createCategoryList(categories);
