@@ -1,0 +1,75 @@
+.title {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 1.08333;
+  letter-spacing: -0.04em;
+  color: #111;
+  margin-bottom: 40px;
+}
+
+.title-span {
+  color: #4f2ee8;
+}
+
+.shopping-cart {
+  list-style: none;
+}
+
+.cart-item {
+  display: flex;
+  border: 2px solid rgba(79, 46, 232, 0.4);
+  border-radius: 16px;
+  padding: 30px 24px;
+  /* width: 996px; */
+  height: 213px;
+  margin-left: 40px;
+  margin-right: 24px;
+  padding: 24px;
+  margin-bottom: 20px;
+}
+
+.image {
+  border-radius: 8px;
+  min-width: 116px;
+  min-height: 165px;
+  background-color: red;
+  object-fit: cover;
+  cursor: pointer;
+  margin-right: 24px;
+}
+
+.remove-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+}
+
+/* ======Tablet===== */
+
+@media screen and (min-width: 768px) {
+}
+
+@media (min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+}
+
+/* =====desktop===== */
+@media screen and (min-width: 1440px) {
+}
+
+@media (min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+}
