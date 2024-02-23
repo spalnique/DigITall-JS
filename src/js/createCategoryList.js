@@ -31,13 +31,26 @@ const endPoints = {
 
 async function createCategoryList() {
   const result = await fetchData(BASE_URL, endPoints.list);
-  const createMarkup = result
+  const titleMarkup = `<h2 class="category-title">All categories</h2>`;
+  const itemsMarkup = result
     .map(
       item =>
         `<li class="category-item"><p class="category-text">${item.list_name}</p></li>`
     )
     .join('');
-  categoryList.innerHTML = createMarkup;
+  const mainMarkup = titleMarkup + itemsMarkup;
+  categoryList.innerHTML = mainMarkup;
 }
 
 createCategoryList();
+
+// Show hide function
+function showElement(elem) {
+  elem.classList.add('visible');
+  elem.classList.remove('hidden');
+}
+
+function hideElement(elem) {
+  elem.classList.remove('visible');
+  elem.classList.add('hidden');
+}
