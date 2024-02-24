@@ -1,1 +1,68 @@
-<header class="container"></header>
+
+    <header class="container">
+        <div class="header-container">
+            <nav class="header-menu">
+                <!-- -----LOGO----- -->
+                <div class="logo">
+                    <a class="logo-svg" href="./index.html" aria-label="link on main book page">
+
+                        <svg width="24" height="24"><use href="../img/icons.svg#book-plug"></use>
+                        </svg>  
+                        <svg class="text-logo" width="78" height="14"><use href="../img/icons.svg#bookshelf-light"></use>
+                        </svg>   
+                    </a>
+                </div>
+                <!-- -----Home & shoping list----- -->
+                <ul id="header-list" class="header-list">
+                    <li class="header-item hidden home-js">
+                        <a class="header-link " href="./index.html">home</a>
+                    </li>
+                    <li class="header-item hidden shopping-js">
+                        <a class="shopping-link " href="../partials/shopping-list.html"
+                        >Shopping List
+                        <span class="shoping-test">
+                            <svg class="shoping-icon" width="20" height="20"><use href="../img/icons.svg#uil-cart"></use>         
+                            </svg>
+                        </span>
+                
+                        </a>
+                    </li>
+                </ul>
+                <!-- ----- switcher of theme----- -->
+                <div class="switcher">
+                    <input type="checkbox"  id="themeToggle" />
+                    <label id="switch" for="themeToggle" class="switch">
+                        <span class="slider"></span>
+                        
+                    </label>
+                    
+                </div>
+
+            
+                <!-- -----Authorization------ -->
+                <button type="button" class="signup-btn signup-js">
+                    Sign up
+                    <svg class="sign-arrow" width="20" height="20">
+                    <use href="./img/icons.svg#arrow-narrow-right"></use>        
+                    </svg>
+                    
+                </button>
+
+                <div class="user-profile signup-btn js-user-profile hidden">
+                    <p class="user-name js-user-name"></p>
+                    <svg class="header-triangle" width="20" height="20">
+                        <use href="./img/icons.svg#triangle"></use>        
+                        </svg>
+                </div>
+
+                <div class="btn-log-out">
+                    <button>Log out</button>
+                </div>
+                
+                
+            </nav>
+
+        </div>
+    
+        
+    </header>
