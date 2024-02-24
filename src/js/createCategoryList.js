@@ -18,7 +18,7 @@ import { fetchData } from './fetchData';
 //   }
 // }
 
-const categoryList = document.querySelector('.category-list');
+const categoryList = document.querySelector('.sidebar-category-list');
 
 const BASE_URL = 'https://books-backend.p.goit.global/books';
 
@@ -29,13 +29,13 @@ const endPoints = {
   id: '/{id}',
 };
 
-async function createCategoryList() {
+export async function createCategoryList() {
   const result = await fetchData(BASE_URL, endPoints.list);
-  const titleMarkup = `<h2 class="category-title">All categories</h2>`;
+  const titleMarkup = `<h2 class="sidebar-category-title">All categories</h2>`;
   const itemsMarkup = result
     .map(
       item =>
-        `<li class="category-item"><p class="category-text">${item.list_name}</p></li>`
+        `<li class="sidebar-category-item"><p class="sidebar-category-text">${item.list_name}</p></li>`
     )
     .join('');
   const mainMarkup = titleMarkup + itemsMarkup;
@@ -43,14 +43,3 @@ async function createCategoryList() {
 }
 
 createCategoryList();
-
-// Show hide function
-function showElement(elem) {
-  elem.classList.add('visible');
-  elem.classList.remove('hidden');
-}
-
-function hideElement(elem) {
-  elem.classList.remove('visible');
-  elem.classList.add('hidden');
-}
