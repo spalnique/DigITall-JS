@@ -4,3 +4,24 @@
   width: 100%;
   height: 100%;
 }
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border: 2px solid gray;
+}
+
+.main-category-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.main-category {
+  display: flex;
+}
+
+.category-container {
+  border: 2px solid goldenrod;
+}
