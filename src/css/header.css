@@ -152,7 +152,9 @@ transition: background .25s cubic-bezier(.17,.67,.91,1.61),box-shadow .25s cubic
         transform: rotate(360deg); /* Кінцевий стан обертання (360 градусів) */
     }
 }
-
+.header-triangle{
+    stroke: #fff;
+}
 /* ----Dark theme------ */
 
 .dark-theme{

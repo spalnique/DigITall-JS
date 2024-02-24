@@ -13,10 +13,12 @@ const firebaseConfig = {
   appId: '1:618447253868:web:8e9934944d76f91f920349',
 };
 
+const btnLogout =  document.querySelector('.js-user-profile');
 const userNameElem = document.querySelector('.js-user-name');
 const button = document.querySelector('.signup-js');
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
+
 
 button.addEventListener('click', onButtonClick);
 
@@ -126,6 +128,7 @@ function onFormSubmit(e){
     userNameElem.textContent = name;
 }
 
+// ------LOG OUT----------//
 function logout(){
     hideHeaderNav();
 
@@ -134,4 +137,7 @@ function logout(){
     }
 localStorage.removeItem('userInfo');
 }
+
+btnLogout.addEventListener('click', logout);
+
 
