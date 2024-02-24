@@ -1,4 +1,9 @@
-/* Reset styles */
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: #f6f6f6;
+  color: #111;
+}
+
 h1,
 h2,
 h3,
@@ -9,22 +14,20 @@ p {
   margin: 0;
 }
 
-p:last-child {
-  margin-bottom: 0;
-}
-
 ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+  padding-left: 0;
+  list-style-type: none;
 }
 
 a {
   color: currentColor;
   text-decoration: none;
+  display: block;
 }
 
 button {
+  border: none;
+  background-color: transparent;
   cursor: pointer;
 }
 
@@ -35,4 +38,24 @@ img {
 }
 
 .container {
+  max-width: 375px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .container {
+    max-width: 1440px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
 }
