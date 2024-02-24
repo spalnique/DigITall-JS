@@ -1,8 +1,10 @@
 import axios from 'axios';
 
-export async function fetchData(baseUrl, endPoint, selectedCategory = '') {
+axios.defaults.baseURL = 'https://books-backend.p.goit.global/books';
+
+export async function fetchData(endPoint, selectedCategory = '') {
   try {
-    const url = baseUrl + endPoint + selectedCategory;
+    const url = endPoint + selectedCategory;
     const response = await axios.get(url);
     return response.data;
   } catch (error) {

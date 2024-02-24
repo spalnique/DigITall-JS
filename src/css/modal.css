@@ -7,7 +7,6 @@
   overflow: hidden;
 }
 
-/**============================================================================== */
 .modal-container {
   margin: 0 auto;
   position: relative;
@@ -77,37 +76,31 @@
 }
 
 .modal-buy-links-wrapper {
-  width: 115px;
-  height: 32px;
   display: flex;
   gap: 20px;
   align-items: center;
 }
 
-.modal-book-link {
-  width: 115px;
-  height: 32px;
-  display: flex;
-  gap: 20px;
-}
+.modal-buy-link {}
 
-.modal-book-link-img:first-child {
-  width: 62px;
-}
-
-.modal-book-link-img:last-child {
-  width: 33px;
-}
-
-.modal-book-link-img {
+.modal-link-amazon-icon {
   mix-blend-mode: luminosity;
   filter: grayscale(100%);
-  transition: filter 3000ms ease-in-out;
-  /* transition don`t work */
+  width: 62px;
+  height: 19px;
+  transition: filter 300ms ease-in-out;
 }
 
-.modal-book-link:hover .modal-book-link-img {
-  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.35));
+.modal-link-apple-icon {
+  mix-blend-mode: luminosity;
+  filter: grayscale(100%);
+  width: 33px;
+  height: 32px;
+  transition: filter 300ms ease-in-out;
+}
+
+.modal-buy-link:hover img {
+  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.35))
 }
 
 .add-remove-button {
@@ -141,7 +134,6 @@
 }
 
 .modal-text {
-  display: none;
   width: 242px;
   margin: 0 auto;
   text-align: center;
@@ -209,8 +201,10 @@
     font-size: 18px;
     line-height: 1.33;
   }
-}
 
-.make-visible {
-  display: block;
+  .modal-text {
+    width: 324px;
+    font-size: 12px;
+    line-height: 1.17;
+  }
 }
