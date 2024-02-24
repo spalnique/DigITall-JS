@@ -56,7 +56,6 @@ line-height: 18px;
 font-size: 14px;
 text-transform: uppercase;
 display: flex;
-/* text inside */
 font-family: "DM Sans", sans-serif;
 font-weight: 500;
 font-size: 14px;
@@ -68,11 +67,11 @@ color: #111;
 .shoping-test{
     
 }
+.shoping-icon{
+    fill: #111;
+}
 /* ----------CHECHBOX----------- */
 .switcher {
-    background: url(../img/bg.png) no-repeat center center;
-    width: 40px;
-    height: 24px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -81,14 +80,32 @@ color: #111;
     margin-right: 14px;
     transition: scale 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.switch input {
+
+.switch {
+    background: url(../img/collection/switcher-rectangle.svg) no-repeat center center;
+    width: 40px;
+    height: 24px;
+    cursor: pointer;
+    position: relative;
+    transition: scale 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.switch::before {
+    background: url(../img/collection/switcher-btn.svg) no-repeat center center;
+    position: absolute;
+    content: '';
+    width: 40px;
+    height: 24px;
+    top: 1px;
+    right: 9px;
+}
+
+#themeToggle:checked + .switch::before {
+    transform: translateX(20px);
+}
+.switcher input[type="checkbox"] {
     display: none;
-  }
-
-input:checked + .slider {
-    background: url(../img/bg-dark.png) no-repeat center center;
-  }
-
+}
 
 /* ----------Sign up -----------*/
 .signup-btn{

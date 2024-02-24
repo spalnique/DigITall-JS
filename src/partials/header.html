@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./css/styles.css">
-</head>
-<body>
-    
+
     <header class="container">
         <div class="header-container">
             <nav class="header-menu">
@@ -15,22 +6,22 @@
                 <div class="logo">
                     <a class="logo-svg" href="./index.html" aria-label="link on main book page">
 
-                        <svg width="24" height="24"><use href="./img/icons.svg#icon-logo"></use>
+                        <svg width="24" height="24"><use href="../img/icons.svg#book-plug"></use>
                         </svg>  
-                        <svg class="text-logo" width="78" height="14"><use href="./img/icons.svg#icon-logo-text"></use>
+                        <svg class="text-logo" width="78" height="14"><use href="../img/icons.svg#bookshelf-light"></use>
                         </svg>   
                     </a>
                 </div>
                 <!-- -----Home & shoping list----- -->
                 <ul id="header-list" class="header-list">
-                    <li class="header-item ">
-                        <a class="header-link hidden" href="./index.html">home</a>
+                    <li class="header-item hidden home-js">
+                        <a class="header-link " href="./index.html">home</a>
                     </li>
-                    <li class="header-item">
-                        <a class="shopping-link hidden" href="./shopping-list.html"
+                    <li class="header-item hidden shopping-js">
+                        <a class="shopping-link " href="../partials/shopping-list.html"
                         >Shopping List
                         <span class="shoping-test">
-                            <svg class="shoping-icon" width="20" height="20"><use href="./img/icons.svg#icon-shopping"></use>         
+                            <svg class="shoping-icon" width="20" height="20"><use href="../img/icons.svg#uil-cart"></use>         
                             </svg>
                         </span>
                 
@@ -49,20 +40,23 @@
 
             
                 <!-- -----Authorization------ -->
-                <button type="button" class="signup-btn">
+                <button type="button" class="signup-btn signup-js">
                     Sign up
                     <svg class="sign-arrow" width="20" height="20">
                     <use href="./img/icons.svg#icon-shopping"></use>        
                     </svg>
+                    
                 </button>
 
+                <div class="user-profile signup-btn js-user-profile hidden">
+                    <p class="user-name js-user-name"></p>
+                    
+                </div>
+                
                 
             </nav>
 
         </div>
     
+        
     </header>
-
-    <script type="module" src="./main.js"></script>
-</body>
-</html>

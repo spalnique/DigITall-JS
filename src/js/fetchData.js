@@ -10,3 +10,4 @@ export async function fetchData(baseUrl, endPoint, selectedCategory = '') {
     return null;
   }
 }
+

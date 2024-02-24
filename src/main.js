@@ -1,3 +1,5 @@
+import './js/enableDarkTheme';
+import './js/autorization';
 import { fetchData } from './js/fetchData';
 import { createCategoryList } from './js/createCategoryList';
 
