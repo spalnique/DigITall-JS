@@ -1,7 +1,7 @@
 import './js/enableDarkTheme';
 import './js/autorization';
 import { fetchData } from './js/fetchData';
-import { createCategoryList } from './js/createCategoryList';
+import { createCategoryList, linkIsActive } from './js/createCategoryList';
 import { createButton } from './js/createButton';
 import { createBookMarkup } from './js/createElementMarkup';
 import { renderContent } from './js/renderContent';
@@ -46,6 +46,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       renderContent(refs.mainCatWrap, topBooksMarkup, createAndOpenModalWindow);
       return;
     }
+    linkIsActive(e);
     refs.mainTitle.textContent = e.target.dataset.category;
 
     try {

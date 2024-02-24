@@ -10,7 +10,7 @@ export function createCategoryList(data) {
   return mainMarkup;
 }
 
-function linkIsActive(e) {
+export function linkIsActive(e) {
   if (e.target.nodeName === 'LI') {
     const arrayElem = e.target.parentElement.querySelectorAll(
       '.sidebar-category-text'
