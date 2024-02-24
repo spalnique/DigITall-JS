@@ -1,0 +1,21 @@
+.top-title {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.1875;
+  letter-spacing: -0.04em;
+  color: #111;
+}
+
+.title-span {
+  color: #4f2ee8;
+}
+
+@media screen and (min-width: 768px) {
+  .top-title {
+    font-size: 48px;
+    line-height: 1.08333;
+  }
+}
+@media screen and (min-width: 1440px) {
+}

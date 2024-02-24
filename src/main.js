@@ -21,7 +21,11 @@ refs.catList.innerHTML = createCategoryList(categories);
 
 refs.catList.addEventListener('click', async e => {
   if (e.target === e.currentTarget) return;
-  const mainCatsData = await fetchData(BASE_URL, endPoints.category, e.target.textContent);
+  const mainCatsData = await fetchData(
+    BASE_URL,
+    endPoints.category,
+    e.target.textContent
+  );
   console.log(mainCatsData);
   refs.mainTitle.textContent = e.target.textContent;
 });

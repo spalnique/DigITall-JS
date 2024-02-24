@@ -1,4 +1,4 @@
-function createElementMarkup(data, event) {
+export function createElementMarkup(data, event) {
   // depending on e.target.dataset.id markup will differ //
   // it may be element from shopping list or the one from category on the main //
   // it may be a list of categories fetched from backend //
@@ -12,5 +12,5 @@ function createElementMarkup(data, event) {
   <h3 class="book-title">${data.title}</h3>
   <p class="book-author">${data.author}</p>
 </div>
-</li>`
+</li>`;
 }
