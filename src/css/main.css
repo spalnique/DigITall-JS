@@ -5,6 +5,13 @@
   height: 100%;
 }
 
+.main-content {
+  display: flex;
+  flex-direction: column;
+  padding-top: 30px;
+  gap: 30px;
+}
+
 .content-wrapper {
   display: flex;
   flex-direction: column;
@@ -12,16 +19,19 @@
   border: 2px solid gray;
 }
 
-.main-category-wrapper {
+.category-list-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 20px;
 }
 
-.main-category {
+.category-list {
   display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
-.category-container {
-  border: 2px solid goldenrod;
+.see-more-button {
+  align-self: flex-end;
+  width: 100px;
 }
