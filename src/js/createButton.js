@@ -1,3 +1,3 @@
-function createButton(tag, className, text, targetOrType, srcOrHref) {
-  return clickableMarkup.outerHTML;
+export function createButton(className, textContent) {
+  return `<button type="button" class="${className}">${textContent}</button>`;
 }
