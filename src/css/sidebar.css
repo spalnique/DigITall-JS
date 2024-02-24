@@ -1,5 +1,50 @@
-.main-sidebar {
-  width: 356px;
-  height: 70vh;
-  border: 2px solid green;
+/* ======================Mobile version====================== */
+.sidebar-category-list {
+  width: 335px;
+  height: 228px;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+/* Стилізація заголовка категорій */
+.sidebar-category-title {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 112%;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: #4f2ee8;
+}
+
+/* Стилізація пунктів списку категорій */
+/* .category-item {
+} */
+
+/* Стилізація тексту категорії */
+.sidebar-category-text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: rgba(17, 17, 17, 0.6);
+}
+
+/* ======================Tablet version====================== */
+
+@media screen and (min-width: 768px) {
+  .sidebar-category-list {
+    width: 337px;
+    height: 472px;
+  }
+}
+
+/* ======================Desktop version====================== */
+
+@media screen and (min-width: 1440px) {
+  .sidebar-category-list {
+    width: 356px;
+    height: 472px;
+  }
 }
