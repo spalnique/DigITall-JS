@@ -10,33 +10,15 @@
   <body>
     <load src="partials/header.html" />
     <main class="container">
-      <div class="main-container">
-        <aside class="sidebar">
-          <load src="partials/category-list.html" />
-          <load src="partials/donation-list.html" />
-        </aside>
-        <div class="content-wrapper">
-          <h2 class="main-title"></h2>
-          <ul class="main-category-wrapper">
-            <li class="category-container">
-              <h3 class="main-category-title"></h3>
-              <ul class="main-category"></ul>
-            </li>
-            <li class="category-container">
-              <h3 class="main-category-title"></h3>
-              <ul class="main-category"></ul>
-            </li>
-            <li class="category-container">
-              <h3 class="main-category-title"></h3>
-              <ul class="main-category"></ul>
-            </li>
-            <li class="category-container">
-              <h3 class="main-category-title"></h3>
-              <ul class="main-category"></ul>
-            </li>
-          </ul>
-        </div>
+      <aside class="main-sidebar">
+        <load src="partials/category-list.html" />
+        <load src="partials/donation-list.html" />
+      </aside>
+      <div class="main-content">
+        <h2 class="main-title"></h2>
+        <div class="category-list-wrapper"></div>
       </div>
+
       <load src="partials/shopping-list.html" />
       <load src="partials/modal.html" />
     </main>
