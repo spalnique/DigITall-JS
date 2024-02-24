@@ -5,31 +5,31 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bookshelf</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
+      integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
     <load src="partials/header.html" />
     <main class="main-container container">
-      <aside class="sidebar">
+      <aside class="main-sidebar">
         <load src="partials/category-list.html" />
         <load src="partials/donation-list.html" />
       </aside>
-      <div class="content-wrapper">
+      <div class="main-content">
         <h2 class="main-title"></h2>
-        <ul class="main-category-container">
-          <li>
-            <ul class="main-category"></ul>
-          </li>
-          <li>
-            <ul class="main-category"></ul>
-          </li>
-          <li>
-            <ul class="main-category"></ul>
-          </li>
-          <li>
-            <ul class="main-category"></ul>
-          </li>
-        </ul>
+        <div class="category-list-wrapper"></div>
       </div>
     </main>
     <!-- <footer class="container"></footer> -->
