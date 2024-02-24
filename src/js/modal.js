@@ -65,7 +65,7 @@ async function createModalWindowMarkup(e) {
   return markup;
 }
 
-async function createAndOpenModalWindow(e) {
+export async function createAndOpenModalWindow(e) {
   if (e.target === e.currentTarget) return;
   const modalWindowMarkup = await createModalWindowMarkup(e);
   basicLightbox
@@ -113,5 +113,3 @@ function checkWindowSize() {
     lightboxContainer.classList.remove('lightbox-scroll');
   }
 }
-
-export default createAndOpenModalWindow;
