@@ -1,0 +1,17 @@
+.authorization{
+    border: 2px solid #111;
+    border-radius: 18px;
+    width: 579px;
+    height: 516px;
+}
+.autorization-form{
+    display: flex;
+    flex-direction: column;
+    width: 499px;
+height: 352px;
+justify-content: center;
+align-items: center;
+}
+.form-button{
+    
+}
