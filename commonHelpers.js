@@ -46,9 +46,9 @@ import{i as M,g as j,b as f,s as R,c as q,u as Q,a as v}from"./assets/vendor-389
           height="408"/>
         
         <div class="modal-book-desc-wrapper">
-        <h2 class="modal-book-title dark-theme">${e.title}</h2>
+        <h2 class="modal-book-title">${e.title}</h2>
         <h3 class="modal-book-author">${e.author}</h3>
-        <p class="modal-book-desc dark-theme">${e.description?e.description:tt}</p>
+        <p class="modal-book-desc">${e.description?e.description:tt}</p>
             
         <div class="modal-buy-links-wrapper">
         <a
