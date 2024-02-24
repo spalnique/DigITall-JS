@@ -12,9 +12,12 @@ const textIfBookIsAdded =
 const textIfBookIsRemoved = '';
 const textNotFoundDescription = 'No description has been added to this book';
 
+let bookDataById;
+
 async function createModalWindowMarkup(e) {
   const id = e.target.dataset.id;
   const result = await fetchData(id);
+  bookDataById = result;
 
   const markup = `<div class="modal-container">
         <button class="modal-button-close" type="button">
