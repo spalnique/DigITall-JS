@@ -7,6 +7,8 @@ import { createBookMarkup } from './js/createElementMarkup';
 import { renderContent } from './js/renderContent';
 import { createCategoryMarkup } from './js/createParentElementMarkup';
 import { createAndOpenModalWindow } from './js/modal';
+import { createTopSellers } from './js/createTopSellers';
+
 const refs = {
   mainTitle: document.querySelector('.main-title'),
   mainCatWrap: document.querySelector('.category-list-wrapper'),
@@ -25,32 +27,26 @@ const endPoints = {
 document.addEventListener('DOMContentLoaded', async () => {
   refs.mainTitle.textContent = 'Best Sellers Books';
 
-  try {
-    const topBookData = await fetchData(endPoints.topbooks);
-    const topBooksMarkup = topBookData
-      .map(x => {
-        const title = `<h2 class="category-title">${x.list_name}</h2>`;
-        const catMarkup = createCategoryMarkup(x.books, createBookMarkup);
-        const button = createButton('see-more-button', 'See more', x.list_name);
-        return title + catMarkup + button;
-      })
-      .join('');
-    renderContent(refs.mainCatWrap, topBooksMarkup, createAndOpenModalWindow);
-  } catch (error) {
-    console.log('Error getting top sellers book data:', error);
-  }
+  const topBookData = await fetchData(endPoints.topbooks);
+  const topBooksMarkup = createTopSellers(topBookData);
+  renderContent(refs.mainCatWrap, topBooksMarkup, createAndOpenModalWindow);
 
   try {
     const catListData = await fetchData(endPoints.list);
     const catListMarkup = createCategoryList(catListData);
-    renderContent(refs.catList, catListMarkup, createAndOpenModalWindow);
+    renderContent(refs.catList, catListMarkup);
   } catch (error) {
     console.log('Error getting sidebar category list:', error);
   }
 
   refs.catList.addEventListener('click', async e => {
     if (e.target === e.currentTarget) return;
-    refs.mainTitle.textContent = e.target.textContent;
+    if (!e.target.dataset.category) {
+      refs.mainTitle.textContent = 'Top Sellers Books';
+      renderContent(refs.mainCatWrap, topBooksMarkup, createAndOpenModalWindow);
+      return;
+    }
+    refs.mainTitle.textContent = e.target.dataset.category;
 
     try {
       const selectedCatData = await fetchData(

@@ -7,17 +7,17 @@
   margin-bottom: 40px;
 }
 
-.sidebar-category-list-item {
+.sidebar-category-item {
   padding-top: 12px;
   padding-bottom: 12px;
   cursor: pointer;
 }
 
-.sidebar-category-list-item:first-child {
+.sidebar-category-item:first-child {
   padding-top: 0;
 }
 
-.sidebar-category-list-item:last-child {
+.sidebar-category-item:last-child {
   padding-bottom: 0;
 }
 
@@ -30,13 +30,7 @@
   transition: text-transform 300ms ease-in-out, color 300ms ease-in-out, font-weight 300ms ease-in-out;
 }
 
-.sidebar-category-list-item:hover .sidebar-category-text {
-  font-weight: 700;
-  color: #4f2ee8;
-  text-transform: uppercase;
-}
-
-.make-blue {
+.sidebar-category-item:hover .sidebar-category-text {
   font-weight: 700;
   color: #4f2ee8;
   text-transform: uppercase;
@@ -47,16 +41,16 @@
     height: 472px;
   }
 
-  .sidebar-category-list-item {
+  .sidebar-category-item {
     padding-top: 16px;
     padding-bottom: 16px;
   }
 
-  .sidebar-category-list-item:first-child {
+  .sidebar-category-item:first-child {
     padding-top: 0;
   }
 
-  .sidebar-category-list-item:last-child {
+  .sidebar-category-item:last-child {
     padding-bottom: 0;
   }
 
@@ -68,4 +62,9 @@
   }
 }
 
-@import url('./donation.css');
+/* @import url('./donation.css'); */
+.make-blue {
+  font-weight: 700;
+  color: #4f2ee8;
+  text-transform: uppercase;
+}
