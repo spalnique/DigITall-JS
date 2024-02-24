@@ -1,5 +1,13 @@
-.main-sidebar {
+.sidebar-category-list {
+  height: 228px;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* .main-sidebar {
   width: 356px;
   height: 70vh;
   border: 2px solid green;
-}
+} */
