@@ -1,50 +1,70 @@
-/* ======================Mobile version====================== */
 .sidebar-category-list {
-  width: 335px;
   height: 228px;
   overflow-y: scroll;
+  scrollbar-color: #e0e0e0 #e0e0e0;
   display: flex;
   flex-direction: column;
-  gap: 24px;
-}
-/* Стилізація заголовка категорій */
-.sidebar-category-title {
-  font-family: var(--font-family);
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 112%;
-  letter-spacing: -0.02em;
-  text-transform: uppercase;
-  color: #4f2ee8;
+  margin-bottom: 40px;
 }
 
-/* Стилізація пунктів списку категорій */
-/* .category-item {
-} */
+.sidebar-category-item {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  cursor: pointer;
+}
 
-/* Стилізація тексту категорії */
+.sidebar-category-item:first-child {
+  padding-top: 0;
+}
+
+.sidebar-category-item:last-child {
+  padding-bottom: 0;
+}
+
 .sidebar-category-text {
-  font-weight: 400;
+  cursor: pointer;
   font-size: 16px;
-  line-height: 1.1;
+  line-height: 1.13;
   letter-spacing: -0.02em;
   color: rgba(17, 17, 17, 0.6);
+  transition: text-transform 300ms ease-in-out, color 300ms ease-in-out, font-weight 300ms ease-in-out;
 }
 
-/* ======================Tablet version====================== */
+.sidebar-category-item:hover .sidebar-category-text {
+  font-weight: 700;
+  color: #4f2ee8;
+  text-transform: uppercase;
+}
 
 @media screen and (min-width: 768px) {
   .sidebar-category-list {
-    width: 337px;
     height: 472px;
+  }
+
+  .sidebar-category-item {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  .sidebar-category-item:first-child {
+    padding-top: 0;
+  }
+
+  .sidebar-category-item:last-child {
+    padding-bottom: 0;
+  }
+
+  .sidebar-category-text {
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 1.34;
+    letter-spacing: -0.02em;
   }
 }
 
-/* ======================Desktop version====================== */
-
-@media screen and (min-width: 1440px) {
-  .sidebar-category-list {
-    width: 356px;
-    height: 472px;
-  }
+/* @import url('./donation.css'); */
+.make-blue {
+  font-weight: 700;
+  color: #4f2ee8;
+  text-transform: uppercase;
 }

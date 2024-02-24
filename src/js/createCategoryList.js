@@ -1,5 +1,5 @@
 export function createCategoryList(data) {
-  const titleMarkup = `<li class="sidebar-category-title">All categories</li>`;
+  const titleMarkup = `<li class="sidebar-category-item"><p class="sidebar-category-text">All categories</p></li>`;
   const itemsMarkup = data
     .map(
       item =>
@@ -8,4 +8,24 @@ export function createCategoryList(data) {
     .join('');
   const mainMarkup = titleMarkup + itemsMarkup;
   return mainMarkup;
+}
+
+export function linkIsActive(e) {
+  if (e.target.nodeName === 'LI') {
+    const arrayElem = e.target.parentElement.querySelectorAll(
+      '.sidebar-category-text'
+    );
+    arrayElem.forEach(item => {
+      item.classList.remove('make-blue');
+    });
+    e.target.firstElementChild.classList.add('make-blue');
+  } else if (e.target.nodeName === 'P') {
+    const arrayElem = e.target.parentElement.parentElement.querySelectorAll(
+      '.sidebar-category-text'
+    );
+    arrayElem.forEach(item => {
+      item.classList.remove('make-blue');
+    });
+    e.target.classList.add('make-blue');
+  }
 }
