@@ -54,7 +54,7 @@ img {
 
 @media screen and (min-width: 1440px) {
   .container {
-    max-width: 768px;
+    max-width: 1440px;
     padding-left: 24px;
     padding-right: 24px;
   }
