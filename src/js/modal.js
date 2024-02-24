@@ -30,9 +30,9 @@ async function createModalWindowMarkup(e) {
           height="408"/>
         
         <div class="modal-book-desc-wrapper">
-        <h2 class="modal-book-title dark-theme">${result.title}</h2>
+        <h2 class="modal-book-title">${result.title}</h2>
         <h3 class="modal-book-author">${result.author}</h3>
-        <p class="modal-book-desc dark-theme">${
+        <p class="modal-book-desc">${
           result.description ? result.description : textNotFoundDescription
         }</p>
             
