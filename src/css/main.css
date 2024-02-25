@@ -1,4 +1,14 @@
- .main-title {}
+ .main-title {
+   margin-bottom: 40px;
+   font-weight: 700;
+   font-size: 32px;
+   line-height: 1.19;
+   letter-spacing: -0.04em;
+ }
+
+ .main-title span {
+   color: #4f2ee8;
+ }
 
  @media screen and (min-width: 1440px) {
    .main-container {
