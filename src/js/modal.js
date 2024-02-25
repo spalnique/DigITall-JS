@@ -91,12 +91,6 @@ function onShowModalWindow(i) {
   closeButton.addEventListener('click', () => i.close());
   addRemoveButton.addEventListener('click', onClickAddRemoveButton);
   window.addEventListener('resize', checkWindowSize);
-
-  const bookId = addRemoveButton.dataset.id;
-  const storedBooks = JSON.parse(localStorage.getItem('books')) || [];
-  if (storedBooks.includes(bookId)) {
-    addRemoveButton.textContent = textForRemoveButton;
-  }
 }
 
 function onCloseModalWindow() {
@@ -106,27 +100,7 @@ function onCloseModalWindow() {
   };
 }
 
-function toggleLocalStorage(bookId) {
-  let storedBooks = JSON.parse(localStorage.getItem('books')) || [];
-  const bookIndex = storedBooks.indexOf(bookId);
-
-  if (bookIndex === -1) {
-    storedBooks.push(bookId);
-  } else {
-    storedBooks.splice(bookIndex, 1);
-  }
-
-  if (storedBooks.length === 0) {
-    localStorage.removeItem('books');
-  } else {
-    localStorage.setItem('books', JSON.stringify(storedBooks));
-  }
-}
-
 function onClickAddRemoveButton(e) {
-  const bookId = e.currentTarget.dataset.id;
-  toggleLocalStorage(bookId);
-
   if (e.currentTarget.textContent === textForAddButton) {
     cartDataHandler(e, bookDataById);
     e.currentTarget.textContent = textForRemoveButton;
