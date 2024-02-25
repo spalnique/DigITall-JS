@@ -15,7 +15,7 @@ const textNotFoundDescription = 'No description has been added to this book';
 
 let bookDataById;
 
-async function createModalWindowMarkup(e) {
+async function createModalWindowMarkup(e, checkCartFn) {
   const id = e.target.dataset.id;
   const result = await fetchData(id);
   bookDataById = result;
@@ -63,8 +63,12 @@ async function createModalWindowMarkup(e) {
           height="32"/></a></div></div></div>
 
         <div class="button-toggle-wrapper">
-          <button class="add-remove-button" type="button">${textForRemoveButton}</button>
-          <p class="modal-text make-visible">${textIfBookIsAdded}</p>
+          <button class="add-remove-button" type="button">${
+            checkCartFn(result) ? textForRemoveButton : textForAddButton
+          }</button>
+          <p class="modal-text make-visible">${
+            checkCartFn(result) ? textIfBookIsAdded : textIfBookIsRemoved
+          }</p>
         </div></div>`;
   return markup;
 }
