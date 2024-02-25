@@ -4,6 +4,7 @@ import icon from '../img/icons.svg';
 import amazon from '../img/png/amazon.png';
 import apple from '../img/png/apple-book.png';
 import { fetchData } from './fetchData';
+import { cartDataHandler, checkCartData } from './cartDataHandler';
 
 const textForAddButton = 'Add to shopping list';
 const textForRemoveButton = 'Remove from the shopping list';
@@ -97,11 +98,11 @@ function onCloseModalWindow() {
 
 function onClickAddRemoveButton(e) {
   if (e.currentTarget.textContent === textForAddButton) {
-    console.log('Here will be a function that add books');
+    cartDataHandler(e, bookDataById);
     e.currentTarget.textContent = textForRemoveButton;
     e.currentTarget.nextElementSibling.textContent = textIfBookIsAdded;
   } else if (e.currentTarget.textContent === textForRemoveButton) {
-    console.log('Here will be a function that remove books');
+    cartDataHandler(e, bookDataById);
     e.currentTarget.textContent = textForAddButton;
     e.currentTarget.nextElementSibling.textContent = textIfBookIsRemoved;
   }
