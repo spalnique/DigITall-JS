@@ -35,7 +35,7 @@
   line-height: 1.13;
   letter-spacing: -0.02em;
   color: rgba(17, 17, 17, 0.6);
-  transition: text-transform 300ms ease-in-out, color 300ms ease-in-out, font-weight 300ms ease-in-out;
+  transition: text-transform 500ms ease-in-out, color 500ms ease-in-out, font-weight 500ms ease-in-out;
 }
 
 .sidebar-category-item:hover .sidebar-category-text {
