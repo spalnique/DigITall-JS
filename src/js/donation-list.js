@@ -1,11 +1,11 @@
 import { refs } from './refs';
 import { renderDonations } from './createMarkups';
-
+import actAgainstHunger from '../img/new_png/act-against-hunger.png';
 const donation = [
   {
     title: 'Save the Children',
     url: 'https://www.savethechildren.net/what-we-do/emergencies/ukraine-crisis',
-    img: './img/new_png/save-the-children.png',
+    img: actAgainstHunger,
   },
   {
     title: 'Project HOPE',
