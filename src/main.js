@@ -2,7 +2,6 @@ import './js/enableDarkTheme';
 import './js/autorization';
 import { fetchData } from './js/fetchData';
 import { createCategoryList, linkIsActive } from './js/createCategoryList';
-import { createButton } from './js/createButton';
 import { createBookMarkup } from './js/createElementMarkup';
 import { renderContent } from './js/renderContent';
 import { createCategoryMarkup } from './js/createParentElementMarkup';
