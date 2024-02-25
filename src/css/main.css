@@ -1,3 +1,5 @@
+ .main-title {}
+
  @media screen and (min-width: 1440px) {
    .main-container {
      display: flex;
@@ -8,28 +10,3 @@
      padding-top: 40px;
    }
  }
-
- /*
-.content-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  border: 2px solid gray;
-}
-
-.category-list-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.category-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.see-more-button {
-  align-self: flex-end;
-  width: 100px;
-} */
