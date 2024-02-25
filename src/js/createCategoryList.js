@@ -1,5 +1,5 @@
 export function createCategoryList(data) {
-  const titleMarkup = `<li class="sidebar-category-item"><p class="sidebar-category-text">All categories</p></li>`;
+  const titleMarkup = `<li class="sidebar-category-item"><p class="sidebar-category-text make-blue">All categories</p></li>`;
   const itemsMarkup = data
     .map(
       item =>
@@ -19,7 +19,6 @@ export function linkIsActive(e) {
       item.classList.remove('make-blue');
     });
     e.target.firstElementChild.classList.add('make-blue');
-    console.log(e.target.firstElementChild.textContent.split(' '));
   } else if (e.target.nodeName === 'P') {
     const arrayElem = e.target.parentElement.parentElement.querySelectorAll(
       '.sidebar-category-text'
