@@ -8,9 +8,6 @@ import {
   renderContent,
 } from './createMarkups';
 import { renderTopSellers } from './createTopSellers';
-export function createCategoryList(data) {
-  const titleMarkup = `<li class="sidebar-category-item"><p class="sidebar-category-text make-blue">All categories</p></li>`;
-}
 
 catList();
 
@@ -23,7 +20,7 @@ async function catList() {
 }
 
 function createCategoryList(data) {
-  const titleMarkup = `<li class="sidebar-category-item"><p class="sidebar-category-text">All categories</p></li>`;
+  const titleMarkup = `<li class="sidebar-category-item"><p class="sidebar-category-text  make-blue">All categories</p></li>`;
   const itemsMarkup = data
     .map(
       item =>
