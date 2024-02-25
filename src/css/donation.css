@@ -1,23 +1,29 @@
-.donation-container {
+.sidebar-donation-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Вирівнює всі елементи по лівому краю горизонтально */
   padding-top: 24px;
   padding-left: 40px;
   padding-bottom: 20px;
   border-radius: 16px;
+  width: 335px;
   height: 460px;
   box-shadow: 0 10px 10px 0 rgba(245, 245, 247, 0.1);
-  background: radial-gradient(189.32% 190.93% at 59.76% -23.42%,
-      rgb(79, 46, 232) 18.02733987569809%,
-      rgb(255, 255, 255) 100%);
+  background: radial-gradient(
+    189.32% 190.93% at 59.76% -23.42%,
+    rgb(79, 46, 232) 18.02733987569809%,
+    rgb(255, 255, 255) 100%
+  );
 }
 
-.donations-title-wrapper {
+.sidebar-donations-title-wrapper {
   display: flex;
   gap: 12px;
   align-items: center;
   margin-bottom: 40px;
 }
 
-.donations-title {
+.sidebar-donations-title {
   font-family: 'DM Sans', sans-serif;
   font-weight: 700;
   font-size: 24px;
@@ -26,9 +32,10 @@
   color: #fff;
 }
 
-.emblem-of-ukraine {}
+.sidebar-emblem-of-ukraine {
+}
 
-.donation-list {
+.sidebar-donation-list {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -38,14 +45,14 @@
   margin-bottom: 20px;
 }
 
-.donation-list-name {
+.sidebar-donation-list-name {
   display: flex;
   align-items: center;
   gap: 16px;
   height: 32px;
 }
 
-.donation-name-number {
+.sidebar-donation-name-number {
   font-family: 'DM Sans', sans-serif;
   font-weight: 400;
   font-size: 14px;
@@ -54,13 +61,14 @@
   color: #fff;
 }
 
-.donation-name-link {}
+.sidebar-donation-name-link {
+}
 
-.donation-name-logo {
+.sidebar-donation-name-logo {
   filter: brightness(0) invert(1);
 }
 
-.scroll-btn {
+.sidebar-scroll-btn {
   border-radius: 50%;
   padding: 8px;
   background-color: #fff;
@@ -68,17 +76,18 @@
   width: fit-content;
 }
 
-.arrow-btn {}
+.sidebar-arrow-btn {
+}
 
 @media screen and (min-width: 768px) {
-  .donation-container {
+  .sidebar-donation-container {
     width: 335px;
     height: 474px;
   }
 }
 
 @media screen and (min-width: 1440px) {
-  .donation-container {
+  .sidebar-donation-container {
     width: 356px;
   }
 }
