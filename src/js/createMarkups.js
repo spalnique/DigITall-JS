@@ -1,5 +1,4 @@
 let startIndex = 0;
-let isForward = true;
 
 export function createButton(
   className,
@@ -63,7 +62,6 @@ function donationListTemplate(data) {
 }
 
 export function renderDonations(parentElement, donationData) {
-  const visibleDonations = donationData.slice(startIndex, startIndex + 6);
-  const markup = donationListTemplate(visibleDonations);
+  const markup = donationListTemplate(donationData);
   parentElement.innerHTML = markup;
 }
