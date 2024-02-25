@@ -21,75 +21,85 @@
     
     <script type="module" crossorigin src="/DigITall-JS/commonHelpers2.js"></script>
     <link rel="modulepreload" crossorigin href="/DigITall-JS/assets/vendor-389f7b34.js">
-    <link rel="modulepreload" crossorigin href="/DigITall-JS/assets/modal-a0627c3d.js">
-    <link rel="stylesheet" href="/DigITall-JS/assets/modal-a62109e2.css">
+    <link rel="modulepreload" crossorigin href="/DigITall-JS/assets/modal-35d2ec7a.js">
+    <link rel="stylesheet" href="/DigITall-JS/assets/modal-ad0baec8.css">
     <link rel="stylesheet" href="/DigITall-JS/assets/vendor-b3ce9496.css">
   </head>
   <body>
-    <header class="container">
-  <div class="header-container">
-    <nav class="header-menu">
-      <!-- -----LOGO----- -->
-      <div class="logo">
+    <header class="header-container">
+  <nav class="header-nav">
+    <!-- -----LOGO----- -->
+    <ul id="header-list" class="header-nav-list">
+      <li class="header-nav-item">
         <a
-          class="logo-svg"
+          class="header-nav-link"
           href="./index.html"
           aria-label="link on main book page"
         >
-          <svg width="24" height="24">
-            <use href="/DigITall-JS/assets/icons-889c0fa6.svg#book-plug"></use>
+          <svg class="header-nav-logo-icon" width="24" height="24">
+            <use href="/DigITall-JS/assets/icons-65de63e3.svg#book-plug"></use>
           </svg>
-          <svg class="text-logo" width="78" height="14">
-            <use href="/DigITall-JS/assets/icons-889c0fa6.svg#bookshelf-light"></use>
+          <svg class="headert-nav-logo-icon" width="78" height="14">
+            <use href="/DigITall-JS/assets/icons-65de63e3.svg#bookshelf-light"></use>
           </svg>
         </a>
-      </div>
-      <!-- -----Home & shoping list----- -->
-      <ul id="header-list" class="header-list">
-        <li class="header-item home-js">
-          <!--hidden -->
-          <a class="header-link" href="../index.html">home</a>
-        </li>
-        <li class="header-item shopping-js">
-          <!--hidden -->
-          <a class="shopping-link" href="../shopping-list.html">
-            Shopping List
-            <span class="shoping-test">
-              <svg class="shoping-icon" width="20" height="20">
-                <use href="/DigITall-JS/assets/icons-889c0fa6.svg#uil-cart"></use>
-              </svg>
-            </span>
-          </a>
-        </li>
-      </ul>
-      <!-- ----- switcher of theme----- -->
-      <div class="switcher">
+      </li>
+      <li class="header-nav-item">
+        <a class="header-nav-link header-nav-link-home make-yellow" href="./index.html">Home</a>
+      </li>
+      <li class="header-nav-item">
+        <a class="header-nav-link header-nav-link-shop shopping-link" href="#">
+          Shopping List
+          <span class="shoping-test">
+            <svg class="header-nav-icon-shop" width="20" height="20">
+              <use href="/DigITall-JS/assets/icons-65de63e3.svg#uil-cart"></use>
+            </svg>
+          </span>
+        </a>
+      </li>
+    </ul></nav>
+
+    <!-- -----Home & shoping list----- -->
+
+    <!-- ----- switcher of theme----- -->
+    <div class="header-btn-wrapper">
+      <div class="switcher header-checkbox">
         <input type="checkbox" id="themeToggle" />
         <label id="switch" for="themeToggle" class="switch">
           <span class="slider"></span>
         </label>
       </div>
+      <button class="header-modal-open-button" type="button"><svg class="header-modal-open-icon" width="28" height="28">
+              <use href="/DigITall-JS/assets/icons-65de63e3.svg#header-menu-btn"></use>
+            </svg></button>
+            <button type="button" class="signup-js header-sigh-up-button">
+              Sign up
+              <svg class="header-login-icon" width="20" height="20">
+                <use href="/DigITall-JS/assets/icons-65de63e3.svg#arrow-narrow-right"></use>
+              </svg>
+            </button>
 
-      <!-- -----Authorization------ -->
-      <button type="button" class="signup-btn signup-js">
-        Sign up
-        <svg class="sign-arrow" width="20" height="20">
-          <use href="/DigITall-JS/assets/icons-889c0fa6.svg#arrow-narrow-right"></use>
-        </svg>
-      </button>
+            <button type="button" class="signup-js header-log-out-button">
+              Log out
+              <svg class="header-login-icon" width="20" height="20">
+                <use href="/DigITall-JS/assets/icons-65de63e3.svg#arrow-narrow-right"></use>
+              </svg>
+            </button>
+    </div>
 
-      <div class="user-profile signup-btn js-user-profile hidden">
-        <p class="user-name js-user-name"></p>
-        <svg class="header-triangle" width="20" height="20">
-          <use href="/DigITall-JS/assets/icons-889c0fa6.svg#triangle"></use>
-        </svg>
-      </div>
+    <!-- -----Authorization------ -->
 
-      <div class="btn-log-out">
-        <button>Log out</button>
-      </div>
-    </nav>
-  </div>
+    <div class="user-profile signup-btn js-user-profile hidden">
+      <p class="user-name js-user-name"></p>
+      <svg class="header-triangle" width="20" height="20">
+        <use href="/DigITall-JS/assets/icons-65de63e3.svg#triangle"></use>
+      </svg>
+    </div>
+
+    <div class="btn-log-out">
+      <button>Log out</button>
+    </div>
+  </nav>
 </header>
 
     <main class="main-container container">
@@ -102,9 +112,9 @@
     </svg>
   </div>
   <ul class="sidebar-donation-list"></ul>
-  <button class="sidebar-scroll-btn">
+  <button class="sidebar-scroll-btn" style="transform: rotate(0deg)">
     <svg class="sidebar-arrow-btn" width="22" height="22">
-      <use href="/DigITall-JS/assets/icons-889c0fa6.svg#scroll-support-ua"></use>
+      <use href="/DigITall-JS/assets/icons-65de63e3.svg#scroll-support-ua"></use>
     </svg>
   </button>
 </div>
