@@ -69,52 +69,57 @@ const donation = [
   {
     title: 'Save the Children',
     url: 'https://www.savethechildren.net/what-we-do/emergencies/ukraine-crisis',
-    img: './img/new_png/save-the-children.png',
+    img: './img/save-the-children.png',
   },
   {
     title: 'Project HOPE',
     url: 'https://www.projecthope.org/country/ukraine/',
-    img: './img/new_png/project-hope.png',
+    img: './img/project-hope.png',
   },
   {
     title: 'International Medical Corps',
     url: 'https://internationalmedicalcorps.org/country/ukraine/',
-    img: './img/new_png/int-med-corps.png',
+    img: './img/int-med-corps.png',
   },
   {
     title: 'RAZOM',
     url: 'https://www.razomforukraine.org/',
-    img: './img/new_png/razom.png',
+    img: './img/razom.png',
   },
   {
     title: 'Action against hunger',
     url: 'https://www.actionagainsthunger.org/location/europe/ukraine/',
-    img: './img/new_png/act-against-hunger.png',
+    img: './img/act-against-hunger.png',
   },
   {
     title: 'Serhiy Prytula Charity Foundation',
     url: 'https://prytulafoundation.org/en',
-    img: './img/new_png/prytula.png',
+    img: './img/prytula.png',
   },
   {
     title: 'Medicins Sans Frontieres',
     url: 'https://www.msf.org/ukraine',
-    img: './img/new_png/msf.png',
+    img: './img/msf.png',
   },
 
   {
     title: 'World vision',
     url: 'https://www.wvi.org/emergencies/ukraine',
-    img: './img/new_png/world-vision.png',
+    img: './img/world-vision.png',
   },
   {
     title: 'UNITED24',
     url: 'https://u24.gov.ua/uk',
-    img: './img/new_png/united24.png',
+    img: './img/united24.png',
   },
 ];
 
 const donationListElement = document.querySelector('.donation-list');
+const scrollButton = document.querySelector('.scroll-btn');
+const arrowIcon = document.querySelector('.arrow-btn');
+
+let startIndex = 0;
+let isForward = true;
 
 function donationTemplate(donation, index) {
   function pad(num) {
@@ -137,11 +142,41 @@ function donationTemplate(donation, index) {
 
 function donationListTemplate(data) {
   return data
-    .map((donation, index) => donationTemplate(donation, index))
+    .map((donation, index) => donationTemplate(donation, index + startIndex))
     .join('');
 }
+
 function renderDonations() {
-  const markup = donationListTemplate(donation);
-  donationListElement.insertAdjacentHTML('beforeend', markup);
+  const visibleDonations = donation.slice(startIndex, startIndex + 6);
+  const markup = donationListTemplate(visibleDonations);
+  donationListElement.innerHTML = markup;
 }
+
+function toggleScrollDirection() {
+  isForward = !isForward;
+  arrowIcon.style.transform = isForward ? 'rotate(0deg)' : 'rotate(180deg)';
+}
+
+function scrollDonations() {
+  if (isForward) {
+    if (startIndex + 6 < donation.length) {
+      startIndex += 3;
+    } else {
+      startIndex = 0;
+    }
+  } else {
+    if (startIndex - 3 >= 0) {
+      startIndex -= 3;
+    } else {
+      startIndex = donation.length - 6;
+    }
+  }
+  renderDonations();
+}
+
+scrollButton.addEventListener('click', () => {
+  scrollDonations();
+  toggleScrollDirection();
+});
+
 renderDonations();
