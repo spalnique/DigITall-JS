@@ -11,3 +11,11 @@
 @import url('./modal.css');
 @import url('./shopping-list.css');
 @import url('./authorization.css');
+
+.visible {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}

@@ -74,7 +74,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   refs.seeMoreButtons.forEach(x =>
     x.addEventListener('click', async e => {
       if (!e.target.dataset.category) return;
-      refs.mainTitle.textContent = e.target.dataset.category;
+      const strArr = e.target.dataset.category.split(' ');
+      strArr[strArr.length - 1] = `<span>${strArr[strArr.length - 1]}</span>`;
+      refs.mainTitle.innerHTML = strArr.join(' ');
       try {
         const selectedCatData = await fetchData(
           endPoints.category,
