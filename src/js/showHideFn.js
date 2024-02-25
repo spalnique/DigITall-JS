@@ -1,4 +1,3 @@
-// Show hide function
 export function showElement(elem) {
   elem.classList.add('visible');
   elem.classList.remove('hidden');

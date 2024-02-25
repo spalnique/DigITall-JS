@@ -63,8 +63,12 @@ async function createModalWindowMarkup(e) {
           height="32"/></a></div></div></div>
 
         <div class="button-toggle-wrapper">
-          <button class="add-remove-button" type="button">${textForRemoveButton}</button>
-          <p class="modal-text make-visible">${textIfBookIsAdded}</p>
+          <button class="add-remove-button" type="button">${
+            checkCartData(result) ? textForRemoveButton : textForAddButton
+          }</button>
+          <p class="modal-text make-visible">${
+            checkCartData(result) ? textIfBookIsAdded : textIfBookIsRemoved
+          }</p>
         </div></div>`;
   return markup;
 }
