@@ -1,17 +1,15 @@
-/* .main-container {
-  display: flex;
-  gap: 20px;
-  width: 100%;
-  height: 100%;
-}
+ @media screen and (min-width: 1440px) {
+   .main-container {
+     display: flex;
+     gap: 40px;
+   }
 
-.main-content {
-  display: flex;
-  flex-direction: column;
-  padding-top: 30px;
-  gap: 30px;
-}
+   .main-content {
+     padding-top: 40px;
+   }
+ }
 
+ /*
 .content-wrapper {
   display: flex;
   flex-direction: column;
