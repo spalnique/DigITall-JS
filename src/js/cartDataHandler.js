@@ -17,6 +17,10 @@ export function checkCartData(bookData) {
   return books ? books.some(item => item._id === bookData._id) : false;
 }
 
+export function getCartData() {
+  return JSON.parse(localStorage.getItem('cart'));
+}
+
 // function toggleLocalStorage(bookId) {
 //   let storedBooks = JSON.parse(localStorage.getItem('books')) || [];
 //   const bookIndex = storedBooks.indexOf(bookId);

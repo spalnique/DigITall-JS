@@ -8,6 +8,7 @@ import { createCategoryMarkup } from './js/createParentElementMarkup';
 import { createAndOpenModalWindow } from './js/modal';
 import { createTopSellers } from './js/createTopSellers';
 import { showElement, hideElement } from './js/showHideFn';
+import { getCartData } from './js/cartDataHandler';
 import {
   renderDonations,
   scrollDonations,
@@ -72,6 +73,7 @@ const refs = {
   donationListElement: document.querySelector('.sidebar-donation-list'),
   arrowIcon: document.querySelector('.sidebar-arrow-btn'),
   scrollButton: document.querySelector('.sidebar-scroll-btn'),
+  shoppingList: document.querySelector('.shopping-link'),
 };
 
 const endPoints = {
@@ -95,8 +97,35 @@ document.addEventListener('DOMContentLoaded', async () => {
   refs.catList.addEventListener('click', async e => {
     if (e.target === e.currentTarget) return;
     if (!e.target.dataset.category) {
-      refs.mainTitle.innerHTML = 'Top Sellers <span>Books</span>';
+      refs.mainTitle.innerHTML = 'Best Sellers <span>Books</span>';
       renderContent(refs.mainCatWrap, topBooksMarkup, createAndOpenModalWindow);
+      linkIsActive(e);
+      refs.seeMoreButtons = document.querySelectorAll('.see-more-button');
+      refs.seeMoreButtons.forEach(x =>
+        x.addEventListener('click', async e => {
+          if (!e.target.dataset.category) return;
+          const strArr = e.target.dataset.category.split(' ');
+          strArr[strArr.length - 1] = `<span>${
+            strArr[strArr.length - 1]
+          }</span>`;
+          refs.mainTitle.innerHTML = strArr.join(' ');
+          const selectedCatData = await fetchData(
+            endPoints.category,
+            e.target.dataset.category
+          );
+          const selectedCatMarkup = createCategoryMarkup(
+            selectedCatData,
+            createBookMarkup
+          );
+          renderContent(
+            refs.mainCatWrap,
+            selectedCatMarkup,
+            createAndOpenModalWindow
+          );
+          const catBooks = document.querySelectorAll('.main-category-item');
+          catBooks.forEach(x => showElement(x));
+        })
+      );
       return;
     }
     linkIsActive(e);
@@ -152,4 +181,8 @@ document.addEventListener('DOMContentLoaded', async () => {
       catBooks.forEach(x => showElement(x));
     })
   );
+  refs.shoppingList.addEventListener('click', e => {
+    const shoppingListData = getCartData();
+    console.log(shoppingListData);
+  });
 });
