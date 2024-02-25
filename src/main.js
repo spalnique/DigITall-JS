@@ -99,6 +99,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (!e.target.dataset.category) {
       refs.mainTitle.innerHTML = 'Best Sellers <span>Books</span>';
       renderContent(refs.mainCatWrap, topBooksMarkup, createAndOpenModalWindow);
+      linkIsActive(e);
       refs.seeMoreButtons = document.querySelectorAll('.see-more-button');
       refs.seeMoreButtons.forEach(x =>
         x.addEventListener('click', async e => {
@@ -183,5 +184,5 @@ document.addEventListener('DOMContentLoaded', async () => {
   refs.shoppingList.addEventListener('click', e => {
     const shoppingListData = getCartData();
     console.log(shoppingListData);
-  })
+  });
 });
