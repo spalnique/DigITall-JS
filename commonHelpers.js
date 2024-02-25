@@ -43,20 +43,18 @@ import{i as O,g as U,b as L,s as V,c as F,u as z,a as I}from"./assets/vendor-389
           alt="${e.title}"
           width="287"
           height="408"/>
-        
         <div class="modal-book-desc-wrapper">
         <h2 class="modal-book-title">${e.title}</h2>
         <h3 class="modal-book-author">${e.author}</h3>
         <p class="modal-book-desc">${e.description?e.description:ct}</p>
-            
         <div class="modal-buy-links-wrapper">
         <a
           class="modal-buy-link"
           href=${e.buy_links[0].url}
           target="_blank">
-        <img 
-          class="modal-link-amazon-icon" 
-          src=${rt} 
+        <img
+          class="modal-link-amazon-icon"
+          src=${rt}
           alt="Amazon product link"
           width="62"
           height="19"/></a>
@@ -70,7 +68,6 @@ import{i as O,g as U,b as L,s as V,c as F,u as z,a as I}from"./assets/vendor-389
           alt="Apple-book product link"
           width="33"
           height="32"/></a></div></div></div>
-
         <div class="button-toggle-wrapper">
           <button class="add-remove-button" type="button">${w(e)?y:b}</button>
           <p class="modal-text make-visible">${w(e)?P:N}</p>
