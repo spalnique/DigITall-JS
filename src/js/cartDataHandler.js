@@ -13,12 +13,16 @@ export function cartDataHandler(e, bookData) {
 }
 
 export function checkCartData(bookData) {
-  const books = JSON.parse(localStorage.getItem('cart'));
+  const books = getCartData();
   return books ? books.some(item => item._id === bookData._id) : false;
 }
 
+export function isEmptyCartData() {
+  return Boolean(getCartData().length)
+}
+
 export function getCartData() {
-  return JSON.parse(localStorage.getItem('cart'));
+  return JSON.parse(localStorage.getItem('cart')) || [];
 }
 
 // function toggleLocalStorage(bookId) {
