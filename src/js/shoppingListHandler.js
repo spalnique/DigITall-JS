@@ -1,57 +1,18 @@
-const prefixKey = ''; // needed for unification of variables as another website may have the same key
-
-export const getLS = key => {
-  try {
-    const lsValue = localStorage.getItem(
-      `${prefixKey ? `${prefixKey}_` : ''}${key}`
-    );
-    if (lsValue) {
-      return JSON.parse(lsValue);
-    }
-    throw new Error(`I do not find ${prefixKey ? `${prefixKey}_` : ''}${key}`);
-  } catch (error) {
-    console.error('[getLS]: ', error);
-    return null;
-  }
-};
-
-// const cart = getLS("cart");
-
-export const setLS = (key, value) => {
-  try {
-    value === null
-      ? localStorage.removeItem(`${prefixKey ? `${prefixKey}_` : ''}${key}`)
-      : localStorage.setItem(
-          `${prefixKey ? `${prefixKey}_` : ''}${key}`,
-          JSON.stringify(value)
-        );
-  } catch (error) {
-    console.error('[setLS]: ', error);
-    return null;
-  }
-};
-
-// ===== end work in localeStorage ===== //
-
+import { getLS, setLS } from './workInLS';
 import amazon from '../img/png/amazon.png';
 import apple from '../img/png/apple-book.png';
+import { createCategoryMarkup } from './createParentElementMarkup';
+import { getActualCards } from './cartPagination';
 
-const mainContent = document.querySelector('.main-content');
-
-const deleteCardFromLSHandler = id => {
+export const makeDeleteCardFromLSHandler = domElement => id => {
   const cart = getLS('cart');
   const newCart = cart.filter(book => book._id !== id);
-  console.log({ id, newCart, cart });
   setLS('cart', newCart.length > 0 ? newCart : null);
+  renderContent(domElement, getActualCards(newCart));
 };
 
-window.deleteCardFromLSHandler = deleteCardFromLSHandler;
-
-const createCartPage = array => {
-  return `
- <ul class="shopping-cart">
- ${array.map(book => {
-   return `<li class="cart-item-glow cart-item">
+const createCardsMarkup = book => {
+  return `<li class="cart-item-glow cart-item">
           <img class="cart-image" src="${book.book_image}"/>
           <div class="cart-book-section">
             <h3 class="cart-book-title">${book.title}</h3>
@@ -80,17 +41,26 @@ const createCartPage = array => {
             </div>
           </div>
         </li>`;
- })}</ul>
-  `;
 };
 
-export const renderCart = () => {
-  const cart = getLS('cart') || [];
-  const pageMarkup = `
-  <div class="cart-component">
-${createCartPage(cart)}
-  ${'render pagination'}
-      </div>
-  `;
-  mainContent.insertAdjacentHTML('beforeend', pageMarkup);
+const createEmptyCartMarkup = () => {
+  return `<li class="cart-background">
+        <p class="cart-background-text">
+          This page is empty, add some books and proceed to order.
+        </p>
+        <img class="cart-bg-img" src="../img/png/cart-background.png" />
+      </li>`;
+};
+
+const renderContent = (domElement, cart) => {
+  if (!cart?.length) {
+    domElement.innerHTML = createCategoryMarkup([''], createEmptyCartMarkup);
+    return;
+  }
+  domElement.innerHTML = createCategoryMarkup(cart, createCardsMarkup);
+};
+
+export const renderCart = domElement => {
+  const cart = getLS('cart');
+  renderContent(domElement, getActualCards(cart));
 };
