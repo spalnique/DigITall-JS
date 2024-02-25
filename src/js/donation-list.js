@@ -80,5 +80,5 @@ export function scrollToHeight(elem, e) {
     elem.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }
-export const test = scrollToHeight.bind(null, donationList);
-testBtn.addEventListener('click', test);
+export const scrollToHeightBound = scrollToHeight.bind(null, donationList);
+testBtn.addEventListener('click', scrollToHeightBound);
