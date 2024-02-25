@@ -1,6 +1,9 @@
 import { refs } from './refs';
 import { renderDonations } from './createMarkups';
 
+const testBtn = document.querySelector('.sidebar-scroll-btn');
+const donationList = document.querySelector('.sidebar-donation-list');
+
 const donation = [
   {
     title: 'Save the Children',
@@ -58,23 +61,51 @@ refs.scrollButton.addEventListener('click', () => {
 });
 
 function toggleScrollIconDirection(iconElement) {
-  isForward = !isForward;
-  iconElement.style.transform = isForward ? 'rotate(0deg)' : 'rotate(180deg)';
+  // isForward = !isForward;
+  // iconElement.style.transform = isForward ? 'rotate(0deg)' : 'rotate(180deg)';
 }
 
-function scrollDonations(parentElement, donationData) {
-  if (isForward) {
-    if (startIndex + 6 < donationData.length) {
-      startIndex += 3;
-    } else {
-      startIndex = 0;
-    }
-  } else {
-    if (startIndex - 3 >= 0) {
-      startIndex -= 3;
-    } else {
-      startIndex = donationData.length - 6;
-    }
-  }
-  renderDonations(parentElement, donationData);
+export function scrollDonations(parentElement, donationData) {
+  // if (isForward) {
+  //   if (startIndex + 6 < donationData.length) {
+  //     startIndex += 3;
+  //   } else {
+  //     startIndex = 0;
+  //   }
+  // } else {
+  //   if (startIndex - 3 >= 0) {
+  //     startIndex -= 3;
+  //   } else {
+  //     startIndex = donationData.length - 6;
+  //   }
+  // }
+  // renderDonations(parentElement, donationData);
 }
+
+function onScrollDonationList(e) {
+  if (
+    e.currentTarget.scrollTop ===
+    e.currentTarget.scrollHeight - e.currentTarget.clientHeight
+  ) {
+    e.currentTarget.nextElementSibling.style.transform = 'rotate(180deg)';
+  } else if (e.currentTarget.scrollTop === 0) {
+    e.currentTarget.nextElementSibling.style.transform = 'rotate(0deg)';
+  }
+}
+
+donationList.addEventListener('scroll', onScrollDonationList);
+
+export function scrollToHeight(elem, e) {
+  if (e.currentTarget.style.transform === 'rotate(0deg)') {
+    let onceScroll = +(elem.scrollHeight / elem.children.length).toFixed(2);
+    elem.scrollTop += onceScroll;
+    elem.scrollTo({ top: elem.scrollTop, behavior: 'smooth' });
+    if (elem.scrollTop === elem.scrollHeight - elem.clientHeight) {
+      e.currentTarget.style.transform = 'rotate(180deg)';
+    }
+  } else if (e.currentTarget.style.transform === 'rotate(180deg)') {
+    elem.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
+export const scrollToHeightBound = scrollToHeight.bind(null, donationList);
+testBtn.addEventListener('click', scrollToHeightBound);

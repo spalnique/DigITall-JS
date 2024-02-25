@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+export function createCategoryList(data) {
+  const titleMarkup = `<li class="sidebar-category-item"><p class="sidebar-category-text make-blue">All categories</p></li>`;
+=======
 import { refs } from './refs';
 import { fetchData } from './fetchData';
 import { endPoints } from './fetchData';
@@ -21,6 +25,7 @@ async function catList() {
 
 function createCategoryList(data) {
   const titleMarkup = `<li class="sidebar-category-item"><p class="sidebar-category-text">All categories</p></li>`;
+>>>>>>> a2c4168522067a8c0a11d51d85af00e18bdb5006
   const itemsMarkup = data
     .map(
       item =>
@@ -40,7 +45,6 @@ function linkIsActive(e) {
       item.classList.remove('make-blue');
     });
     e.target.firstElementChild.classList.add('make-blue');
-    console.log(e.target.firstElementChild.textContent.split(' '));
   } else if (e.target.nodeName === 'P') {
     const arrayElem = e.target.parentElement.parentElement.querySelectorAll(
       '.sidebar-category-text'
