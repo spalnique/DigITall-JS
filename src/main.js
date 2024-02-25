@@ -60,6 +60,8 @@ document.addEventListener('DOMContentLoaded', async () => {
       selectedCatMarkup,
       createAndOpenModalWindow
     );
+    const catBooks = document.querySelectorAll('.main-category-item');
+    catBooks.forEach(x => showElement(x));
   });
 
   refs.seeMoreButtons = document.querySelectorAll('.see-more-button');
