@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-export function createCategoryList(data) {
-  const titleMarkup = `<li class="sidebar-category-item"><p class="sidebar-category-text make-blue">All categories</p></li>`;
-=======
 import { refs } from './refs';
 import { fetchData } from './fetchData';
 import { endPoints } from './fetchData';
@@ -12,6 +8,10 @@ import {
   renderContent,
 } from './createMarkups';
 import { renderTopSellers } from './createTopSellers';
+
+export function createCategoryList(data) {
+  const titleMarkup = `<li class="sidebar-category-item"><p class="sidebar-category-text make-blue">All categories</p></li>`;
+}
 
 catList();
 
@@ -25,7 +25,6 @@ async function catList() {
 
 function createCategoryList(data) {
   const titleMarkup = `<li class="sidebar-category-item"><p class="sidebar-category-text">All categories</p></li>`;
->>>>>>> a2c4168522067a8c0a11d51d85af00e18bdb5006
   const itemsMarkup = data
     .map(
       item =>
