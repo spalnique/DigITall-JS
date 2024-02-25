@@ -32,22 +32,20 @@ async function createModalWindowMarkup(e) {
           alt="${result.title}"
           width="287"
           height="408"/>
-        
         <div class="modal-book-desc-wrapper">
         <h2 class="modal-book-title">${result.title}</h2>
         <h3 class="modal-book-author">${result.author}</h3>
         <p class="modal-book-desc">${
           result.description ? result.description : textNotFoundDescription
         }</p>
-            
         <div class="modal-buy-links-wrapper">
         <a
           class="modal-buy-link"
           href=${result.buy_links[0].url}
           target="_blank">
-        <img 
-          class="modal-link-amazon-icon" 
-          src=${amazon} 
+        <img
+          class="modal-link-amazon-icon"
+          src=${amazon}
           alt="Amazon product link"
           width="62"
           height="19"/></a>
@@ -61,7 +59,6 @@ async function createModalWindowMarkup(e) {
           alt="Apple-book product link"
           width="33"
           height="32"/></a></div></div></div>
-
         <div class="button-toggle-wrapper">
           <button class="add-remove-button" type="button">${
             checkCartData(result) ? textForRemoveButton : textForAddButton
@@ -91,12 +88,6 @@ function onShowModalWindow(i) {
   closeButton.addEventListener('click', () => i.close());
   addRemoveButton.addEventListener('click', onClickAddRemoveButton);
   window.addEventListener('resize', checkWindowSize);
-
-  const bookId = addRemoveButton.dataset.id;
-  const storedBooks = JSON.parse(localStorage.getItem('books')) || [];
-  if (storedBooks.includes(bookId)) {
-    addRemoveButton.textContent = textForRemoveButton;
-  }
 }
 
 function onCloseModalWindow() {
@@ -106,27 +97,7 @@ function onCloseModalWindow() {
   };
 }
 
-function toggleLocalStorage(bookId) {
-  let storedBooks = JSON.parse(localStorage.getItem('books')) || [];
-  const bookIndex = storedBooks.indexOf(bookId);
-
-  if (bookIndex === -1) {
-    storedBooks.push(bookId);
-  } else {
-    storedBooks.splice(bookIndex, 1);
-  }
-
-  if (storedBooks.length === 0) {
-    localStorage.removeItem('books');
-  } else {
-    localStorage.setItem('books', JSON.stringify(storedBooks));
-  }
-}
-
 function onClickAddRemoveButton(e) {
-  const bookId = e.currentTarget.dataset.id;
-  toggleLocalStorage(bookId);
-
   if (e.currentTarget.textContent === textForAddButton) {
     cartDataHandler(e, bookDataById);
     e.currentTarget.textContent = textForRemoveButton;
