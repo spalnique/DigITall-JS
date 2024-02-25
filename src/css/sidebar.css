@@ -1,10 +1,18 @@
+@import url('./donation.css');
+
+.main-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
 .sidebar-category-list {
   height: 228px;
   overflow-y: scroll;
+  scrollbar-width: thin;
   scrollbar-color: #e0e0e0 #e0e0e0;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 40px;
 }
 
 .sidebar-category-item {
@@ -37,7 +45,16 @@
 }
 
 @media screen and (min-width: 768px) {
+  .main-sidebar {
+    flex-direction: row;
+    gap: 32px;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 100px;
+  }
+
   .sidebar-category-list {
+    width: 337px;
     height: 472px;
   }
 
@@ -62,7 +79,18 @@
   }
 }
 
-/* @import url('./donation.css'); */
+@media screen and (min-width: 1440px) {
+  .main-sidebar {
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 86px;
+  }
+
+  .sidebar-category-list {
+    width: 356px;
+  }
+}
+
 .make-blue {
   font-weight: 700;
   color: #4f2ee8;

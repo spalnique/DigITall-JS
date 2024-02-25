@@ -19,6 +19,7 @@ export function linkIsActive(e) {
       item.classList.remove('make-blue');
     });
     e.target.firstElementChild.classList.add('make-blue');
+    console.log(e.target.firstElementChild.textContent.split(' '));
   } else if (e.target.nodeName === 'P') {
     const arrayElem = e.target.parentElement.parentElement.querySelectorAll(
       '.sidebar-category-text'
