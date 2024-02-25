@@ -1,39 +1,66 @@
-let startIndex = 0;
-let isForward = true;
+import { refs } from './refs';
+import { renderDonations } from './createMarkups';
 
 const testBtn = document.querySelector('.sidebar-scroll-btn');
 const donationList = document.querySelector('.sidebar-donation-list');
 
-function donationTemplate(donation, index) {
-  return `<li class="sidebar-donation-list-name">
-                <p class="sidebar-donation-name-number">${(index + 1)
-                  .toString()
-                  .padStart(2, 0)}</p>
-                <a
-                  class="sidebar-donation-name-link"
-                  href="${donation.url}"
-                  target="_blank"
-                  ><img
-                    class="sidebar-donation-name-logo"
-                    src="${donation.img}"
-                    alt="${donation.title}"
-                  />
-                </a>
-              </li>`;
-}
+const donation = [
+  {
+    title: 'Save the Children',
+    url: 'https://www.savethechildren.net/what-we-do/emergencies/ukraine-crisis',
+    img: './img/new_png/save-the-children.png',
+  },
+  {
+    title: 'Project HOPE',
+    url: 'https://www.projecthope.org/country/ukraine/',
+    img: './img/new_png/project-hope.png',
+  },
+  {
+    title: 'International Medical Corps',
+    url: 'https://internationalmedicalcorps.org/country/ukraine/',
+    img: './img/new_png/int-med-corps.png',
+  },
+  {
+    title: 'RAZOM',
+    url: 'https://www.razomforukraine.org/',
+    img: './img/new_png/razom.png',
+  },
+  {
+    title: 'Action against hunger',
+    url: 'https://www.actionagainsthunger.org/location/europe/ukraine/',
+    img: './img/new_png/act-against-hunger.png',
+  },
+  {
+    title: 'Serhiy Prytula Charity Foundation',
+    url: 'https://prytulafoundation.org/en',
+    img: './img/new_png/prytula.png',
+  },
+  {
+    title: 'Medicins Sans Frontieres',
+    url: 'https://www.msf.org/ukraine',
+    img: './img/new_png/msf.png',
+  },
 
-function donationListTemplate(data) {
-  return data
-    .map((donation, index) => donationTemplate(donation, index + startIndex))
-    .join('');
-}
+  {
+    title: 'World vision',
+    url: 'https://www.wvi.org/emergencies/ukraine',
+    img: './img/new_png/world-vision.png',
+  },
+  {
+    title: 'UNITED24',
+    url: 'https://u24.gov.ua/uk',
+    img: './img/new_png/united24.png',
+  },
+];
 
-export function renderDonations(parentElement, donationData) {
-  const markup = donationListTemplate(donationData);
-  parentElement.innerHTML = markup;
-}
+renderDonations(refs.donationListElement, donation);
 
-export function toggleScrollIconDirection(iconElement) {
+refs.scrollButton.addEventListener('click', () => {
+  scrollDonations(refs.donationListElement, donation);
+  toggleScrollIconDirection(refs.arrowIcon);
+});
+
+function toggleScrollIconDirection(iconElement) {
   // isForward = !isForward;
   // iconElement.style.transform = isForward ? 'rotate(0deg)' : 'rotate(180deg)';
 }
