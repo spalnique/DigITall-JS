@@ -7,6 +7,7 @@ import { renderContent } from './js/renderContent';
 import { createCategoryMarkup } from './js/createParentElementMarkup';
 import { createAndOpenModalWindow } from './js/modal';
 import { createTopSellers } from './js/createTopSellers';
+import { showElement, hideElement } from './js/showHideFn';
 
 const refs = {
   mainTitle: document.querySelector('.main-title'),
@@ -30,13 +31,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   const topBooksMarkup = createTopSellers(topBookData);
   renderContent(refs.mainCatWrap, topBooksMarkup, createAndOpenModalWindow);
 
-  try {
-    const catListData = await fetchData(endPoints.list);
-    const catListMarkup = createCategoryList(catListData);
-    renderContent(refs.catList, catListMarkup);
-  } catch (error) {
-    console.log('Error getting sidebar category list:', error);
-  }
+  const catListData = await fetchData(endPoints.list);
+  const catListMarkup = createCategoryList(catListData);
+  renderContent(refs.catList, catListMarkup);
 
   refs.catList.addEventListener('click', async e => {
     if (e.target === e.currentTarget) return;
@@ -50,10 +47,29 @@ document.addEventListener('DOMContentLoaded', async () => {
     strArr[strArr.length - 1] = `<span>${strArr[strArr.length - 1]}</span>`;
     refs.mainTitle.innerHTML = strArr.join(' ');
 
-    try {
+    const selectedCatData = await fetchData(
+      endPoints.category,
+      e.target.textContent
+    );
+    const selectedCatMarkup = createCategoryMarkup(
+      selectedCatData,
+      createBookMarkup
+    );
+    renderContent(
+      refs.mainCatWrap,
+      selectedCatMarkup,
+      createAndOpenModalWindow
+    );
+  });
+
+  refs.seeMoreButtons = document.querySelectorAll('.see-more-button');
+  refs.seeMoreButtons.forEach(x =>
+    x.addEventListener('click', async e => {
+      if (!e.target.dataset.category) return;
+      refs.mainTitle.textContent = e.target.dataset.category;
       const selectedCatData = await fetchData(
         endPoints.category,
-        e.target.textContent
+        e.target.dataset.category
       );
       const selectedCatMarkup = createCategoryMarkup(
         selectedCatData,
@@ -64,33 +80,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         selectedCatMarkup,
         createAndOpenModalWindow
       );
-    } catch (error) {
+      const catBooks = document.querySelectorAll('.main-category-item');
+      catBooks.forEach(x => showElement(x));
       console.log('Error getting selected category data:', error);
-    }
-  });
-
-  refs.seeMoreButtons = document.querySelectorAll('.see-more-button');
-  refs.seeMoreButtons.forEach(x =>
-    x.addEventListener('click', async e => {
-      if (!e.target.dataset.category) return;
-      refs.mainTitle.textContent = e.target.dataset.category;
-      try {
-        const selectedCatData = await fetchData(
-          endPoints.category,
-          e.target.dataset.category
-        );
-        const selectedCatMarkup = createCategoryMarkup(
-          selectedCatData,
-          createBookMarkup
-        );
-        renderContent(
-          refs.mainCatWrap,
-          selectedCatMarkup,
-          createAndOpenModalWindow
-        );
-      } catch (error) {
-        console.log('Error getting selected category data:', error);
-      }
     })
   );
 });

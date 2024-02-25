@@ -15,6 +15,6 @@ export function cartDataHandler(e, bookData) {
 
 export function checkCartData(bookData) {
   const id = bookData._id;
-  const books = JSON.parse(localStorage.getItem(key)) || [];
+  const books = JSON.parse(localStorage.getItem('cart'));
   return books.some(item => item._id === id);
 }
