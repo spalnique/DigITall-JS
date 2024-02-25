@@ -59,7 +59,7 @@ async function createModalWindowMarkup(e) {
           height="32"/></a></div></div></div>
 
         <div class="button-toggle-wrapper">
-          <button class="add-remove-button" type="button">${textForRemoveButton}</button>
+          <button class="add-remove-button" type="button" data-id="${id}">${textForAddButton}</button>
           <p class="modal-text make-visible">${textIfBookIsAdded}</p>
         </div></div>`;
   return markup;
@@ -83,6 +83,12 @@ function onShowModalWindow(i) {
   closeButton.addEventListener('click', () => i.close());
   addRemoveButton.addEventListener('click', onClickAddRemoveButton);
   window.addEventListener('resize', checkWindowSize);
+
+  const bookId = addRemoveButton.dataset.id;
+  const storedBooks = JSON.parse(localStorage.getItem('books')) || [];
+  if (storedBooks.includes(bookId)) {
+    addRemoveButton.textContent = textForRemoveButton;
+  }
 }
 
 function onCloseModalWindow() {
@@ -92,13 +98,31 @@ function onCloseModalWindow() {
   };
 }
 
+function toggleLocalStorage(bookId) {
+  let storedBooks = JSON.parse(localStorage.getItem('books')) || [];
+  const bookIndex = storedBooks.indexOf(bookId);
+
+  if (bookIndex === -1) {
+    storedBooks.push(bookId);
+  } else {
+    storedBooks.splice(bookIndex, 1);
+  }
+
+  if (storedBooks.length === 0) {
+    localStorage.removeItem('books');
+  } else {
+    localStorage.setItem('books', JSON.stringify(storedBooks));
+  }
+}
+
 function onClickAddRemoveButton(e) {
+  const bookId = e.currentTarget.dataset.id;
+  toggleLocalStorage(bookId);
+
   if (e.currentTarget.textContent === textForAddButton) {
-    console.log('Here will be a function that add books');
     e.currentTarget.textContent = textForRemoveButton;
     e.currentTarget.nextElementSibling.textContent = textIfBookIsAdded;
   } else if (e.currentTarget.textContent === textForRemoveButton) {
-    console.log('Here will be a function that remove books');
     e.currentTarget.textContent = textForAddButton;
     e.currentTarget.nextElementSibling.textContent = textIfBookIsRemoved;
   }
