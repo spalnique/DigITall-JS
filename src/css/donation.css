@@ -22,6 +22,7 @@
   align-items: center;
   margin-bottom: 40px;
 }
+
 .donations-title {
   font-family: 'DM Sans', sans-serif;
   font-weight: 700;
@@ -30,20 +31,27 @@
   letter-spacing: -0.04em;
   color: #fff;
 }
+
+.emblem-of-ukraine {
+}
+
 .donation-list {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  overflow-y: scroll;
   height: 292px;
   width: 100%;
   margin-bottom: 20px;
 }
+
 .donation-list-name {
   display: flex;
   align-items: center;
   gap: 16px;
   height: 32px;
 }
+
 .donation-name-number {
   font-family: 'DM Sans', sans-serif;
   font-weight: 400;
@@ -52,15 +60,34 @@
   letter-spacing: -0.04em;
   color: #fff;
 }
+
+.donation-name-link {
+}
+
 .donation-name-logo {
   filter: brightness(0) invert(1);
 }
+
 .scroll-btn {
-  padding-left: 0;
   border-radius: 50%;
   padding: 8px;
   background-color: #fff;
   border: none;
   width: fit-content;
-  align-self: center;
+}
+
+.arrow-btn {
+}
+
+@media screen and (min-width: 768px) {
+  .donation-container {
+    width: 335px;
+    height: 474px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .donation-container {
+    width: 356px;
+  }
 }

@@ -1,7 +1,9 @@
-function show(element) {
-  // displays an element via manipulation with classes //
+export function showElement(elem) {
+  elem.classList.add('visible');
+  elem.classList.remove('hidden');
 }
 
-function hide(element) {
-  // hides an element via manipulation with classes //
+export function hideElement(elem) {
+  elem.classList.remove('visible');
+  elem.classList.add('hidden');
 }
