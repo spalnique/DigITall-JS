@@ -31,9 +31,9 @@ export function renderDonations(parentElement, donationData) {
   parentElement.innerHTML = markup;
 }
 
-export function toggleScrollIconDirection(parentElement) {
+export function toggleScrollIconDirection(iconElement) {
   isForward = !isForward;
-  parentElement.style.transform = isForward ? 'rotate(0deg)' : 'rotate(180deg)';
+  iconElement.style.transform = isForward ? 'rotate(0deg)' : 'rotate(180deg)';
 }
 
 export function scrollDonations(parentElement, donationData) {
