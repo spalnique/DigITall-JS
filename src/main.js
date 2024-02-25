@@ -82,7 +82,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       );
       const catBooks = document.querySelectorAll('.main-category-item');
       catBooks.forEach(x => showElement(x));
-      console.log('Error getting selected category data:', error);
     })
   );
 });
