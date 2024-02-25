@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   refs.catList.addEventListener('click', async e => {
     if (e.target === e.currentTarget) return;
     if (!e.target.dataset.category) {
-      refs.mainTitle.textContent = 'Top Sellers <span>Books</span>';
+      refs.mainTitle.innerHTML = 'Top Sellers <span>Books</span>';
       renderContent(refs.mainCatWrap, topBooksMarkup, createAndOpenModalWindow);
       return;
     }
