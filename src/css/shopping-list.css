@@ -352,12 +352,12 @@
 
 /* ======= Pagination styles ======= */
 
-.pagination-btns {
+.cart-pagination-btns {
   display: flex;
   width: 352px;
 }
 
-.pagination-btn {
+.cart-pagination-btn {
   height: 44px;
   border-radius: 8px;
   border: 1px solid rgba(0, 0, 1);
@@ -368,16 +368,21 @@
   background-color: #dfdbdb;
 }
 
+.pagination-btn-active {
+  color: #000;
+  background: #fff;
+}
+
 .pagination-btn:hover {
   background-color: grey;
   /* width: 51%; */
 }
 
-.shrink {
+.cart-shrink {
   transition: transform 0.2s ease-in-out;
 }
 
-.shrink:hover {
+.cart-shrink:hover {
   transform: scaleX(1.5);
 }
 
