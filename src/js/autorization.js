@@ -1,4 +1,4 @@
-import { refs, instanceSignUp } from './heder';
+import { refs, instanceSignUp } from './header';
 import { initializeApp } from 'firebase/app';
 import {
   getAuth,
