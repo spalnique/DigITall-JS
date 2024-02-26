@@ -1,8 +1,14 @@
-import { createCategoryMarkup } from './createParentElementMarkup';
-import { createBookMarkup } from './createElementMarkup';
-import { createButton } from './createButton';
+import {
+  createCategoryMarkup,
+  createBookMarkup,
+  createButton,
+  renderContent,
+} from './createMarkups';
+import { fetchData, endPoints } from './fetchData';
+import { createAndOpenModalWindow } from './modal';
+import { refs } from './refs';
 
-export function createTopSellers(data) {
+function createTopSellers(data) {
   return data
     .map(x => {
       const strArr = x.list_name.split(' ');
@@ -13,4 +19,10 @@ export function createTopSellers(data) {
       return title + catMarkup + button;
     })
     .join('');
+}
+
+export async function renderTopSellers() {
+  const topBookData = await fetchData(endPoints.topbooks);
+  const topBooksMarkup = createTopSellers(topBookData);
+  renderContent(refs.mainCatWrap, topBooksMarkup, createAndOpenModalWindow);
 }
