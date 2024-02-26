@@ -348,6 +348,35 @@
   }
 }
 
+/* =========================== Pagination styles ============================= */
+
+.pagination-btns {
+  display: flex;
+  width: 352px;
+  background: red;
+}
+
+.page-btn {
+  height: 44px;
+  border-radius: 8px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  width: 50%;
+  transition: width 1s;
+}
+
+/* .page-btn:hover {
+  width: 51%; 
+} */
+
+.shrink {
+  transition: transform 0.2s ease-in-out;
+}
+
+.shrink:hover {
+  transform: scaleX(1.9);
+}
+
 /* ================================================================= */
 
 /* ======Tablet===== */
