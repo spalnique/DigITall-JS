@@ -87,3 +87,5 @@ function onScrollDonationList(e) {
 
 refs.scrollButton.addEventListener('click', scrollToHeightBound);
 refs.donationListElement.addEventListener('scroll', onScrollDonationList);
+
+
