@@ -1,6 +1,7 @@
 import { getLS, setLS } from './workInLS';
 import amazon from '../img/png/amazon.png';
 import apple from '../img/png/apple-book.png';
+import emptyCart from '../img/png/cart-background.png';
 import { createCategoryMarkup } from './createMarkups';
 import { getActualCards } from './cartPagination';
 
@@ -48,7 +49,7 @@ const createEmptyCartMarkup = () => {
         <p class="cart-background-text">
           This page is empty, add some books and proceed to order.
         </p>
-        <img class="cart-bg-img" src="../img/png/cart-background.png" />
+        <img class="cart-bg-img" src="${emptyCart}" />
       </li>`;
 };
 
