@@ -16,6 +16,7 @@ import {
   renderCart,
   makeDeleteCardFromLSHandler,
 } from './js/shoppingListHandler';
+import { scrollFunction, scrollToTop } from './js/scrollButtonToTop';
 
 renderTopSellers();
 refs.mainCatWrap.addEventListener('click', onMoreButtonClick);
@@ -51,3 +52,9 @@ refs.shoppingListBtn.addEventListener('click', e => {
     refs.mainCatWrap
   );
 });
+
+window.onscroll = function () {
+  scrollFunction();
+};
+
+scrollToTopBtn.addEventListener('click', scrollToTop);

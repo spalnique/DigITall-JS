@@ -11,6 +11,7 @@
 @import url('./modal.css');
 @import url('./shopping-list.css');
 @import url('./authorization.css');
+@import url('./scrollButtonToTop.css');
 
 .visible {
   display: block;
