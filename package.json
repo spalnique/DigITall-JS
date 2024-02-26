@@ -19,6 +19,7 @@
     "axios": "^1.6.7",
     "basiclightbox": "^5.0.4",
     "firebase": "^10.8.0",
+    "izitoast": "^1.4.0",
     "vite-plugin-full-reload": "^1.0.5",
     "vite-plugin-html-inject": "^1.0.1"
   }
