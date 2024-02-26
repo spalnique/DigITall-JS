@@ -2,6 +2,7 @@ import './js/enableDarkTheme';
 import './js/autorization';
 import './js/donation-list';
 import './js/createCategoryList';
+import'./js/scroll';
 import { fetchData, endPoints } from './js/fetchData';
 import {
   createBookMarkup,
