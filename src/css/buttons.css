@@ -1,7 +1,12 @@
 /* ============ */
 .button-up {
-    width: 64px;
-  height: 64px;
+    width: 54px;
+  height: 54px;
   background-color: #4f2ee8;
   border-radius: 50%;
+  position: fixed;
+  bottom: 150px;
+  right: 25px;
+  z-index: 1; 
   }
+  
