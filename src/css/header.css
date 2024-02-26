@@ -48,8 +48,9 @@
     content: '';
     width: 40px;
     height: 24px;
-    top: 1px;
+    top: 1.7px;
     right: 9px;
+    transition: transform 250ms ease-in-out;
 }
 
 #themeToggle:checked + .switch::before {
@@ -163,7 +164,7 @@
         letter-spacing: -0.04em;
         color: #fff;
         transition: border 300ms ease-in-out, border-radius 300ms ease-in-out, box-shadow 300ms ease-in-out;
-        display: none;
+        /* display: none; */
     }
 
     .header-sigh-up-button:hover {
@@ -211,10 +212,9 @@
     }
 }
 
-.header-triangle {
+/* .header-triangle {
     stroke: #fff;
-}
-
+} */
 .btn-log-out {
     display: none;
 }
@@ -237,3 +237,31 @@
 /* .hidden {
     display: none;
 } */
+.user-profile {
+    display: none;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+.visually-visible {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0 auto;
+    padding: 0;
+    white-space: normal;
+    clip-path: none;
+    clip: auto;
+    overflow: visible;
+}
