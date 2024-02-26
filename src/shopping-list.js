@@ -13,10 +13,12 @@ import {
   renderCart,
   makeDeleteCardFromLSHandler,
 } from './js/shoppingListHandler';
+import { setActivePage } from './js/showHideFn';
 
-const shoppingListData = getCartData();
-const markup = createCategoryMarkup(shoppingListData, createBookMarkup);
-renderContent(refs.shopListWrap, markup, createAndOpenModalWindow);
+setActivePage('header-nav-link-shop');
+// const shoppingListData = getCartData();
+// const markup = createCategoryMarkup(shoppingListData, createBookMarkup);
+// renderContent(refs.shopListWrap, markup, createAndOpenModalWindow);
 
 // move function  from main.js to shopping-list.js
 

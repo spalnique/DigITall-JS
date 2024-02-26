@@ -2,6 +2,7 @@ import './js/enableDarkTheme';
 import './js/autorization';
 import './js/donation-list';
 import './js/createCategoryList';
+import './js/scroll';
 import { fetchData, endPoints } from './js/fetchData';
 import {
   createBookMarkup,
@@ -10,7 +11,7 @@ import {
 } from './js/createMarkups';
 import { createAndOpenModalWindow } from './js/modal';
 import { renderTopSellers } from './js/createTopSellers';
-import { showElement, hideElement } from './js/showHideFn';
+import { showElement, setActivePage } from './js/showHideFn';
 import { refs } from './js/refs';
 
 renderTopSellers();
