@@ -1,3 +1,5 @@
+@import url('./header.css');
+@import url('./sidebar.css');
 /* ====================================================== */
 
 .cart-component {
@@ -27,9 +29,9 @@
 .cart-background {
   display: block;
   position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  /* left: 50%; */
+  /* top: 50%; */
+  /* transform: translate(-50%, -50%); */
   width: 265px;
   height: auto;
   margin: 0 auto;
@@ -52,10 +54,10 @@
   color: rgba(0, 0, 0, 0.6);
 }
 
-.shopping-cart {
+/* .shopping-cart {
   list-style: none;
   padding-left: 0px;
-}
+} */
 
 .cart-item {
   /* background: black; */
@@ -348,12 +350,46 @@
   }
 }
 
-/* ================================================================= */
+/* ======= Pagination styles ======= */
 
-/* ======Tablet===== */
+.cart-pagination-btns {
+  display: flex;
+  width: 352px;
+}
 
-/* @media screen and (min-width: 768px) {
-} */
+.cart-pagination-btn {
+  height: 44px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 1);
+  flex-grow: 1;
+  flex-shrink: 1;
+  width: 50%;
+  transition: width 1s;
+  background-color: #dfdbdb;
+}
+
+.pagination-btn-active {
+  color: #000;
+  background: #fff;
+}
+
+.pagination-btn:hover {
+  background-color: grey;
+  /* width: 51%; */
+}
+
+.cart-shrink {
+  transition: transform 0.2s ease-in-out;
+}
+
+.cart-shrink:hover {
+  transform: scaleX(1.5);
+}
+
+/* =======  Tablet  ======= */
+
+@media screen and (min-width: 768px) {
+}
 
 @media screen and (min-width: 1440px) {
   .cart-component {
@@ -406,10 +442,10 @@
     color: #4f2ee8;
   }
 
-  .shopping-cart {
+  /* .shopping-cart {
     list-style: none;
     padding-left: 0px;
-  }
+  } */
 
   .cart-image {
     border-radius: 8px;

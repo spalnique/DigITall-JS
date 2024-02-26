@@ -54,6 +54,7 @@ function linkIsActive(e) {
 async function onCatClick(e) {
   if (e.target === e.currentTarget) return;
   if (!e.target.dataset.category) {
+    refs.mainTitle.innerHTML = `Best Sellers <span>Books</span>`;
     linkIsActive(e);
     renderTopSellers();
     return;
