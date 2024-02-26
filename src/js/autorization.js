@@ -26,8 +26,8 @@ const userName = document.querySelector('.header-user-name');
 const showLogOut = document.querySelector('.header-triangle-icon-button');
 const logOutButton = document.querySelector('.header-log-out-button');
 showLogOut.addEventListener('click', () => {
-  logOutButton.classList.add('log-out-visible');
-  logOutButton.disabled = false;
+  logOutButton.classList.toggle('log-out-visible');
+  logOutButton.disabled = !logOutButton.disabled;
 });
 logOutButton.addEventListener('click', () => logout());
 const btnLogout = document.querySelector('.header-js-user-profile');
