@@ -1,7 +1,7 @@
 import { getLS, setLS } from './workInLS';
 import amazon from '../img/png/amazon.png';
 import apple from '../img/png/apple-book.png';
-import { createCategoryMarkup } from './createParentElementMarkup';
+import { createCategoryMarkup } from './createMarkups';
 import { getActualCards } from './cartPagination';
 
 export const makeDeleteCardFromLSHandler = domElement => id => {
