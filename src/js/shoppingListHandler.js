@@ -58,7 +58,7 @@ const createEmptyCartMarkup = () => {
 
 const makeChangePagination = domElement => page => {
   const cart = getCardsByPage(page);
-  renderCartMarkupWithPagination(domElement, cart);
+  renderContent(domElement, cart);
 };
 
 const renderCartMarkupWithPagination = (domElement, cart) => {

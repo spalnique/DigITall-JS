@@ -70,7 +70,7 @@ export const getCardsByPage = page => {
 
 function createPaginationButton(label, changePagination) {
   const button = document.createElement('button');
-  button.classList.add('padination-btns');
+  button.classList.add('pagination-btn');
   button.classList.add('shrink');
   button.textContent = label;
   button.onclick = changePagination; // Attach click event
@@ -78,11 +78,15 @@ function createPaginationButton(label, changePagination) {
 }
 
 export const renderPagination = (domElement, changePagination) => {
-  const cart = getLS('cart');
+  const cart = getLS('cart') || [];
+
   const pages = Math.ceil(cart.length / store.count);
 
   if (pages === 1) return;
-
+  if (pages === 0) {
+    changePagination(0);
+    return;
+  }
   const paginationDiv = document.createElement('div');
   paginationDiv.classList.add('pagination-btns');
 
