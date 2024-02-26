@@ -2,7 +2,7 @@ import './js/enableDarkTheme';
 import './js/autorization';
 import './js/donation-list';
 import './js/createCategoryList';
-import'./js/scroll';
+import './js/scroll';
 import { fetchData, endPoints } from './js/fetchData';
 import {
   createBookMarkup,
@@ -17,7 +17,7 @@ import {
   renderCart,
   makeDeleteCardFromLSHandler,
 } from './js/shoppingListHandler';
-
+import './js/mob-menu';
 renderTopSellers();
 refs.mainCatWrap.addEventListener('click', onMoreButtonClick);
 

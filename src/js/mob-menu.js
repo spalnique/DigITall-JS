@@ -1,9 +1,9 @@
 import * as basicLightbox from 'basiclightbox';
+import 'basiclightbox/dist/basicLightbox.min.css';
 
 function createMenuContent() {
   const menuContent = `
-    <div class="menu-header"></div>
-    <div class="menu-body">
+        <div class="menu-body">
       <div class="menu-user-profile">
         <p class="menu-user-name"></p>
         <svg class="menu-user-fill" width="22" height="22">
@@ -35,10 +35,12 @@ function createMenuContent() {
       </button>
     </div>
   `;
-
   return menuContent;
 }
-
+const query = document.querySelector('header');
+query.style.zIndex = 999999;
+query.style.position = 'relative';
+query.style.background = '#fff';
 function menuOpen() {
   const menuContainer = document.createElement('div');
   menuContainer.classList.add('menu-container');
@@ -48,13 +50,13 @@ function menuOpen() {
 
   const menuModal = basicLightbox.create(menuContainer, {
     className: 'mob-menu-lightbox',
-    closeOnOutsideClick: true, // поки закриття меню роблю на клік аут
+    // closeOnOutsideClick: true, // поки закриття меню роблю на клік аут
   });
 
   menuModal.show();
 }
+const menuButton = document.querySelector('.header-modal-open-button');
 
-document.addEventListener('DOMContentLoaded', function () {
-  const menuButton = document.querySelector('.header-modal-open-button'); 
-  menuButton.addEventListener('click', menuOpen);
-});
+menuButton.addEventListener('click', menuOpen);
+
+// document.addEventListener('DOMContentLoaded', function () {});
