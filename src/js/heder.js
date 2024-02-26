@@ -1,5 +1,5 @@
 const signupBtn = document.querySelector('.header-sigh-up-button');
-const userProfile = document.querySelector('.js-user-profile');
+const userProfile = document.querySelector('.header-js-user-profile');
 const userNameElem = document.querySelector('.js-user-name');
 
 export function showHeaderNav() {
