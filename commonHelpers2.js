@@ -1,2 +1,2 @@
-import{h as a,b as r,r as t,d as e,c as o,a as s}from"./assets/modal-d5375526.js";import"./assets/vendor-389f7b34.js";const p=a(),n=r(p,e);t(s.shopListWrap,n,o);
+import{s as e}from"./assets/showHideFn-a06122f7.js";import"./assets/vendor-389f7b34.js";e("header-nav-link-shop");
 //# sourceMappingURL=commonHelpers2.js.map
