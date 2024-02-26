@@ -18,12 +18,34 @@ const firebaseConfig = {
   appId: '1:618447253868:web:8e9934944d76f91f920349',
 };
 
-const btnLogout = document.querySelector('.js-user-profile');
+const homeButton = document.querySelector('.header-nav-link-home');
+const shopButton = document.querySelector('.header-nav-link-shop');
+const sighUpButton = document.querySelector('.header-sigh-up-button');
+const userButton = document.querySelector('.header-js-user-profile');
+const userName = document.querySelector('.header-user-name');
+const showLogOut = document.querySelector('.header-triangle-icon-button');
+const logOutButton = document.querySelector('.header-log-out-button');
+showLogOut.addEventListener('click', () => {
+  logOutButton.classList.add('log-out-visible');
+  logOutButton.disabled = false;
+});
+logOutButton.addEventListener('click', () => logout());
+const btnLogout = document.querySelector('.header-js-user-profile');
 const userNameElem = document.querySelector('.js-user-name');
 const button = document.querySelector('.header-sigh-up-button');
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
-
+document.addEventListener('DOMContentLoaded', e => userIsLogin());
+export function userIsLogin() {
+  if (JSON.parse(localStorage.getItem('userInfo'))) {
+    sighUpButton.classList.add('hidden');
+    userButton.classList.add('visible-flex');
+    userName.textContent = JSON.parse(localStorage.getItem('userInfo'));
+    homeButton.classList.add('visible-flex');
+    shopButton.classList.add('visible-flex');
+  }
+  return;
+}
 button.addEventListener('click', onButtonClick);
 
 function onButtonClick() {
@@ -35,7 +57,7 @@ const signUpMarkup = `<form class="authorization-form">
   <svg class="authorization-icon-close" width="12" height="12">
   <use href=${icon}#x-close></use></svg></button>
   <fieldset class="authorization-fieldset">
-  <input class="authorization-input" type="text" name="name" placeholder="Name">
+  <input class="authorization-input" type="text" name="name" maxlength="10" placeholder="Name">
   <label class="authorization-label">
   <input class="authorization-input" type="email" name="email" required placeholder="Email">
   <svg class="authorization-icon" width="18" height="18">
@@ -138,6 +160,10 @@ function signUp(email, password, name) {
     .then(userCredential => {
       const user = userCredential.user;
       updateProfile(user, { displayName: name });
+      localStorage.setItem('userInfo', JSON.stringify(name));
+      instanceSignUp.close(() => {
+        userIsLogin();
+      });
     })
     .catch(error => {
       const errorCode = error.code;
@@ -151,11 +177,14 @@ function signIn(email, password) {
     .then(userCredential => {
       // Signed in
       const user = userCredential.user;
-      // userNameElem.textContent = user.displayName;
+      userName.textContent = user.displayName;
+      localStorage.setItem('userInfo', JSON.stringify(user.displayName));
+      userIsLogin();
       // showHeaderNav();
       // instanceSignIn.close();
-      localStorage.setItem('userInfo', JSON.stringify(user));
       console.log(user.displayName);
+
+      instanceSignUp.close();
     })
     .catch(error => {
       const errorCode = error.code;
@@ -169,32 +198,32 @@ function onFormSubmit(e) {
     '.authorization-button'
   ).textContent;
 
+  let name = e.target.elements.name.value;
+  let email = e.target.elements.email.value;
+  let password = e.target.elements.password.value;
   if (whatNeedToDo === 'Sign up') {
-    let name = e.target.elements.name.value;
-    let email = e.target.elements.email.value;
-    let password = e.target.elements.password.value;
-
     signUp(email, password, name);
     // userNameElem.textContent = name;
-    console.log('Up');
   } else if (whatNeedToDo === 'Sign in') {
-    let email = e.target.elements.email.value;
-    let password = e.target.elements.password.value;
     signIn(email, password);
     // instanceSignUp.close();
   }
   e.currentTarget.reset();
-  console.log(555);
 }
 
 // ------LOG OUT----------//
 function logout() {
-  hideHeaderNav();
-
   if (location.pathname.includes('shopping-list')) {
     location.pathname = '/';
   }
   localStorage.removeItem('userInfo');
+  logOutButton.classList.remove('log-out-visible');
+
+  sighUpButton.classList.remove('hidden');
+  userButton.classList.remove('visible-flex');
+
+  homeButton.classList.remove('visible-flex');
+  shopButton.classList.remove('visible-flex');
 }
 
-btnLogout.addEventListener('click', logout);
+// btnLogout.addEventListener('click', logout);
