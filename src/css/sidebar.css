@@ -12,7 +12,7 @@
   height: 228px;
   overflow-y: scroll;
   scrollbar-width: thin;
-  scrollbar-color: #e0e0e0 #e0e0e0;
+  scrollbar-color: #e0e0e0 #f6f6f6;
 }
 
 .sidebar-category-item {
