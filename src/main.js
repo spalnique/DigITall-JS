@@ -13,10 +13,9 @@ import { createAndOpenModalWindow } from './js/modal';
 import { renderTopSellers } from './js/createTopSellers';
 import { showElement, setActivePage } from './js/showHideFn';
 import { refs } from './js/refs';
-import {
-  renderCart,
-  makeDeleteCardFromLSHandler,
-} from './js/shoppingListHandler';
+import { userIsLoggedIn } from './js/autorization';
+
+userIsLoggedIn();
 setActivePage('header-nav-link-home');
 renderTopSellers();
 refs.mainCatWrap.addEventListener('click', onMoreButtonClick);

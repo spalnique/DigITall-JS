@@ -1,6 +1,5 @@
 <header class="header-container">
   <nav class="header-nav">
-    <!-- -----LOGO----- -->
     <ul id="header-list" class="header-nav-list">
       <li class="header-nav-item">
         <a
@@ -11,16 +10,21 @@
           <svg class="header-nav-logo-icon" width="24" height="24">
             <use href="./img/icons.svg#book-plug"></use>
           </svg>
-          <svg class="headert-nav-logo-icon" width="78" height="14">
+          <svg class="header-nav-logo-icon" width="78" height="14">
             <use href="./img/icons.svg#bookshelf-light"></use>
           </svg>
         </a>
       </li>
       <li class="header-nav-item">
-        <a class="header-nav-link header-nav-link-home" href="./index.html">Home</a>
+        <a class="header-nav-link header-nav-link-home" href="./index.html"
+          >Home</a
+        >
       </li>
       <li class="header-nav-item">
-        <a class="header-nav-link header-nav-link-shop shopping-link" href="./shopping-list.html">
+        <a
+          class="header-nav-link header-nav-link-shop shopping-link"
+          href="./shopping-list.html"
+        >
           Shopping List
           <span class="shoping-test">
             <svg class="header-nav-icon-shop" width="20" height="20">
@@ -29,47 +33,58 @@
           </span>
         </a>
       </li>
-    </ul></nav>
-
-    <!-- -----Home & shoping list----- -->
-
-    <!-- ----- switcher of theme----- -->
-    <div class="header-btn-wrapper">
-      <div class="switcher header-checkbox">
-        <input type="checkbox" id="themeToggle" />
-        <label id="switch" for="themeToggle" class="switch">
-          <span class="slider"></span>
-        </label>
-      </div>
-      <button class="header-modal-open-button" type="button"><svg class="header-modal-open-icon" width="28" height="28">
-              <use href="./img/icons.svg#header-menu-btn"></use>
-            </svg></button>
-            <button type="button" class="signup-js header-sigh-up-button">
-              Sign up
-              <svg class="header-login-icon" width="20" height="20">
-                <use href="./img/icons.svg#arrow-narrow-right"></use>
-              </svg>
-            </button>
-
-            <button type="button" class="signup-js header-log-out-button">
-              Log out
-              <svg class="header-login-icon" width="20" height="20">
-                <use href="./img/icons.svg#arrow-narrow-right"></use>
-              </svg>
-            </button>
-    </div>
-
-    <!-- -----Authorization------ -->
-
-    <div class="user-profile signup-btn js-user-profile">
-      <p class="user-name js-user-name"></p>
-      <svg class="header-triangle" width="20" height="20">
-        <use href="./img/icons.svg#triangle"></use>
-      </svg>
-    </div>
-
-    <div class="btn-log-out">
-      <button>Log out</button>
-    </div>
+    </ul>
   </nav>
+
+  <!-- -----Home & shoping list----- -->
+
+  <!-- ----- switcher of theme----- -->
+  <div class="header-btn-wrapper">
+    <div class="switcher header-checkbox">
+      <input type="checkbox" id="themeToggle" />
+      <label id="switch" for="themeToggle" class="switch">
+        <span class="slider"></span>
+      </label>
+    </div>
+    <!-- HEADER-MODAL-OPEN-BUTTON -->
+    <button class="header-modal-open-button" type="button">
+      <svg class="header-modal-open-icon" width="28" height="28">
+        <use href="./img/icons.svg#header-menu-btn"></use>
+      </svg>
+    </button>
+    <!-- SIGN-UP-BUTTON -->
+    <button type="button" class="signup-js header-sigh-up-button">
+      Sign up
+      <svg class="header-login-icon" width="13" height="18">
+        <use href="./img/icons.svg#arrow-narrow-right"></use>
+      </svg>
+    </button>
+    <!-- USER-BUTTON -->
+    <button class="user-profile signup-btn header-js-user-profile">
+      <div class="header-user-icon-wrapper">
+        <svg class="header-user-icon" width="19" height="19">
+          <use href="./img/icons.svg#user-fill"></use>
+        </svg>
+      </div>
+      <p class="header-user-name js-user-name"></p>
+      <div class="header-triangle-icon-button" type="button">
+        <svg class="header-triangle-icon" width="23" height="26">
+          <use href="./img/icons.svg#triangle"></use>
+        </svg>
+      </div>
+    </button>
+    <!-- LOG-OUT-BUTTON -->
+    <button class="signup-js header-log-out-button" type="button">
+      Log out
+      <svg class="header-login-icon" width="20" height="20">
+        <use href="./img/icons.svg#arrow-narrow-right"></use>
+      </svg>
+    </button>
+  </div>
+
+  <!-- -----Authorization------ -->
+
+  <div class="btn-log-out">
+    <button>Log out</button>
+  </div>
 </header>
