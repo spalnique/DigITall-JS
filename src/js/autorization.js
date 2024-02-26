@@ -18,8 +18,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 
-document.addEventListener('DOMContentLoaded', e => userIsLoggedIn()); // Видалити
-
 export function onFormSubmit(e) {
   e.preventDefault();
   const whatNeedToDo = e.currentTarget.querySelector(

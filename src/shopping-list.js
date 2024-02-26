@@ -14,7 +14,8 @@ import {
   makeDeleteCardFromLSHandler,
 } from './js/shoppingListHandler';
 import { setActivePage } from './js/showHideFn';
-
+import { userIsLoggedIn } from './js/autorization';
+userIsLoggedIn();
 setActivePage('header-nav-link-shop');
 // const shoppingListData = getCartData();
 // const markup = createCategoryMarkup(shoppingListData, createBookMarkup);
