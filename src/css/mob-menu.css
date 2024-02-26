@@ -1,0 +1,61 @@
+.mob-menu-lightbox {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 375px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: radial-gradient(
+    189.32% 190.93% at 59.76% -23.42%,
+    rgb(79, 46, 232) 18.02733987569809%,
+    rgb(255, 255, 255) 100%
+  );
+}
+
+.menu-container {
+  width: 375px;
+}
+
+.menu-header {
+  width: 375px;
+  height: 64px;
+  background-color: red;
+  margin-bottom: 24px;
+}
+.menu-user-profile {
+  display: flex;
+  width: 133px;
+  height: 37px;
+}
+.menu-user-name {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+.menu-user-fill {
+  border-radius: 50%;
+  padding: 8px;
+  background-color: #fff;
+  border: none;
+  width: fit-content;
+}
+.menu-log-out {
+  background: radial-gradient(
+    189.32% 190.93% at 59.76% -23.42%,
+    rgb(79, 46, 232) 18.02733987569809%,
+    rgb(255, 255, 255) 100%
+  );
+  background-image: linear-gradient(
+      rgba(46, 47, 66, 0.7),
+      rgba(46, 47, 66, 0.7)
+    ),
+    url(../img/menu-background.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
