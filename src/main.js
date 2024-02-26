@@ -12,6 +12,10 @@ import { createAndOpenModalWindow } from './js/modal';
 import { renderTopSellers } from './js/createTopSellers';
 import { showElement, hideElement } from './js/showHideFn';
 import { refs } from './js/refs';
+import {
+  renderCart,
+  makeDeleteCardFromLSHandler,
+} from './js/shoppingListHandler';
 
 renderTopSellers();
 refs.mainCatWrap.addEventListener('click', onMoreButtonClick);
@@ -37,3 +41,13 @@ async function onMoreButtonClick(e) {
   const catBooks = document.querySelectorAll('.main-category-item');
   catBooks.forEach(x => showElement(x));
 }
+refs.shoppingListBtn.addEventListener('click', e => {
+  e.preventDefault();
+  e.stopPropagation();
+
+  refs.mainTitle.innerHTML = `Shopping <span>List</span>`;
+  renderCart(refs.mainCatWrap);
+  window.deleteCardFromLSHandler = makeDeleteCardFromLSHandler(
+    refs.mainCatWrap
+  );
+});
