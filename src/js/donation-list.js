@@ -60,27 +60,71 @@ const donation = [
 
 renderDonations(refs.donationListElement, donation);
 
-function scrollToHeight(elem, e) {
-  if (e.currentTarget.style.transform === 'rotate(0deg)') {
-    let onceScroll = +(elem.scrollHeight / elem.children.length).toFixed(2);
-    elem.scrollTop += onceScroll;
-    elem.scrollTo({ top: elem.scrollTop, behavior: 'smooth' });
-    if (elem.scrollTop === elem.scrollHeight - elem.clientHeight) {
-      e.currentTarget.style.transform = 'rotate(180deg)';
-    }
-  } else if (e.currentTarget.style.transform === 'rotate(180deg)') {
-    elem.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-}
-const scrollToHeightBound = scrollToHeight.bind(null, refs.donationListElement);
+// function scrollToHeight(elem, e) {
+//   if (e.currentTarget.style.transform === 'rotate(0deg)') {
+//     let onceScroll = +(elem.scrollHeight / elem.children.length).toFixed(2);
+//     elem.scrollTop += onceScroll;
+//     elem.scrollTo({ top: elem.scrollTop, behavior: 'smooth' });
+//     if (elem.scrollTop === elem.scrollHeight - elem.clientHeight) {
+//       e.currentTarget.style.transform = 'rotate(180deg)';
+//     }
+//   } else if (e.currentTarget.style.transform === 'rotate(180deg)') {
+//     elem.scrollTo({ top: 0, behavior: 'smooth' });
+//   }
+// }
+// const scrollToHeightBound = scrollToHeight.bind(null, refs.donationListElement);
 
 function onScrollDonationList(e) {
-  if (e.currentTarget.scrollTop) {
+  if (
+    e.currentTarget.scrollTop ===
+    e.currentTarget.scrollHeight - e.currentTarget.clientHeight
+  ) {
     e.currentTarget.nextElementSibling.style.transform = 'rotate(180deg)';
   } else if (e.currentTarget.scrollTop === 0) {
     e.currentTarget.nextElementSibling.style.transform = 'rotate(0deg)';
   }
 }
 
-refs.scrollButton.addEventListener('click', scrollToHeightBound);
+// refs.scrollButton.addEventListener('click', scrollToHeightBound);
 refs.donationListElement.addEventListener('scroll', onScrollDonationList);
+
+let scrollDir = true;
+refs.scrollButton.style.alignSelf = 'center';
+refs.scrollButton.style.transition = 'transform 250ms ease-in-out 250ms';
+
+function scrollOnClick() {
+  const maxScroll =
+    refs.donationListElement.scrollHeight -
+    refs.donationListElement.clientHeight;
+  refs.donationListElement.scroll({
+    top: scrollDir ? maxScroll : 0,
+    behavior: 'smooth',
+  });
+  scrollDir
+    ? (refs.scrollButton.style.transform = 'rotate(180deg)')
+    : (refs.scrollButton.style.transform = 'rotate(0deg)');
+  scrollDir = !scrollDir;
+}
+
+function autoScroll() {
+  intervalID = setInterval(() => {
+    scrolltop = refs.donationListElement.scrollTop;
+    refs.donationListElement.scrollTop += scrollDir ? 1 : -1;
+    scrollDir =
+      scrolltop === refs.donationListElement.scrollTop ? !scrollDir : scrollDir;
+  }, 50);
+}
+
+let scrolltop;
+let intervalID;
+let timeoutID;
+autoScroll();
+
+refs.scrollButton.addEventListener('click', () => {
+  if (intervalID) clearInterval(intervalID);
+  if (timeoutID) clearTimeout(timeoutID);
+  scrollOnClick();
+  timeoutID = setTimeout(() => {
+    autoScroll();
+  }, 5000);
+});
