@@ -30,7 +30,7 @@ const createCardsMarkup = book => {
             <p class="cart-book-description">
              ${book.description}
             </p>
-
+            <div class="cart-info-wrapper">
             <p class="cart-book-autor">${book.author}</p>
             <div class="cart-book-links">
               <a href=${book.buy_links[0].url} class="cart-amazon cart-amazon-dark">
@@ -42,6 +42,7 @@ const createCardsMarkup = book => {
               >
                 <img src=${apple} alt=${book.buy_links[1].name} />
               </a>
+            </div>
             </div>
           </div>
         </li>`;
