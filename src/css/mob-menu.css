@@ -97,3 +97,25 @@
 }
 
 .menu-log-out-icon {}
+
+.menu-sign-up-container {
+  padding-top: 104px;
+}
+
+.menu-sign-up-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 14px;
+  padding-right: 14px;
+  width: 184px;
+  height: 48px;
+  border: 1.5px solid #111;
+  border-radius: 18px;
+  background-color: #4f2ee8;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.04em;
+  color: #fff;
+}
