@@ -13,7 +13,7 @@ const donation = [
   {
     title: 'Save the Children',
     url: 'https://www.savethechildren.net/what-we-do/emergencies/ukraine-crisis',
-    img: saveTheChildren,
+    img: actAgainstHunger,
   },
   {
     title: 'Project HOPE',
@@ -45,7 +45,6 @@ const donation = [
     url: 'https://www.msf.org/ukraine',
     img: msf,
   },
-
   {
     title: 'World vision',
     url: 'https://www.wvi.org/emergencies/ukraine',
@@ -57,9 +56,7 @@ const donation = [
     img: united24,
   },
 ];
-
 renderDonations(refs.donationListElement, donation);
-
 // function scrollToHeight(elem, e) {
 //   if (e.currentTarget.style.transform === 'rotate(0deg)') {
 //     let onceScroll = +(elem.scrollHeight / elem.children.length).toFixed(2);
@@ -84,21 +81,25 @@ function debounce(func, delay) {
   };
 }
 
-const onScrollDonationList = debounce(function () {
+const onScrollDonationList = debounce(function (e) {
   const maxScroll =
     refs.donationListElement.scrollHeight -
     refs.donationListElement.clientHeight;
   if (refs.donationListElement.scrollTop === maxScroll) {
+    clearInterval(intervalID);
+    clearTimeout(timeoutID);
     refs.scrollButton.style.transform = 'rotate(180deg)';
+    timeoutID = setTimeout(() => {
+      autoScroll();
+    }, 3000);
   } else if (refs.donationListElement.scrollTop === 0) {
+    clearInterval(intervalID);
     refs.scrollButton.style.transform = 'rotate(0deg)';
+    timeoutID = setTimeout(() => {
+      autoScroll();
+    }, 3000);
   }
-  if (intervalID) clearInterval(intervalID);
-  if (timeoutID) clearTimeout(timeoutID);
-  timeoutID = setTimeout(() => {
-    autoScroll();
-  }, 0);
-}, 3000);
+}, 5);
 
 // refs.scrollButton.addEventListener('click', scrollToHeightBound);
 refs.donationListElement.addEventListener('scroll', onScrollDonationList);
@@ -120,7 +121,6 @@ function scrollOnClick() {
     : (refs.scrollButton.style.transform = 'rotate(0deg)');
   scrollDir = !scrollDir;
 }
-
 function autoScroll() {
   intervalID = setInterval(() => {
     scrolltop = refs.donationListElement.scrollTop;
@@ -133,7 +133,10 @@ function autoScroll() {
 let scrolltop;
 let intervalID;
 let timeoutID;
-autoScroll();
+
+timeoutID = setTimeout(() => {
+  autoScroll();
+}, 3000);
 
 refs.scrollButton.addEventListener('click', () => {
   if (intervalID) clearInterval(intervalID);
