@@ -13,9 +13,9 @@ import { createAndOpenModalWindow } from './js/modal';
 import { renderTopSellers } from './js/createTopSellers';
 import { showElement, setActivePage } from './js/showHideFn';
 import { refs } from './js/refs';
-import { userIsLogin } from './js/autorization';
+import { userIsLoggedIn } from './js/autorization';
 
-userIsLogin();
+userIsLoggedIn();
 setActivePage('header-nav-link-home');
 renderTopSellers();
 refs.mainCatWrap.addEventListener('click', onMoreButtonClick);
