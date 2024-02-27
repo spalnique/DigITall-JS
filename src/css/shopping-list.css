@@ -1,21 +1,4 @@
 /* ====================================================== */
-/* 
-.cart-title {
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 1.1875;
-  letter-spacing: -0.04em;
-  margin-bottom: 40px;
-  margin-left: 32px;
-  min-width: 193px;
-  color: #111;
-}
-*/
-/* 
-.cart-title-span {
-  color: #4f2ee8;
-} */
 
 .cart-background {
   display: block;
@@ -59,7 +42,7 @@
   width: 335px;
   height: 170px;
   padding: 14px;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
 }
 
 .cart-image {
@@ -98,18 +81,6 @@
   color: #b4afaf;
 
   margin-bottom: 8px;
-}
-
-.cart-remove-book-btn {
-  border: none;
-  background: none;
-  width: 34px;
-  height: 34px;
-  border-radius: 100%;
-  fill: #4f2ee8;
-  position: absolute;
-  top: 24px;
-  right: 14px;
 }
 
 .cart-book-section {
@@ -193,7 +164,21 @@
 /* .cart-apple-books-dark:hover{
  filter: drop-shadow(0px 3px 3px rgba(255, 255, 255, 0.35))
 } */
-/* ===================================================== */
+
+/* ======= Cart-trash-btn-styles ======= */
+
+.cart-remove-book-btn {
+  border: none;
+  background: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 100%;
+  fill: #4f2ee8;
+  position: absolute;
+  top: 24px;
+  right: 14px;
+}
+
 .cart-trash {
   background: #502ee8e8;
   width: 22px;
@@ -282,7 +267,8 @@
   transition: transform 250ms;
 }
 
-/* =================================================================== */
+/* ======= Cart-item-glow-styles ======= */
+
 .cart-item-glow {
   outline: none;
   color: rgba(79, 46, 232, 0.4);
@@ -320,9 +306,10 @@
   color: #000;
 }
 
-/* .cart-item-glow:active:after {
+.cart-item-glow:active:after {
   background: transparent;
-} */
+}
+
 .cart-item-glow:hover:before {
   opacity: 1;
 }
@@ -356,6 +343,7 @@
 }
 
 /* ======= Pagination styles ======= */
+
 .cart-pagination-btns {
   display: flex;
   justify-content: space-evenly;
@@ -401,8 +389,21 @@
   background-color: #eac645;
 }
 
-/* =======  Tablet  ======= */
+/* =======  Tablet styles  ======= */
+
 @media screen and (min-width: 768px) {
+  main-sidebar {
+    display: none;
+  }
+
+  .cart-background {
+    width: 322px;
+    height: auto;
+    margin: 0 auto;
+    /* left: 50%; */
+    /* top: 50%; */
+    /* transform: translate(-50%, -50%); */
+  }
 }
 
 @media screen and (min-width: 1440px) {
