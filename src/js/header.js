@@ -87,7 +87,11 @@ function onInstanceSignUpClose(i) {
   refsInstance.signInBtn.classList.remove('make-active');
   refsInstance.signUpBtn.classList.add('make-active');
 }
-function showLogOutButton() {
+function showLogOutButton(e) {
+  const buttonWidth = Math.round(
+    e.currentTarget.parentElement.getBoundingClientRect().width
+  );
+  refs.logOutButton.style.width = `${buttonWidth}px`;
   refs.logOutButton.classList.toggle('log-out-visible');
 }
 
