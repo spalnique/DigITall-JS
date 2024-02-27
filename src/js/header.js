@@ -2,7 +2,12 @@ import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
 import icon from '../img/icons.svg';
 import { logout, onFormSubmit } from './autorization';
-import { menuModal, closeMenuModal, showMenuModal } from './mob-menu';
+import {
+  menuModal,
+  menuSignUp,
+  closeMenuModal,
+  showMenuModal,
+} from './mob-menu';
 
 export const refs = {
   headerContainer: document.querySelector('.header-container'),
@@ -23,7 +28,7 @@ const signUpMarkup = `<form class="authorization-form">
   <svg class="authorization-icon-close" width="12" height="12">
   <use href=${icon}#x-close></use></svg></button>
   <fieldset class="authorization-fieldset">
-  <input class="authorization-input" type="text" name="name" maxlength="10" placeholder="Name">
+  <input class="authorization-input" type="text" name="name" maxlength="20" placeholder="Name">
   <label class="authorization-label">
   <input class="authorization-input" type="email" name="email" required placeholder="Email">
   <svg class="authorization-icon" width="18" height="18">
@@ -62,7 +67,7 @@ function onSingUpButtonClick() {
   instanceSignUp.show(onInstanceSignUpShow);
 }
 
-function onInstanceSignUpShow(i) {
+export function onInstanceSignUpShow(i) {
   const refsInstance = createInstanceSignUpRefs(instanceSignUp);
   refsInstance.buttonClose.addEventListener('click', () => i.close());
   refsInstance.form.addEventListener('submit', onFormSubmit);
@@ -101,13 +106,20 @@ function showLogOutButton(e) {
 }
 
 refs.menuOpenButton.addEventListener('click', e => {
-  if (!JSON.parse(localStorage.getItem('userInfo'))) {
-    onSingUpButtonClick();
-  } else {
+  if (JSON.parse(localStorage.getItem('userInfo'))) {
     showMenuModal(menuModal);
+  } else {
+    showMenuModal(menuSignUp);
   }
 });
-refs.menuCloseButton.addEventListener('click', () => closeMenuModal(menuModal));
+refs.menuCloseButton.addEventListener('click', () => {
+  if (JSON.parse(localStorage.getItem('userInfo'))) {
+    closeMenuModal(menuModal);
+  } else {
+    closeMenuModal(menuSignUp);
+  }
+});
+
 refs.sighUpButton.addEventListener('click', onSingUpButtonClick);
 refs.showLogOutButton.addEventListener('click', showLogOutButton);
 refs.logOutButton.addEventListener('click', logout);
