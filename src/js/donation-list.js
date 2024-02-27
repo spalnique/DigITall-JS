@@ -75,10 +75,7 @@ function scrollToHeight(elem, e) {
 const scrollToHeightBound = scrollToHeight.bind(null, refs.donationListElement);
 
 function onScrollDonationList(e) {
-  if (
-    e.currentTarget.scrollTop >
-    e.currentTarget.scrollHeight - e.currentTarget.clientHeight
-  ) {
+  if (e.currentTarget.scrollTop) {
     e.currentTarget.nextElementSibling.style.transform = 'rotate(180deg)';
   } else if (e.currentTarget.scrollTop === 0) {
     e.currentTarget.nextElementSibling.style.transform = 'rotate(0deg)';
