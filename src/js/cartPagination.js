@@ -19,55 +19,6 @@ export const getCardsByPage = page => {
   return getActualCards();
 };
 
-// export const showCards = page => {
-//   const cards = getActualCards();
-//   const cardsPerPage = 3;
-//   const totalCards = cards.length;
-//   const totalPages = Math.ceil(totalCards / cardsPerPage);
-
-//   // Calculate the start and end indices for the current page
-//   const startIndex = (page - 1) * cardsPerPage;
-//   const endIndex = Math.min(startIndex + cardsPerPage, totalCards);
-
-//   const cardContainer = document.getElementById('card-container');
-//   cardContainer.innerHTML = ''; // Clear existing cards
-
-//   for (let i = startIndex; i < endIndex; i++) {
-//     // Create and append card elements (customize as needed)
-//     const cardElement = document.createElement('div');
-//     cardElement.textContent = cards[i].title; // Example: Display card title
-//     cardContainer.appendChild(cardElement);
-//   }
-
-//   // Create pagination buttons
-//   const paginationButtons = document.getElementById('pagination-buttons');
-//   paginationButtons.innerHTML = ''; // Clear existing buttons
-
-//   // "<<" Button (Go to first page)
-//   const firstButton = createPaginationButton('<<', 1);
-//   paginationButtons.appendChild(firstButton);
-
-//   // "<" Button (Go to previous page)
-//   if (page > 1) {
-//     const prevButton = createPaginationButton('<', page - 1);
-//     paginationButtons.appendChild(prevButton);
-//   }
-
-//   // Page Number Button
-//   const pageNumberButton = createPaginationButton(page.toString(), page);
-//   paginationButtons.appendChild(pageNumberButton);
-
-//   // ">" Button (Go to next page)
-//   if (page < totalPages) {
-//     const nextButton = createPaginationButton('>', page + 1);
-//     paginationButtons.appendChild(nextButton);
-//   }
-
-//   // ">>" Button (Go to last page)
-//   const lastButton = createPaginationButton('>>', totalPages);
-//   paginationButtons.appendChild(lastButton);
-// };
-
 function createPaginationButton(label, changePagination) {
   const button = document.createElement('button');
   button.classList.add('cart-pagination-btn');
@@ -103,6 +54,7 @@ export const renderPagination = (domElement, changePagination) => {
 
   if (!btn1.disabled) {
     btn1.classList.add('cart-shrink');
+    btn1.classList.add('cart-last-arrow-btn');
   }
 
   paginationDiv.appendChild(btn1);
@@ -116,6 +68,7 @@ export const renderPagination = (domElement, changePagination) => {
 
   if (!btn2.disabled) {
     btn2.classList.add('cart-shrink');
+    btn2.classList.add('cart-last-arrow-btn');
   }
 
   paginationDiv.appendChild(btn2);
@@ -150,7 +103,10 @@ export const renderPagination = (domElement, changePagination) => {
     }
 
     if (currentPage === newPage) {
-      pageBtn.classList.add('pagination-btn-active');
+      pageBtn.classList.add('cart-pagination-btn-active');
+    } else if (currentPage !== newPage && currentPage > newPage) {
+      pageBtn.classList.add('cart-last-arrow-btn');
+      dotsBtnPrev.classList.add('cart-last-arrow-btn');
     }
 
     paginationDiv.appendChild(pageBtn);
@@ -175,6 +131,7 @@ export const renderPagination = (domElement, changePagination) => {
 
   if (!btn3.disabled) {
     btn3.classList.add('cart-shrink');
+    btn3.classList.add('cart-next-arrow-btn');
   }
 
   paginationDiv.appendChild(btn3);
@@ -188,6 +145,7 @@ export const renderPagination = (domElement, changePagination) => {
 
   if (!btn4.disabled) {
     btn4.classList.add('cart-shrink');
+    btn4.classList.add('cart-next-arrow-btn');
   }
 
   paginationDiv.appendChild(btn4);

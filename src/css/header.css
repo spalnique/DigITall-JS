@@ -213,7 +213,15 @@
 
     .header-sigh-up-icon {
         fill: #eac645;
-        animation: rotateIcon 3s linear infinite;
+        animation: arrowMove 2s linear infinite;
+    }
+    @keyframes arrowMove {
+        0% {
+            transform: translateX(-10px);
+        }
+        100% {
+            transform: translateX(5px);
+        }
     }
 
     .header-user-profile-button {

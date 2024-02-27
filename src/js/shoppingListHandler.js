@@ -21,7 +21,9 @@ const createCardsMarkup = book => {
           <img class="cart-image" src="${book.book_image}"/>
           <div class="cart-book-section">
             <h3 class="cart-book-title">${book.title}</h3>
-            <button class="cart-remove-book-btn" onclick="window.deleteCardFromLSHandler('${book._id}')">
+            <button class="cart-remove-book-btn" onclick="window.deleteCardFromLSHandler('${
+              book._id
+            }')">
               <span class="cart-trash">
                 <span></span>
                 <i></i>
@@ -29,12 +31,18 @@ const createCardsMarkup = book => {
             </button>
             <p class="cart-book-category">${book.list_name}</p>
             <p class="cart-book-description">
-             ${book.description}
+             ${
+               book.description
+                 ? book.description
+                 : 'No description has been added to this book'
+             }
             </p>
-
+            <div class="cart-info-wrapper">
             <p class="cart-book-autor">${book.author}</p>
             <div class="cart-book-links">
-              <a href=${book.buy_links[0].url} class="cart-amazon cart-amazon-dark">
+              <a href=${
+                book.buy_links[0].url
+              } class="cart-amazon cart-amazon-dark">
                 <img src=${amazon} alt=${book.buy_links[0].name} />
               </a>
               <a
@@ -43,6 +51,7 @@ const createCardsMarkup = book => {
               >
                 <img src=${apple} alt=${book.buy_links[1].name} />
               </a>
+            </div>
             </div>
           </div>
         </li>`;
