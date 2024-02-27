@@ -4,7 +4,6 @@
   align-items: flex-start;
   /* Вирівнює всі елементи по лівому краю горизонтально */
   padding-top: 24px;
-  padding-left: 40px;
   padding-bottom: 20px;
   border-radius: 16px;
   width: 335px;
@@ -19,6 +18,7 @@
 
 .sidebar-donations-title-wrapper {
   display: flex;
+  padding-left: 40px;
   gap: 12px;
   align-items: center;
   margin-bottom: 40px;
@@ -36,6 +36,7 @@
 .sidebar-donation-list {
   display: flex;
   flex-direction: column;
+  padding-left: 40px;
   gap: 20px;
   overflow-y: scroll;
   scrollbar-width: thin;
@@ -73,6 +74,8 @@
   background-color: #fff;
   border: none;
   width: fit-content;
+  align-self: center;
+  transition: transform 250ms ease-in-out 250ms;
 }
 
 .sidebar-donation-list::-webkit-scrollbar {
