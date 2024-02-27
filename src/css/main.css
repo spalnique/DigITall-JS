@@ -45,6 +45,12 @@
     height: 485px;
     object-fit: cover;
     border-radius: 8px;
+    filter: brightness(75%);
+  }
+
+  .main-category-img:hover {
+    filter: brightness(105%);
+    cursor: pointer;
   }
 
   .main-category-title {
