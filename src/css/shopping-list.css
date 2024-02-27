@@ -552,12 +552,21 @@
 .dark-theme .main-title {
   color: #ffffff;
 }
+
+.dark-theme .cart-background-text {
+  color: #ffffff;
+}
+
 .dark-theme .cart-item {
   background-color: #111111;
 }
 
 .dark-theme .cart-item-glow:after {
   background: #000000;
+}
+
+.dark-theme .cart-item-glow:active:after {
+  background: transparent;
 }
 
 .dark-theme .cart-book-title {

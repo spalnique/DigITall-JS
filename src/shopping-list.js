@@ -28,8 +28,6 @@ const cartRefs = {
   cartAppleBooks: document.querySelector('.cart-apple-books'),
 };
 
-// const mainContainer = document.querySelector('.main-container');
-
 refs.mainTitle.innerHTML = `Shopping <span>List</span>`;
 renderCart(refs.shopListWrap);
 window.deleteCardFromLSHandler = makeDeleteCardFromLSHandler(refs.shopListWrap);
