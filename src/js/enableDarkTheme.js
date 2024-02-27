@@ -1,12 +1,12 @@
 
 
-let hederContainer = document.querySelector('.header-container');
+let container = document.querySelector('body');
 let toggler = document.querySelector('#themeToggle');
 
 toggler.addEventListener('click', toggleDarkTheme);
 
 function toggleDarkTheme(){
-    let classList = hederContainer.classList;
+    let classList = container.classList;
     toggler.checked ? classList.add('dark-theme') : classList.remove('dark-theme');
 }
 
