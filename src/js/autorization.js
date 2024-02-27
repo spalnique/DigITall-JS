@@ -5,6 +5,7 @@ import {
   createUserWithEmailAndPassword,
   updateProfile,
   signInWithEmailAndPassword,
+  onAuthStateChanged,
 } from 'firebase/auth';
 
 const firebaseConfig = {
@@ -40,7 +41,7 @@ function signUp(email, password, name) {
       const user = userCredential.user;
       updateProfile(user, { displayName: name });
       localStorage.setItem('userInfo', JSON.stringify(name));
-      userIsLoggedIn();
+      isUserLoggedIn();
       instanceSignUp.close();
     })
     .catch(error => {
@@ -55,7 +56,7 @@ function signIn(email, password) {
     .then(userCredential => {
       const user = userCredential.user;
       localStorage.setItem('userInfo', JSON.stringify(user.displayName));
-      userIsLoggedIn();
+      isUserLoggedIn();
       instanceSignUp.close();
     })
     .catch(error => {
@@ -69,20 +70,20 @@ export function logout() {
     location.pathname = '/';
   }
   localStorage.removeItem('userInfo');
-  refs.logOutButton.classList.remove('log-out-visible');
+  refs.headerNavigation.classList.remove('visible-flex');
   refs.sighUpButton.classList.remove('hidden');
   refs.userButton.classList.remove('visible-flex');
-  refs.homeLink.classList.remove('visible-flex');
-  refs.shopLink.classList.remove('visible-flex');
+  refs.logOutButton.classList.remove('log-out-visible');
 }
 
-export function userIsLoggedIn() {
+export function isUserLoggedIn() {
   if (JSON.parse(localStorage.getItem('userInfo'))) {
-    refs.sighUpButton.classList.add('hidden');
-    refs.userButton.classList.add('visible-flex');
-    refs.homeLink.classList.add('visible-flex');
-    refs.shopLink.classList.add('visible-flex');
     refs.userName.textContent = JSON.parse(localStorage.getItem('userInfo'));
+    if (window.innerWidth >= 768) {
+      refs.headerNavigation.classList.add('visible-flex');
+      refs.sighUpButton.classList.add('hidden');
+      refs.userButton.classList.add('visible-flex');
+    }
   }
   return;
 }

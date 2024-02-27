@@ -73,11 +73,11 @@ async function createModalWindowMarkup(e) {
 export async function createAndOpenModalWindow(e) {
   if (e.target === e.currentTarget) return;
   const modalWindowMarkup = await createModalWindowMarkup(e);
-  basicLightbox
-    .create(modalWindowMarkup, {
-      onClose: onCloseModalWindow(),
-    })
-    .show(onShowModalWindow);
+  const modalWindowInstance = basicLightbox.create(modalWindowMarkup, {
+    onClose: onCloseModalWindow(),
+  });
+  modalDarkThemeFunction(modalWindowInstance);
+  modalWindowInstance.show(onShowModalWindow);
 }
 
 function onShowModalWindow(i) {
@@ -116,5 +116,42 @@ function checkWindowSize() {
     lightboxContainer.classList.add('lightbox-scroll');
   } else {
     lightboxContainer.classList.remove('lightbox-scroll');
+  }
+}
+
+function modalDarkThemeFunction(instance) {
+  const checkbox = document.querySelector('#themeToggle');
+  console.log(checkbox);
+
+  console.log(checkbox.checked);
+
+  const modalRefsClassList = {
+    container: instance.element().querySelector('.modal-container').classList,
+    closeIcon: instance.element().querySelector('.modal-icon-close').classList,
+    bookTitle: instance.element().querySelector('.modal-book-title').classList,
+    desc: instance.element().querySelector('.modal-book-desc').classList,
+    amazonIcon: instance.element().querySelector('.modal-link-amazon-icon')
+      .classList,
+    appleIcon: instance.element().querySelector('.modal-link-apple-icon')
+      .classList,
+    addRemoveButton: instance.element().querySelector('.add-remove-button')
+      .classList,
+  };
+  if (checkbox.checked) {
+    modalRefsClassList.container.add('modal-container-dark-theme');
+    modalRefsClassList.closeIcon.add('modal-icon-close-dark-theme');
+    modalRefsClassList.bookTitle.add('modal-text-dark-theme');
+    modalRefsClassList.desc.add('modal-text-dark-theme');
+    modalRefsClassList.amazonIcon.add('modal-icon-amazon-dark-theme');
+    modalRefsClassList.appleIcon.add('modal-icon-apple-dark-theme');
+    modalRefsClassList.addRemoveButton.add('modal-text-dark-theme');
+  } else {
+    modalRefsClassList.container.remove('modal-container-dark-theme');
+    modalRefsClassList.closeIcon.remove('modal-icon-close-dark-theme');
+    modalRefsClassList.bookTitle.remove('modal-text-dark-theme');
+    modalRefsClassList.desc.remove('modal-text-dark-theme');
+    modalRefsClassList.amazonIcon.remove('modal-icon-amazon-dark-theme');
+    modalRefsClassList.appleIcon.remove('modal-icon-apple-dark-theme');
+    modalRefsClassList.addRemoveButton.remove('modal-text-dark-theme');
   }
 }
