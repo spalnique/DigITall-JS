@@ -1,8 +1,8 @@
 // =======================
 const buttonUp = document.querySelector('.button-up');
+const header = document.querySelector('.header-container');
 
 buttonUp.addEventListener('click', scrollOnClick);
-
 window.addEventListener('scroll', trackScroll);
 
 function trackScroll() {
@@ -17,7 +17,9 @@ function trackScroll() {
 
 function scrollOnClick() {
   if (window.pageYOffset > 0) {
-    window.scrollBy(0, -75);
-    setTimeout(scrollOnClick, 0);
+    window.scrollBy();
+    setTimeout(() => {
+      header.scrollIntoView({ block: 'end', behavior: 'smooth' });
+    }, 250);
   }
 }
