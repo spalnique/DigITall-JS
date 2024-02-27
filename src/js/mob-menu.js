@@ -5,10 +5,10 @@ function createMenuContent() {
   const menuContent = `
         <div class="menu-body">
       <div class="menu-user-profile">
-        <p class="menu-user-name"></p>
         <svg class="menu-user-fill" width="22" height="22">
           <use href="./img/icons.svg#user-fill"></use>
         </svg>
+        <p class="menu-user-name"></p>
       </div>
       <ul id="menu-list" class="menu-nav-list">
         <li class="menu-nav-item">
@@ -26,13 +26,13 @@ function createMenuContent() {
         </li>
       </ul>
     </div>
-    <div class="menu-log-out">
-      <button type="button" class="log-out">
+    <div class="menu-log-out"><button type="button" class="log-out">
         Log out
         <svg class="log-out-icon" width="20" height="20">
           <use href="./img/icons.svg#arrow-narrow-right"></use>
         </svg>
       </button>
+      </div>
     </div>
   `;
   return menuContent;
@@ -53,8 +53,26 @@ function menuOpen() {
     className: 'mob-menu-lightbox',
   });
 
+  const menuButtonHeader = document.querySelector('.header-modal-open-button');
+  const menuButtonParent = menuButtonHeader.parentElement;
+  const closeButton = document.createElement('button');
+  closeButton.classList.add('header-menu-close-button');
+  closeButton.setAttribute('type', 'button');
+  closeButton.innerHTML = `
+    <svg class="header-menu-close-icon" width="20" height="20">
+      <use href="./img/icons.svg#x-close"></use>
+    </svg>
+  `;
+  closeButton.addEventListener('click', () => {
+    menuModal.close();
+    menuButtonHeader.style.display = 'block';
+    menuButtonParent.removeChild(closeButton);
+  });
+  menuButtonParent.insertBefore(closeButton, menuButtonHeader.nextSibling);
+  menuButtonHeader.style.display = 'none';
+
   menuModal.show();
 }
-const menuButton = document.querySelector('.header-modal-open-button');
 
+const menuButton = document.querySelector('.header-modal-open-button');
 menuButton.addEventListener('click', menuOpen);
