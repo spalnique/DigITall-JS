@@ -38,9 +38,10 @@ function createMenuContent() {
   return menuContent;
 }
 const query = document.querySelector('header');
-query.style.zIndex = 999999;
+query.style.zIndex = 99999;
 query.style.position = 'relative';
 query.style.background = '#fff';
+
 function menuOpen() {
   const menuContainer = document.createElement('div');
   menuContainer.classList.add('menu-container');
@@ -50,7 +51,6 @@ function menuOpen() {
 
   const menuModal = basicLightbox.create(menuContainer, {
     className: 'mob-menu-lightbox',
-    // closeOnOutsideClick: true, // поки закриття меню роблю на клік аут
   });
 
   menuModal.show();
@@ -58,5 +58,3 @@ function menuOpen() {
 const menuButton = document.querySelector('.header-modal-open-button');
 
 menuButton.addEventListener('click', menuOpen);
-
-// document.addEventListener('DOMContentLoaded', function () {});

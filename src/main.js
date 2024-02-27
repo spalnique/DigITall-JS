@@ -11,13 +11,20 @@ import {
 } from './js/createMarkups';
 import { createAndOpenModalWindow } from './js/modal';
 import { renderTopSellers } from './js/createTopSellers';
-import { showElement, hideElement } from './js/showHideFn';
+import { showElement, setActivePage } from './js/showHideFn';
 import { refs } from './js/refs';
+<<<<<<< HEAD
 import {
   renderCart,
   makeDeleteCardFromLSHandler,
 } from './js/shoppingListHandler';
 import './js/mob-menu';
+=======
+import { userIsLoggedIn } from './js/autorization';
+
+userIsLoggedIn();
+setActivePage('header-nav-link-home');
+>>>>>>> a2cde266df2199eabdce8475572bdefd12d5daf6
 renderTopSellers();
 refs.mainCatWrap.addEventListener('click', onMoreButtonClick);
 
