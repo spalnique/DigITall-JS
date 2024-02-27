@@ -1,0 +1,47 @@
+.dark-theme {
+    .header-container{
+    background-color: #111;
+    }
+    .main-container{
+      background-color: #202024;
+    }
+  .header-nav-logo-icon{
+    fill:#fff;
+  }
+  .header-container{
+    border: 1.5px solid #fff;
+  }
+  .header-nav-link-shop{
+    color: #fff;
+  }
+  .header-nav-icon-shop{
+    fill:#fff;
+  }
+  .sidebar-category-text.make-blue{
+    color: #eac645;
+    
+  }
+  .sidebar-category-text{
+  color: rgba(255, 255, 255, 0.6);
+  } 
+  .sidebar-category-text:hover{
+    color: #4f2ee8;
+  }
+  .main-category-title{
+    color: #fff;
+} 
+.main-title{
+  color: #fff;
+}
+.see-more-button{
+  color:#fff;
+}
+
+.cart-item {
+  background-color: #111;
+}
+.cart-item-glow{
+  background-color: #111;
+}
+
+}
