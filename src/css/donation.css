@@ -4,19 +4,21 @@
   align-items: flex-start;
   /* Вирівнює всі елементи по лівому краю горизонтально */
   padding-top: 24px;
-  padding-left: 40px;
   padding-bottom: 20px;
   border-radius: 16px;
   width: 335px;
   height: 460px;
   box-shadow: 0 10px 10px 0 rgba(245, 245, 247, 0.1);
-  background: radial-gradient(189.32% 190.93% at 59.76% -23.42%,
-      rgb(79, 46, 232) 18.02733987569809%,
-      rgb(255, 255, 255) 100%);
+  background: radial-gradient(
+    189.32% 190.93% at 59.76% -23.42%,
+    rgb(79, 46, 232) 18.02733987569809%,
+    rgb(255, 255, 255) 100%
+  );
 }
 
 .sidebar-donations-title-wrapper {
   display: flex;
+  padding-left: 40px;
   gap: 12px;
   align-items: center;
   margin-bottom: 40px;
@@ -31,11 +33,10 @@
   color: #fff;
 }
 
-.sidebar-emblem-of-ukraine {}
-
 .sidebar-donation-list {
   display: flex;
   flex-direction: column;
+  padding-left: 40px;
   gap: 20px;
   overflow-y: scroll;
   scrollbar-width: thin;
@@ -61,8 +62,6 @@
   color: #fff;
 }
 
-.sidebar-donation-name-link {}
-
 .sidebar-donation-name-logo {
   filter: brightness(0) invert(1);
 }
@@ -75,12 +74,18 @@
   background-color: #fff;
   border: none;
   width: fit-content;
+  align-self: center;
+  transition: transform 250ms ease-in-out 250ms;
 }
 
-.sidebar-arrow-btn {}
+.sidebar-donation-list::-webkit-scrollbar {
+  display: none;
+}
 
-
-
+.sidebar-donation-list {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 
 @media screen and (min-width: 768px) {
   .sidebar-donation-container {
@@ -94,4 +99,3 @@
     width: 356px;
   }
 }
-
