@@ -14,9 +14,9 @@ import { renderTopSellers } from './js/createTopSellers';
 import { showElement, setActivePage } from './js/showHideFn';
 import { refs } from './js/refs';
 import './js/mob-menu';
-import { userIsLoggedIn } from './js/autorization';
+import { isUserLoggedIn } from './js/autorization';
 
-userIsLoggedIn();
+isUserLoggedIn();
 setActivePage('header-nav-link-home');
 renderTopSellers();
 refs.mainCatWrap.addEventListener('click', onMoreButtonClick);
