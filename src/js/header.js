@@ -5,8 +5,8 @@ import { logout, onFormSubmit } from './autorization';
 import {
   menuModal,
   menuSignUp,
-  closeMenuModal,
   showMenuModal,
+  onMenuCloseButtonClick,
 } from './mob-menu';
 
 export const refs = {
@@ -112,13 +112,7 @@ refs.menuOpenButton.addEventListener('click', e => {
     showMenuModal(menuSignUp);
   }
 });
-refs.menuCloseButton.addEventListener('click', () => {
-  if (JSON.parse(localStorage.getItem('userInfo'))) {
-    closeMenuModal(menuModal);
-  } else {
-    closeMenuModal(menuSignUp);
-  }
-});
+refs.menuCloseButton.addEventListener('click', onMenuCloseButtonClick);
 
 refs.sighUpButton.addEventListener('click', onSingUpButtonClick);
 refs.showLogOutButton.addEventListener('click', showLogOutButton);

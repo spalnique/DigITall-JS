@@ -76,7 +76,13 @@ export function closeMenuModal(i) {
   i.close();
   onCloseMenuModal();
 }
-
+export function onMenuCloseButtonClick() {
+  if (JSON.parse(localStorage.getItem('userInfo'))) {
+    closeMenuModal(menuModal);
+  } else {
+    closeMenuModal(menuSignUp);
+  }
+}
 const menuLogoutButton = menuModal.element().querySelector('.menu-log-out-btn');
 menuLogoutButton.addEventListener('click', () => {
   if (location.pathname.includes('shopping-list')) {
