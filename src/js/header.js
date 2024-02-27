@@ -2,12 +2,7 @@ import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
 import icon from '../img/icons.svg';
 import { logout, onFormSubmit } from './autorization';
-import {
-  menuModal,
-  menuSignUp,
-  showMenuModal,
-  onMenuCloseButtonClick,
-} from './mob-menu';
+import { onMenuCloseButtonClick, onMenuOpenButtonClick } from './mob-menu';
 
 export const refs = {
   headerContainer: document.querySelector('.header-container'),
@@ -97,6 +92,7 @@ function onInstanceSignUpClose(i) {
   refsInstance.signInBtn.classList.remove('make-active');
   refsInstance.signUpBtn.classList.add('make-active');
 }
+
 function showLogOutButton(e) {
   const buttonWidth = Math.round(
     e.currentTarget.parentElement.getBoundingClientRect().width
@@ -105,15 +101,8 @@ function showLogOutButton(e) {
   refs.logOutButton.classList.toggle('log-out-visible');
 }
 
-refs.menuOpenButton.addEventListener('click', e => {
-  if (JSON.parse(localStorage.getItem('userInfo'))) {
-    showMenuModal(menuModal);
-  } else {
-    showMenuModal(menuSignUp);
-  }
-});
+refs.menuOpenButton.addEventListener('click', onMenuOpenButtonClick);
 refs.menuCloseButton.addEventListener('click', onMenuCloseButtonClick);
-
 refs.sighUpButton.addEventListener('click', onSingUpButtonClick);
 refs.showLogOutButton.addEventListener('click', showLogOutButton);
 refs.logOutButton.addEventListener('click', logout);
