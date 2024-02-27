@@ -126,5 +126,5 @@ refs.scrollButton.addEventListener('click', () => {
   scrollOnClick();
   timeoutID = setTimeout(() => {
     autoScroll();
-  }, 5000);
+  }, 3000);
 });
