@@ -21,13 +21,13 @@ const menuContent = `<div class="menu-container">
         <a class="menu-nav-link menu-nav-link-shop shopping-link" href="../shopping-list.html">
           Shopping List
         <svg class="menu-nav-icon-shop" width="20" height="20">
-        <use href=${icon}#icon-uil-cart"></use></svg>
+        <use href=${icon}#uil-cart></use></svg>
         </a>
         </li>
     </ul>
     
     <button type="button" class="menu-log-out-btn">Log out<svg class="menu-log-out-icon" width="20" height="20">
-      <use href=${icon}#arrow-narrow-right"></use>
+      <use href=${icon}#arrow-narrow-right></use>
         </svg>
     </button>
     </div>`;
