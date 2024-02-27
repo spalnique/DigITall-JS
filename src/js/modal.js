@@ -121,10 +121,6 @@ function checkWindowSize() {
 
 function modalDarkThemeFunction(instance) {
   const checkbox = document.querySelector('#themeToggle');
-  console.log(checkbox);
-
-  console.log(checkbox.checked);
-
   const modalRefsClassList = {
     container: instance.element().querySelector('.modal-container').classList,
     closeIcon: instance.element().querySelector('.modal-icon-close').classList,
