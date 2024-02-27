@@ -13,7 +13,6 @@ import { createAndOpenModalWindow } from './js/modal';
 import { renderTopSellers } from './js/createTopSellers';
 import { showElement, setActivePage } from './js/showHideFn';
 import { refs } from './js/refs';
-import './js/mob-menu';
 import { isUserLoggedIn } from './js/autorization';
 
 isUserLoggedIn();
