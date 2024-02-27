@@ -74,16 +74,31 @@ renderDonations(refs.donationListElement, donation);
 // }
 // const scrollToHeightBound = scrollToHeight.bind(null, refs.donationListElement);
 
-function onScrollDonationList(e) {
-  if (
-    e.currentTarget.scrollTop ===
-    e.currentTarget.scrollHeight - e.currentTarget.clientHeight
-  ) {
-    e.currentTarget.nextElementSibling.style.transform = 'rotate(180deg)';
-  } else if (e.currentTarget.scrollTop === 0) {
-    e.currentTarget.nextElementSibling.style.transform = 'rotate(0deg)';
-  }
+function debounce(func, delay) {
+  let timeoutId;
+  return function (...args) {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => {
+      func.apply(this, args);
+    }, delay);
+  };
 }
+
+const onScrollDonationList = debounce(function () {
+  const maxScroll =
+    refs.donationListElement.scrollHeight -
+    refs.donationListElement.clientHeight;
+  if (refs.donationListElement.scrollTop === maxScroll) {
+    refs.scrollButton.style.transform = 'rotate(180deg)';
+  } else if (refs.donationListElement.scrollTop === 0) {
+    refs.scrollButton.style.transform = 'rotate(0deg)';
+  }
+  if (intervalID) clearInterval(intervalID);
+  if (timeoutID) clearTimeout(timeoutID);
+  timeoutID = setTimeout(() => {
+    autoScroll();
+  }, 0);
+}, 3000);
 
 // refs.scrollButton.addEventListener('click', scrollToHeightBound);
 refs.donationListElement.addEventListener('scroll', onScrollDonationList);
