@@ -37,19 +37,11 @@ export const menuModal = basicLightbox.create(menuContent, {
   onClose: onCloseMenuModal,
 });
 
-export function showMenuModal(i) {
-  i.show(onShowMenuModal);
-}
-
 function onShowMenuModal() {
   refs.headerContainer.classList.add('change-z-index');
   refs.menuOpenButton.classList.add('hidden');
   refs.menuCloseButton.classList.add('visible-flex');
   document.body.classList.add('scroll-ban');
-}
-export function closeMenuModal(i) {
-  i.close();
-  onCloseMenuModal();
 }
 
 function onCloseMenuModal() {
@@ -58,3 +50,14 @@ function onCloseMenuModal() {
   refs.menuCloseButton.classList.remove('visible-flex');
   document.body.classList.remove('scroll-ban');
 }
+
+export function showMenuModal(i) {
+  i.show(onShowMenuModal);
+}
+export function closeMenuModal(i) {
+  i.close();
+  onCloseMenuModal();
+}
+
+const menuLogoutButton = menuModal.element().querySelector('.menu-log-out-btn');
+menuLogoutButton.addEventListener('click', () => {});
