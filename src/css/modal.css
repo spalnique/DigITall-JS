@@ -99,8 +99,9 @@
   transition: filter 300ms ease-in-out;
 }
 
-.modal-buy-link:hover img {
-  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.35))
+.modal-link-amazon-icon:hover,
+.modal-link-apple-icon:hover {
+  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.35));
 }
 
 .add-remove-button {
@@ -207,4 +208,31 @@
     font-size: 12px;
     line-height: 1.17;
   }
+}
+
+/* =========================== MODAL_DARK_THEME ================================= */
+.modal-container-dark-theme {
+  background-color: #202024;
+  border-color: #fff;
+}
+
+.modal-icon-close-dark-theme {
+  stroke: #fff;
+}
+
+.modal-text-dark-theme {
+  color: #fff;
+}
+
+.modal-icon-amazon-dark-theme {
+  filter: brightness(0) invert(1);
+}
+
+.modal-icon-apple-dark-theme {
+  filter: grayscale(100%);
+}
+
+.modal-icon-amazon-dark-theme:hover,
+.modal-icon-apple-dark-theme:hover {
+  filter: drop-shadow(0px 3px 3px rgba(255, 255, 255, 0.35));
 }
