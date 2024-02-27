@@ -62,7 +62,18 @@
     height: 64px;
 }
 
-.header-menu-open-icon {
+.header-menu-close-button {
+    display: none;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: 14px;
+    padding: 0;
+    width: 48px;
+    height: 64px;
+}
+
+.header-menu-open-icon,
+.header-menu-close-icon {
     stroke: #111;
 }
 
@@ -166,7 +177,6 @@
     }
 
     .header-nav-icon-shop {
-        fill: #111;
         stroke: #111;
     }
 
@@ -315,6 +325,11 @@
     clip-path: none;
     clip: auto;
     overflow: visible;
+}
+
+.change-z-index {
+    z-index: 1001;
+    position: relative;
 }
 
 .visible-flex {
