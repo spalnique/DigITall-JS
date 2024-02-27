@@ -1,4 +1,4 @@
-import{f as i,i as B,a as M,b as T,e as c,r as l,c as r,d as h,g as b,h as $,j as A,s as I,k as _}from"./assets/showHideFn-5625e620.js";import{b as L}from"./assets/vendor-389f7b34.js";function v(t,e){const n=JSON.parse(localStorage.getItem("cart"))?JSON.parse(localStorage.getItem("cart")):[];if(t.target.textContent.toLowerCase().includes("add"))n.push(e),localStorage.setItem("cart",JSON.stringify(n));else{const o=n.findIndex(a=>a._id===e._id);n.splice(o,1),localStorage.setItem("cart",JSON.stringify(n))}}function y(t){const e=q();return e?e.some(n=>n._id===t._id):!1}function q(){return JSON.parse(localStorage.getItem("cart"))||[]}const d="Add to shopping list",u="Remove from the shopping list",C='Congratulations! You have added the book to the shopping list. To delete, press the button "Remove from the shopping list".',S="",H="No description has been added to this book";let m;async function D(t){const e=t.target.dataset.id,n=await i(e);return m=n,`<div class="modal-container">
+import{f as l,i as B,a as I,b as M,e as c,r as i,c as r,d as h,g as k,h as T,j as q,s as $,k as A}from"./assets/showHideFn-010dea24.js";import{b as L}from"./assets/vendor-389f7b34.js";function f(e,o){const t=JSON.parse(localStorage.getItem("cart"))?JSON.parse(localStorage.getItem("cart")):[];if(e.target.textContent.toLowerCase().includes("add"))t.push(o),localStorage.setItem("cart",JSON.stringify(t));else{const a=t.findIndex(n=>n._id===o._id);t.splice(a,1),localStorage.setItem("cart",JSON.stringify(t))}}function y(e){const o=_();return o?o.some(t=>t._id===e._id):!1}function _(){return JSON.parse(localStorage.getItem("cart"))||[]}const d="Add to shopping list",m="Remove from the shopping list",S='Congratulations! You have added the book to the shopping list. To delete, press the button "Remove from the shopping list".',C="",z="No description has been added to this book";let u;async function D(e){const o=e.target.dataset.id,t=await l(o);return u=t,`<div class="modal-container">
         <button class="modal-button-close" type="button">
         <svg class="modal-icon-close" width="24" height="24">
         <use href=${B}#x-close></use></svg></button>
@@ -6,39 +6,39 @@ import{f as i,i as B,a as M,b as T,e as c,r as l,c as r,d as h,g as b,h as $,j a
         <div class="modal-book-wrapper">
         <img
           class="modal-img"
-          src="${n.book_image}"
-          alt="${n.title}"
+          src="${t.book_image}"
+          alt="${t.title}"
           width="287"
           height="408"/>
         <div class="modal-book-desc-wrapper">
-        <h2 class="modal-book-title">${n.title}</h2>
-        <h3 class="modal-book-author">${n.author}</h3>
-        <p class="modal-book-desc">${n.description?n.description:H}</p>
+        <h2 class="modal-book-title">${t.title}</h2>
+        <h3 class="modal-book-author">${t.author}</h3>
+        <p class="modal-book-desc">${t.description?t.description:z}</p>
         <div class="modal-buy-links-wrapper">
         <a
           class="modal-buy-link"
-          href=${n.buy_links[0].url}
+          href=${t.buy_links[0].url}
           target="_blank">
         <img
           class="modal-link-amazon-icon"
-          src=${M}
+          src=${I}
           alt="Amazon product link"
           width="62"
           height="19"/></a>
         <a
           class="modal-buy-link"
-          href=${n.buy_links[1].url}
+          href=${t.buy_links[1].url}
           target="_blank">
         <img
           class="modal-link-apple-icon"
-          src=${T}
+          src=${M}
           alt="Apple-book product link"
           width="33"
           height="32"/></a></div></div></div>
         <div class="button-toggle-wrapper">
-          <button class="add-remove-button" type="button">${y(n)?u:d}</button>
-          <p class="modal-text make-visible">${y(n)?C:S}</p>
-        </div></div>`}async function k(t){if(t.target===t.currentTarget)return;const e=await D(t);L.create(e,{onClose:O()}).show(N)}function N(t){g(),document.body.classList.add("scroll-ban");const e=t.element().querySelector(".modal-button-close"),n=t.element().querySelector(".add-remove-button");e.addEventListener("click",()=>t.close()),n.addEventListener("click",W),window.addEventListener("resize",g)}function O(){return()=>{document.body.classList.remove("scroll-ban"),window.removeEventListener("resize",g)}}function W(t){t.currentTarget.textContent===d?(v(t,m),t.currentTarget.textContent=u,t.currentTarget.nextElementSibling.textContent=C):t.currentTarget.textContent===u&&(v(t,m),t.currentTarget.textContent=d,t.currentTarget.nextElementSibling.textContent=S)}function g(){const t=document.querySelector(".basicLightbox"),e=document.querySelector(".modal-container");window.innerHeight<e.offsetHeight?t.classList.add("lightbox-scroll"):t.classList.remove("lightbox-scroll")}function z(t){return t.map(e=>{const n=e.list_name.split(" ");n[n.length-1]=`<span>${n[n.length-1]}</span>`;const o=`<h2 class="category-title">${n.join(" ")}</h2>`,a=h(e.books,b),s=$("see-more-button","See more",e.list_name);return o+a+s}).join("")}async function E(){const t=await i(c.topbooks),e=z(t);l(r.mainCatWrap,e,k)}j();r.catList.addEventListener("click",J);async function j(){const t=await i(c.list),e=R(t);l(r.catList,e)}function R(t){const e='<li class="sidebar-category-item"><p class="sidebar-category-text make-blue">All categories</p></li>',n=t.map(a=>`<li class="sidebar-category-item" data-category="${a.list_name}"><p class="sidebar-category-text" data-category="${a.list_name}">${a.list_name}</p></li>`).join("");return e+n}function w(t){t.target.nodeName==="LI"?(t.target.parentElement.querySelectorAll(".sidebar-category-text").forEach(n=>{n.classList.remove("make-blue")}),t.target.firstElementChild.classList.add("make-blue")):t.target.nodeName==="P"&&(t.target.parentElement.parentElement.querySelectorAll(".sidebar-category-text").forEach(n=>{n.classList.remove("make-blue")}),t.target.classList.add("make-blue"))}async function J(t){if(t.target===t.currentTarget)return;if(!t.target.dataset.category){r.mainTitle.innerHTML="Best Sellers <span>Books</span>",w(t),E();return}w(t);const e=t.target.dataset.category.split(" ");e[e.length-1]=`<span>${e[e.length-1]}</span>`,r.mainTitle.innerHTML=e.join(" ");const n=await i(c.category,t.target.dataset.category),o=h(n,b);l(r.mainCatWrap,o,k),document.querySelectorAll(".main-category-item").forEach(s=>showElement(s))}const p=document.querySelector(".button-up");p.addEventListener("click",x);window.addEventListener("scroll",P);function P(){const t=window.pageYOffset,e=document.documentElement.clientHeight;t>e?p.classList.add("button-up--show"):p.classList.remove("button-up--show")}function x(){window.pageYOffset>0&&(window.scrollBy(0,-75),setTimeout(x,0))}function F(){return`
+          <button class="add-remove-button" type="button">${y(t)?m:d}</button>
+          <p class="modal-text make-visible">${y(t)?S:C}</p>
+        </div></div>`}async function b(e){if(e.target===e.currentTarget)return;const o=await D(e),t=L.create(o,{onClose:W()});O(t),t.show(H)}function H(e){g(),document.body.classList.add("scroll-ban");const o=e.element().querySelector(".modal-button-close"),t=e.element().querySelector(".add-remove-button");o.addEventListener("click",()=>e.close()),t.addEventListener("click",N),window.addEventListener("resize",g)}function W(){return()=>{document.body.classList.remove("scroll-ban"),window.removeEventListener("resize",g)}}function N(e){e.currentTarget.textContent===d?(f(e,u),e.currentTarget.textContent=m,e.currentTarget.nextElementSibling.textContent=S):e.currentTarget.textContent===m&&(f(e,u),e.currentTarget.textContent=d,e.currentTarget.nextElementSibling.textContent=C)}function g(){const e=document.querySelector(".basicLightbox"),o=document.querySelector(".modal-container");window.innerHeight<o.offsetHeight?e.classList.add("lightbox-scroll"):e.classList.remove("lightbox-scroll")}function O(e){const o=document.querySelector("#themeToggle");console.log(o),console.log(o.checked);const t={container:e.element().querySelector(".modal-container").classList,closeIcon:e.element().querySelector(".modal-icon-close").classList,bookTitle:e.element().querySelector(".modal-book-title").classList,desc:e.element().querySelector(".modal-book-desc").classList,amazonIcon:e.element().querySelector(".modal-link-amazon-icon").classList,appleIcon:e.element().querySelector(".modal-link-apple-icon").classList,addRemoveButton:e.element().querySelector(".add-remove-button").classList};o.checked?(t.container.add("modal-container-dark-theme"),t.closeIcon.add("modal-icon-close-dark-theme"),t.bookTitle.add("modal-text-dark-theme"),t.desc.add("modal-text-dark-theme"),t.amazonIcon.add("modal-icon-amazon-dark-theme"),t.appleIcon.add("modal-icon-apple-dark-theme"),t.addRemoveButton.add("modal-text-dark-theme")):(t.container.remove("modal-container-dark-theme"),t.closeIcon.remove("modal-icon-close-dark-theme"),t.bookTitle.remove("modal-text-dark-theme"),t.desc.remove("modal-text-dark-theme"),t.amazonIcon.remove("modal-icon-amazon-dark-theme"),t.appleIcon.remove("modal-icon-apple-dark-theme"),t.addRemoveButton.remove("modal-text-dark-theme"))}function R(e){return e.map(o=>{const t=o.list_name.split(" ");t[t.length-1]=`<span>${t[t.length-1]}</span>`;const a=`<h2 class="category-title">${t.join(" ")}</h2>`,n=h(o.books,k),s=T("see-more-button","See more",o.list_name);return a+n+s}).join("")}async function x(){const e=await l(c.topbooks),o=R(e);i(r.mainCatWrap,o,b)}j();r.catList.addEventListener("click",F);async function j(){const e=await l(c.list),o=J(e);i(r.catList,o)}function J(e){const o='<li class="sidebar-category-item"><p class="sidebar-category-text make-blue">All categories</p></li>',t=e.map(n=>`<li class="sidebar-category-item" data-category="${n.list_name}"><p class="sidebar-category-text" data-category="${n.list_name}">${n.list_name}</p></li>`).join("");return o+t}function w(e){e.target.nodeName==="LI"?(e.target.parentElement.querySelectorAll(".sidebar-category-text").forEach(t=>{t.classList.remove("make-blue")}),e.target.firstElementChild.classList.add("make-blue")):e.target.nodeName==="P"&&(e.target.parentElement.parentElement.querySelectorAll(".sidebar-category-text").forEach(t=>{t.classList.remove("make-blue")}),e.target.classList.add("make-blue"))}async function F(e){if(e.target===e.currentTarget)return;if(!e.target.dataset.category){r.mainTitle.innerHTML="Best Sellers <span>Books</span>",w(e),x();return}w(e);const o=e.target.dataset.category.split(" ");o[o.length-1]=`<span>${o[o.length-1]}</span>`,r.mainTitle.innerHTML=o.join(" ");const t=await l(c.category,e.target.dataset.category),a=h(t,k);i(r.mainCatWrap,a,b),document.querySelectorAll(".main-category-item").forEach(s=>showElement(s))}const p=document.querySelector(".button-up");p.addEventListener("click",E);window.addEventListener("scroll",P);function P(){const e=window.pageYOffset,o=document.documentElement.clientHeight;e>o?p.classList.add("button-up--show"):p.classList.remove("button-up--show")}function E(){window.pageYOffset>0&&(window.scrollBy(0,-75),setTimeout(E,0))}function U(){return`
     <div class="menu-user-profile">
       <div class="menu-user-icon-wrapper">
         <svg class="menu-user-icon" width="19" height="19">
@@ -71,9 +71,9 @@ import{f as i,i as B,a as M,b as T,e as c,r as l,c as r,d as h,g as b,h as $,j a
         </svg>
       </button>
       </div>
-  `}const f=document.querySelector("header");f.style.zIndex=99999;f.style.position="relative";f.style.background="#fff";function U(){const t=document.createElement("div");t.classList.add("menu-container");const e=F();t.innerHTML=e;const n=L.create(t,{className:"mob-menu-lightbox"}),o=document.querySelector(".header-modal-open-button"),a=o.parentElement,s=document.createElement("button");s.classList.add("header-menu-close-button"),o.classList.add("hidden-on-desktop"),s.setAttribute("type","button"),s.innerHTML=`
+  `}const v=document.querySelector("header");v.style.zIndex=99999;v.style.position="relative";v.style.background="#fff";function Y(){const e=document.createElement("div");e.classList.add("menu-container");const o=U();e.innerHTML=o;const t=L.create(e,{className:"mob-menu-lightbox"}),a=document.querySelector(".header-modal-open-button"),n=a.parentElement,s=document.createElement("button");s.classList.add("header-menu-close-button"),a.classList.add("hidden-on-desktop"),s.setAttribute("type","button"),s.innerHTML=`
     <svg class="header-menu-close-icon" width="18" height="18">
       <use href="./img/icons.svg#x-close"></use>
     </svg>
-  `,s.addEventListener("click",()=>{n.close(),o.style.display="block",a.removeChild(s)}),a.insertBefore(s,o.nextSibling),o.style.display="none",n.show()}const Y=document.querySelector(".header-modal-open-button");Y.addEventListener("click",U);A();I("header-nav-link-home");E();r.mainCatWrap.addEventListener("click",G);async function G(t){if(!t.target.dataset.category)return;const e=t.target.dataset.category.split(" ");e[e.length-1]=`<span>${e[e.length-1]}</span>`,r.mainTitle.innerHTML=e.join(" ");const n=await i(c.category,t.target.dataset.category),o=h(n,b);l(r.mainCatWrap,o,k),document.querySelectorAll(".main-category-item").forEach(s=>_(s))}
+  `,s.addEventListener("click",()=>{t.close(),a.style.display="block",n.removeChild(s)}),n.insertBefore(s,a.nextSibling),a.style.display="none",t.show()}const G=document.querySelector(".header-modal-open-button");G.addEventListener("click",Y);q();$("header-nav-link-home");x();r.mainCatWrap.addEventListener("click",K);async function K(e){if(!e.target.dataset.category)return;const o=e.target.dataset.category.split(" ");o[o.length-1]=`<span>${o[o.length-1]}</span>`,r.mainTitle.innerHTML=o.join(" ");const t=await l(c.category,e.target.dataset.category),a=h(t,k);i(r.mainCatWrap,a,b),document.querySelectorAll(".main-category-item").forEach(s=>A(s))}
 //# sourceMappingURL=commonHelpers.js.map
