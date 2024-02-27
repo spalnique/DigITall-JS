@@ -2,6 +2,7 @@ import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
 import icon from '../img/icons.svg';
 import { logout, onFormSubmit } from './autorization';
+import { menuModal, closeMenuModal, showMenuModal } from './mob-menu';
 
 export const refs = {
   headerContainer: document.querySelector('.header-container'),
@@ -14,6 +15,7 @@ export const refs = {
   showLogOutButton: document.querySelector('.header-triangle-icon-button'),
   logOutButton: document.querySelector('.header-log-out-button'),
   menuOpenButton: document.querySelector('.header-menu-open-button'),
+  menuCloseButton: document.querySelector('.header-menu-close-button'),
 };
 
 const signUpMarkup = `<form class="authorization-form">
@@ -102,9 +104,10 @@ refs.menuOpenButton.addEventListener('click', e => {
   if (!JSON.parse(localStorage.getItem('userInfo'))) {
     onSingUpButtonClick();
   } else {
-    console.log('Show modal window');
+    showMenuModal(menuModal);
   }
 });
+refs.menuCloseButton.addEventListener('click', () => closeMenuModal(menuModal));
 refs.sighUpButton.addEventListener('click', onSingUpButtonClick);
 refs.showLogOutButton.addEventListener('click', showLogOutButton);
 refs.logOutButton.addEventListener('click', logout);
