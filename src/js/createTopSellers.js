@@ -22,8 +22,6 @@ function createTopSellers(data) {
 }
 
 export async function renderTopSellers() {
-  refs.mainCatWrap.innerHTML =
-    '<div id="spinner-container" style="padding-top: 25px; display:flex; flex-direction:column; gap:15px; align-items:center;"><span class="js-processing-request">Loading images, please wait...</span><div class="loader"></div></div>';
   const topBookData = await fetchData(endPoints.topbooks);
   const topBooksMarkup = createTopSellers(topBookData);
   renderContent(refs.mainCatWrap, topBooksMarkup, createAndOpenModalWindow);

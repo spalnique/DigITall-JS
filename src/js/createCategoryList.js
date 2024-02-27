@@ -63,8 +63,6 @@ async function onCatClick(e) {
   const strArr = e.target.dataset.category.split(' ');
   strArr[strArr.length - 1] = `<span>${strArr[strArr.length - 1]}</span>`;
   refs.mainTitle.innerHTML = strArr.join(' ');
-  refs.mainCatWrap.innerHTML =
-    '<div id="spinner-container" style="padding-top: 25px; display:flex; flex-direction:column; gap:15px; align-items:center;"><span class="js-processing-request">Loading images, please wait...</span><div class="loader"></div></div>';
   const selectedCatData = await fetchData(
     endPoints.category,
     e.target.dataset.category
