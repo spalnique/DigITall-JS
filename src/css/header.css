@@ -267,7 +267,6 @@
       top 250ms ease-in-out;
   }
 
-<<<<<<< HEAD
   .log-out-visible {
     display: flex;
     pointer-events: auto;
@@ -275,155 +274,156 @@
     bottom: -48px;
     top: auto;
   }
-=======
-    .header-nav-link-shop {
-        display: none;
-        justify-content: center;
-        align-items: center;
-        gap: 8px;
-        width: fit-content;
-        height: 34px;
-        padding: 7px 16px;
-        font-weight: 500;
-        font-size: 14px;
-        line-height: 1.29;
-        letter-spacing: -0.04em;
-        text-transform: uppercase;
+  .header-nav-link-shop {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    width: fit-content;
+    height: 34px;
+    padding: 7px 16px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.29;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+  }
+
+  .make-yellow {
+    border-radius: 36px;
+    background-color: #eac645;
+    font-weight: 700;
+  }
+
+  .header-nav-icon-shop {
+    fill: #111;
+    stroke: #111;
+  }
+
+  .header-modal-open-button {
+    display: none;
+  }
+
+  /* ----------Sign up -----------*/
+  .header-sigh-up-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 14px;
+    padding-right: 14px;
+    width: 184px;
+    height: 48px;
+    border: 1.5px solid #111;
+    border-radius: 18px;
+    background-color: #4f2ee8;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.29;
+    letter-spacing: -0.04em;
+    color: #fff;
+    transition: border 300ms ease-in-out, border-radius 300ms ease-in-out,
+      box-shadow 300ms ease-in-out;
+    /* display: none; */
+  }
+
+  .header-sigh-up-button:hover {
+    border: 2px solid #4f2ee8;
+    border-radius: 12px;
+    filter: brightness(120%);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  .header-sigh-up-button:active {
+    filter: brightness(90%);
+  }
+
+  .header-login-icon {
+    fill: #eac645;
+    animation: rotateIcon 3s linear infinite;
+  }
+
+  .header-user-logout-button-wrapper {
+  }
+
+  .header-js-user-profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    min-height: 45px;
+    border-radius: 36px;
+    padding: 8px 12px;
+    background-color: #4f2ee8;
+    display: none;
+  }
+
+  .header-user-icon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 37px;
+    height: 37px;
+    border-radius: 50%;
+    background-color: #f6f6f6;
+  }
+
+  .header-user-icon {
+    stroke: #fff;
+    fill: #fff;
+  }
+
+  .header-user-name {
+    margin-left: 9px;
+    margin-right: 4px;
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: -0.02em;
+    color: #fff;
+  }
+
+  @keyframes rotateIcon {
+    from {
+      transform: rotate(0deg);
+      /* Початковий стан обертання (0 градусів) */
     }
 
-    .make-yellow {
-        border-radius: 36px;
-        background-color: #eac645;
-        font-weight: 700;
+    to {
+      transform: rotate(360deg);
+      /* Кінцевий стан обертання (360 градусів) */
     }
+  }
 
-    .header-nav-icon-shop {
-        fill: #111;
-        stroke: #111;
-    }
+  .header-log-out-button {
+    display: none;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    justify-content: space-between;
+    align-items: center;
+    width: 184px;
+    height: 48px;
+    padding: 15px 14px;
+    border: 1.5px solid #111;
+    border-radius: 18px;
+    background-color: #fff;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.29;
+    letter-spacing: -0.04em;
+    color: #111;
+    z-index: -100;
+    transition: z-index 250ms ease-in-out, bottom 250ms ease-in-out,
+      top 250ms ease-in-out;
+  }
 
-    .header-modal-open-button {
-        display: none;
-    }
-
-    /* ----------Sign up -----------*/
-    .header-sigh-up-button {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding-left: 14px;
-        padding-right: 14px;
-        width: 184px;
-        height: 48px;
-        border: 1.5px solid #111;
-        border-radius: 18px;
-        background-color: #4f2ee8;
-        font-weight: 500;
-        font-size: 14px;
-        line-height: 1.29;
-        letter-spacing: -0.04em;
-        color: #fff;
-        transition: border 300ms ease-in-out, border-radius 300ms ease-in-out, box-shadow 300ms ease-in-out;
-        /* display: none; */
-    }
-
-    .header-sigh-up-button:hover {
-        border: 2px solid #4f2ee8;
-        border-radius: 12px;
-        filter: brightness(120%);
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    }
-
-    .header-sigh-up-button:active {
-        filter: brightness(90%);
-    }
-
-    .header-login-icon {
-        fill: #eac645;
-        animation: rotateIcon 3s linear infinite;
-    }
-
-    .header-user-logout-button-wrapper {}
-
-    .header-js-user-profile {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: fit-content;
-        min-height: 45px;
-        border-radius: 36px;
-        padding: 8px 12px;
-        background-color: #4f2ee8;
-        display: none;
-    }
-
-    .header-user-icon-wrapper {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 37px;
-        height: 37px;
-        border-radius: 50%;
-        background-color: #f6f6f6;
-    }
-
-    .header-user-icon {
-        stroke: #fff;
-        fill: #fff;
-    }
-
-    .header-user-name {
-        margin-left: 9px;
-        margin-right: 4px;
-        font-weight: 700;
-        font-size: 22px;
-        letter-spacing: -0.02em;
-        color: #fff;
-    }
-
-    @keyframes rotateIcon {
-        from {
-            transform: rotate(0deg);
-            /* Початковий стан обертання (0 градусів) */
-        }
-
-        to {
-            transform: rotate(360deg);
-            /* Кінцевий стан обертання (360 градусів) */
-        }
-    }
-
-    .header-log-out-button {
-        display: none;
-        pointer-events: none;
-        position: absolute;
-        right: 0;
-        top: 0;
-        justify-content: space-between;
-        align-items: center;
-        width: 184px;
-        height: 48px;
-        padding: 15px 14px;
-        border: 1.5px solid #111;
-        border-radius: 18px;
-        background-color: #fff;
-        font-weight: 500;
-        font-size: 14px;
-        line-height: 1.29;
-        letter-spacing: -0.04em;
-        color: #111;
-        z-index: -100;
-        transition: z-index 250ms ease-in-out, bottom 250ms ease-in-out, top 250ms ease-in-out;
-    }
-
-    .log-out-visible {
-        display: flex;
-        pointer-events: auto;
-        z-index: 0;
-        bottom: -48px;
-        top: auto;
-    }
->>>>>>> 58eae539968ac05b61d12262b915b8d085f7d91e
+  .log-out-visible {
+    display: flex;
+    pointer-events: auto;
+    z-index: 0;
+    bottom: -48px;
+    top: auto;
+  }
 }
 
 @media screen and (min-width: 1440px) {

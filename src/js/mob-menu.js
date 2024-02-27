@@ -4,10 +4,12 @@ import 'basiclightbox/dist/basicLightbox.min.css';
 function createMenuContent() {
   const menuContent = `
     <div class="menu-user-profile">
-        <svg class="menu-user-fill" width="22" height="22">
+      <div class="menu-user-icon-wrapper">
+        <svg class="menu-user-icon" width="19" height="19">
           <use href="./img/icons.svg#user-fill"></use>
         </svg>
-        <p class="menu-user-name"></p>
+      </div>
+      <p class="menu-user-name">User</p>
       </div>
       <ul id="menu-list" class="menu-nav-list">
         <li class="menu-nav-item">

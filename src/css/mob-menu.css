@@ -21,14 +21,15 @@
   height: 100%;
 }
 .menu-user-profile {
-  padding-top: 84px;
+  margin-top: 84px;
+  margin-right: auto;
   padding-left: 20px;
   display: flex;
   justify-content: flex-start;
+  align-items: center;
   margin-bottom: 126px;
   min-width: 133px;
   height: 37px;
-  border: solid 1px #fff;
 }
 .menu-user-name {
   width: 87px;
@@ -39,19 +40,20 @@
   letter-spacing: -0.02em;
   color: #fff;
 }
-.menu-user-fill {
+.menu-user-icon {
   border-radius: 50%;
   padding: 8px;
   background-color: #fff;
   border: none;
   width: fit-content;
+  box-sizing: unset;
 }
 .menu-nav-list {
   width: fit-content;
   /* padding-left: 129px; */
   display: flex;
   flex-direction: column;
-  margin-bottom: 125px;
+  margin-bottom: 126px;
 }
 .menu-nav-item:first-child .menu-nav-link {
   display: flex;
@@ -94,8 +96,9 @@
   fill: #fff;
 }
 .menu-log-out {
-  width: 450px;
-  height: 439px;
+  position: relative;
+  width: 375px;
+  height: 375px;
   display: flex;
   align-items: center;
   background: transparent;
@@ -106,6 +109,9 @@
   /* transform: rotate(-15deg); */
 }
 .log-out-btn {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
   border: 1.5px solid #111;
   border-radius: 18px;
   width: 118px;
