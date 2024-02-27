@@ -26,6 +26,7 @@ export function createBookMarkup(data) {
   <h3 class="main-category-title" data-id="${data._id}">${data.title}</h3>
   <p class="main-category-author" data-id="${data._id}">${data.author}</p>
 </div>
+<p class="main-category-item-overlay" data-id="${data._id}" data-action="open-modal">quick view</p>
 </li>`;
 }
 
