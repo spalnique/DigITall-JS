@@ -526,3 +526,7 @@
 .hidden {
   display: none;
 }
+
+.visible-flex {
+  display: flex;
+}

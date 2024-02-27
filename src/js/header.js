@@ -4,13 +4,16 @@ import icon from '../img/icons.svg';
 import { logout, onFormSubmit } from './autorization';
 
 export const refs = {
+  headerContainer: document.querySelector('.header-container'),
+  headerNavigation: document.querySelector('.header-nav-list'),
   homeLink: document.querySelector('.header-nav-link-home'),
   shopLink: document.querySelector('.header-nav-link-shop'),
   sighUpButton: document.querySelector('.header-sigh-up-button'),
-  userButton: document.querySelector('.header-js-user-profile'),
+  userButton: document.querySelector('.header-user-profile-button'),
   userName: document.querySelector('.header-user-name'),
   showLogOutButton: document.querySelector('.header-triangle-icon-button'),
   logOutButton: document.querySelector('.header-log-out-button'),
+  menuOpenButton: document.querySelector('.header-menu-open-button'),
 };
 
 const signUpMarkup = `<form class="authorization-form">
@@ -95,6 +98,13 @@ function showLogOutButton(e) {
   refs.logOutButton.classList.toggle('log-out-visible');
 }
 
+refs.menuOpenButton.addEventListener('click', e => {
+  if (!JSON.parse(localStorage.getItem('userInfo'))) {
+    onSingUpButtonClick();
+  } else {
+    console.log('Show modal window');
+  }
+});
 refs.sighUpButton.addEventListener('click', onSingUpButtonClick);
 refs.showLogOutButton.addEventListener('click', showLogOutButton);
 refs.logOutButton.addEventListener('click', logout);
