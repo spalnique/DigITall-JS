@@ -71,13 +71,15 @@ async function createModalWindowMarkup(e) {
 }
 
 export async function createAndOpenModalWindow(e) {
-  if (e.target.dataset.action !== 'open-modal' || (e.target === e.currentTarget && window.innerWidth > 768)) return;
+  if ((e.target.dataset.action === 'open-modal' && window.innerWidth > 768) || (e.target !== e.currentTarget && window.innerWidth <= 768)) {
   const modalWindowMarkup = await createModalWindowMarkup(e);
   const modalWindowInstance = basicLightbox.create(modalWindowMarkup, {
     onClose: onCloseModalWindow(),
   });
   modalDarkThemeFunction(modalWindowInstance);
-  modalWindowInstance.show(onShowModalWindow);
+  modalWindowInstance.show(onShowModalWindow);} else {
+    return;
+  }
 }
 
 function onShowModalWindow(i) {
