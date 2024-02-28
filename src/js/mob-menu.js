@@ -101,10 +101,11 @@ function onMenuLogOutButtonClick() {
     location.pathname = '/';
   }
   localStorage.removeItem('userInfo');
-  menuModal.close();
+  closeMenuModal(menuModal);
 }
+
 export function onMenuSignUpButtonClick() {
-  menuSignUp.close();
+  closeMenuModal(menuSignUp);
   instanceSignUp.show(onInstanceSignUpShow);
 }
 
