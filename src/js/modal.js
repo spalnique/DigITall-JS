@@ -71,7 +71,7 @@ async function createModalWindowMarkup(e) {
 }
 
 export async function createAndOpenModalWindow(e) {
-  if (e.target.dataset.action !== 'open-modal' || (e.target === e.currentTarget && window.innerWidth > 768) return;
+  if (e.target.dataset.action !== 'open-modal' || (e.target === e.currentTarget && window.innerWidth > 768)) return;
   const modalWindowMarkup = await createModalWindowMarkup(e);
   const modalWindowInstance = basicLightbox.create(modalWindowMarkup, {
     onClose: onCloseModalWindow(),
