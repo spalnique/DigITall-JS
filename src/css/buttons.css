@@ -3,6 +3,7 @@
   width: 54px;
   height: 54px;
   background-color: #4f2ee8;
+  outline: 5px solid rgba(80, 46, 232, 0.3);
   border-radius: 50%;
   position: fixed;
   bottom: 150px;
