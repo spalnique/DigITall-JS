@@ -16,7 +16,12 @@
     padding: 18px 20px;
     align-items: center;
 }
-
+.header-nav-logo-icon{
+    transition: transform 0.5s ease;
+}
+.header-nav-logo-icon:hover {
+    transform: rotate(360deg);
+}
 .header-nav-link-home {
     display: none;
 }
