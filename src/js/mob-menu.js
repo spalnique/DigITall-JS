@@ -15,10 +15,10 @@ const menuMarkup = `<div class="menu-container">
    
     <ul id="menu-list" class="menu-nav-list">
       <li class="menu-nav-item">
-          <a class="menu-nav-link menu-nav-link-home make-yellow" href="./index.html">Home</a>
+          <a class="menu-nav-link menu-nav-link-home" href="./index.html">Home</a>
         </li>
       <li class="menu-nav-item">
-        <a class="menu-nav-link menu-nav-link-shop shopping-link" href="../shopping-list.html">
+        <a class="menu-nav-link menu-nav-link-shop" href="../shopping-list.html">
           Shopping List
         <svg class="menu-nav-icon-shop" width="20" height="20">
         <use href=${icon}#icon-uil-cart></use></svg>
@@ -57,7 +57,16 @@ function onShowMenuModal(i) {
     const menuLogoutButton = menuModal
       .element()
       .querySelector('.menu-log-out-btn');
+    const linkHome = menuModal.element().querySelector('.menu-nav-link-home');
+    const linkShop = menuModal.element().querySelector('.menu-nav-link-shop');
     menuLogoutButton.addEventListener('click', onMenuLogOutButtonClick);
+    if (window.location.href.includes('index')) {
+      linkHome.classList.add('menu-make-yellow');
+      linkShop.classList.remove('menu-make-yellow');
+    } else {
+      linkShop.classList.add('menu-make-yellow');
+      linkHome.classList.remove('menu-make-yellow');
+    }
   } else {
     const menuSignUpButton = menuSignUp
       .element()
