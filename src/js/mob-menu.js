@@ -15,7 +15,7 @@ const menuMarkup = `<div class="menu-container">
    
     <ul id="menu-list" class="menu-nav-list">
       <li class="menu-nav-item">
-          <a class="menu-nav-link menu-nav-link-home" href="./index.html">Home</a>
+          <a class="menu-nav-link menu-nav-link-home make-yellow" href="./index.html">Home</a>
         </li>
       <li class="menu-nav-item">
         <a class="menu-nav-link menu-nav-link-shop shopping-link" href="../shopping-list.html">
