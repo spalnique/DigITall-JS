@@ -4,12 +4,7 @@ import icon from '../img/icons.svg';
 import { logout, onFormSubmit } from './autorization';
 import { onMenuCloseButtonClick, onMenuOpenButtonClick } from './mob-menu';
 import { refs as mainRefs } from './refs';
-import {
-  onMenuSignUpButtonClick,
-  onMenuLogOutButtonClick,
-  menuLogoutButton,
-  menuSignUpButton,
-} from './mob-menu';
+import {} from './mob-menu';
 export const refs = {
   headerContainer: document.querySelector('.header-container'),
   headerNavigation: document.querySelector('.header-nav-list'),
@@ -75,7 +70,6 @@ export function onInstanceSignUpShow(i) {
   function onTypeEscape(e) {
     if (e.key === 'Escape') {
       i.close(document.removeEventListener('keydown', onTypeEscape));
-      console.log(555);
     }
   }
   const refsInstance = createInstanceSignUpRefs(instanceSignUp);
@@ -108,9 +102,6 @@ function onInstanceSignUpClose(i) {
   refsInstance.fieldset.firstElementChild.classList.remove('hidden');
   refsInstance.signInBtn.classList.remove('make-active');
   refsInstance.signUpBtn.classList.add('make-active');
-
-  menuSignUpButton.removeEventListener('click', onMenuSignUpButtonClick);
-  menuLogoutButton.removeEventListener('click', onMenuLogOutButtonClick);
 }
 
 function showLogOutButton(e) {
