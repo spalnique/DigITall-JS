@@ -1,13 +1,7 @@
 import './js/enableDarkTheme';
 import './js/autorization';
 import './js/donation-list';
-// import {
-//   createBookMarkup,
-//   createCategoryMarkup,
-//   renderContent,
-// } from './js/createMarkups';
-// import { createAndOpenModalWindow } from './js/modal';
-// import { getCartData } from './js/cartDataHandler';
+import './js/cart-countdown-timer';
 import { refs } from './js/refs';
 import {
   renderCart,
@@ -15,12 +9,14 @@ import {
 } from './js/shoppingListHandler';
 import { setActivePage } from './js/showHideFn';
 import { isUserLoggedIn } from './js/autorization';
+
 isUserLoggedIn();
 setActivePage('header-nav-link-shop');
 
-const cartRefs = {
+export const cartRefs = {
   mainContainer: document.querySelector('.main-container'),
   mainTitle: document.querySelector('.main-title'),
+  cartTimerWrap: document.querySelector('.cart-timer-wrap'),
   cartItem: document.querySelector('.cart-item'),
   cartBookTitle: document.querySelector('.cart-book-title'),
   cartBookDescription: document.querySelector('.cart-book-description'),
