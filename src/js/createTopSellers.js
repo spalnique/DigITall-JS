@@ -3,6 +3,7 @@ import {
   createBookMarkup,
   createButton,
   renderContent,
+  renderLoader,
 } from './createMarkups';
 import { fetchData, endPoints } from './fetchData';
 import { createAndOpenModalWindow } from './modal';

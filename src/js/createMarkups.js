@@ -66,3 +66,8 @@ export function renderDonations(parentElement, donationData) {
   const markup = donationListTemplate(donationData);
   parentElement.innerHTML = markup;
 }
+
+export function renderLoader(parentElement) {
+  parentElement.innerHTML =
+    '<div style="scale: 0.5; padding-top: 150px; display: flex; width:100%; justify-content: center; align-items:center;"><span class="loader"></span></div>';
+}
