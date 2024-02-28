@@ -49,8 +49,8 @@ handleCartDarkTheme();
 
 checkBox.addEventListener('click', handleCartDarkTheme);
 
-function clearCart() {
-  setLS('cart', null);
-}
+// function clearCart() {
+//   setLS('cart', null);
+// }
 
-clearCart();
+// clearCart();
