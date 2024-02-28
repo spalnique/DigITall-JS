@@ -8,6 +8,7 @@ import {
   renderContent,
 } from './createMarkups';
 import { renderTopSellers } from './createTopSellers';
+import { showElement, hideElement } from './showHideFn'
 
 catList();
 
