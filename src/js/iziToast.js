@@ -1,6 +1,6 @@
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
-import icon from '../img/icons.svg';
+// import icon from '../img/icons.svg';
 export function createIziToast(message) {
   iziToast.error({
     timeout: 10000,

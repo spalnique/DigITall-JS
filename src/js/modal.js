@@ -5,6 +5,7 @@ import amazon from '../img/png/amazon.png';
 import apple from '../img/png/apple-book.png';
 import { fetchData } from './fetchData';
 import { cartDataHandler, checkCartData } from './cartDataHandler';
+import { refs } from './refs';
 
 const textForAddButton = 'Add to shopping list';
 const textForRemoveButton = 'Remove from the shopping list';
@@ -71,13 +72,17 @@ async function createModalWindowMarkup(e) {
 }
 
 export async function createAndOpenModalWindow(e) {
-  if ((e.target.dataset.action === 'open-modal' && window.innerWidth > 768) || (e.target !== e.currentTarget && window.innerWidth <= 768)) {
-  const modalWindowMarkup = await createModalWindowMarkup(e);
-  const modalWindowInstance = basicLightbox.create(modalWindowMarkup, {
-    onClose: onCloseModalWindow(),
-  });
-  modalDarkThemeFunction(modalWindowInstance);
-  modalWindowInstance.show(onShowModalWindow);} else {
+  if (
+    (e.target.dataset.action === 'open-modal' && window.innerWidth > 768) ||
+    (e.target !== e.currentTarget && window.innerWidth <= 768)
+  ) {
+    const modalWindowMarkup = await createModalWindowMarkup(e);
+    const modalWindowInstance = basicLightbox.create(modalWindowMarkup, {
+      onClose: onCloseModalWindow(),
+    });
+    modalDarkThemeFunction(modalWindowInstance);
+    modalWindowInstance.show(onShowModalWindow);
+  } else {
     return;
   }
 }
@@ -122,7 +127,6 @@ function checkWindowSize() {
 }
 
 function modalDarkThemeFunction(instance) {
-  const checkbox = document.querySelector('#themeToggle');
   const modalRefsClassList = {
     container: instance.element().querySelector('.modal-container').classList,
     closeIcon: instance.element().querySelector('.modal-icon-close').classList,
@@ -135,7 +139,7 @@ function modalDarkThemeFunction(instance) {
     addRemoveButton: instance.element().querySelector('.add-remove-button')
       .classList,
   };
-  if (checkbox.checked) {
+  if (refs.checkbox.checked) {
     modalRefsClassList.container.add('modal-container-dark-theme');
     modalRefsClassList.closeIcon.add('modal-icon-close-dark-theme');
     modalRefsClassList.bookTitle.add('modal-text-dark-theme');
