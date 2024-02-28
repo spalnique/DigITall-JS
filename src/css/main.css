@@ -67,6 +67,10 @@
   letter-spacing: -0.04em;
   text-transform: uppercase;
   color: #111;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   pointer-events: none;
   opacity: 0;
   transition: opacity 350ms ease-in-out;
