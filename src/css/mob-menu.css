@@ -4,9 +4,12 @@
   justify-content: space-between;
   width: 375px;
   height: 100vh;
-  background-image: url(../img/png/menu-background.png), radial-gradient(189.32% 190.93% at 59.76% -23.42%,
+  background-image: url(../img/png/menu-background.png),
+    radial-gradient(
+      189.32% 190.93% at 59.76% -23.42%,
       rgb(79, 46, 232) 18.02733987569809%,
-      rgb(255, 255, 255) 100%);
+      rgb(255, 255, 255) 100%
+    );
   background-size: contain, cover;
   background-repeat: no-repeat, no-repeat;
   background-position: bottom, center;
@@ -78,7 +81,9 @@
   font-weight: 700;
 }
 
-.menu-nav-icon-shop {}
+.menu-nav-icon-shop {
+  fill: #fff;
+}
 
 .menu-log-out-btn {
   display: flex;
@@ -97,3 +102,25 @@
 }
 
 .menu-log-out-icon {}
+
+.menu-sign-up-container {
+  padding-top: 104px;
+}
+
+.menu-sign-up-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 14px;
+  padding-right: 14px;
+  width: 184px;
+  height: 48px;
+  border: 1.5px solid #111;
+  border-radius: 18px;
+  background-color: #4f2ee8;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.04em;
+  color: #fff;
+}

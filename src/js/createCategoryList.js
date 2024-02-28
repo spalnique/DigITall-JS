@@ -63,7 +63,6 @@ async function onCatClick(e) {
   const strArr = e.target.dataset.category.split(' ');
   strArr[strArr.length - 1] = `<span>${strArr[strArr.length - 1]}</span>`;
   refs.mainTitle.innerHTML = strArr.join(' ');
-
   const selectedCatData = await fetchData(
     endPoints.category,
     e.target.dataset.category

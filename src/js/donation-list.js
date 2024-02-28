@@ -9,6 +9,7 @@ import razom from '../img/new_png/razom.png';
 import saveTheChildren from '../img/new_png/save-the-children.png';
 import united24 from '../img/new_png/united24.png';
 import worldVision from '../img/new_png/world-vision.png';
+
 const donation = [
   {
     title: 'Save the Children',
@@ -45,7 +46,6 @@ const donation = [
     url: 'https://www.msf.org/ukraine',
     img: msf,
   },
-
   {
     title: 'World vision',
     url: 'https://www.wvi.org/emergencies/ukraine',
@@ -57,30 +57,80 @@ const donation = [
     img: united24,
   },
 ];
-
 renderDonations(refs.donationListElement, donation);
 
-function scrollToHeight(elem, e) {
-  if (e.currentTarget.style.transform === 'rotate(0deg)') {
-    let onceScroll = +(elem.scrollHeight / elem.children.length).toFixed(2);
-    elem.scrollTop += onceScroll;
-    elem.scrollTo({ top: elem.scrollTop, behavior: 'smooth' });
-    if (elem.scrollTop === elem.scrollHeight - elem.clientHeight) {
-      e.currentTarget.style.transform = 'rotate(180deg)';
-    }
-  } else if (e.currentTarget.style.transform === 'rotate(180deg)') {
-    elem.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-}
-const scrollToHeightBound = scrollToHeight.bind(null, refs.donationListElement);
-
-function onScrollDonationList(e) {
-  if (e.currentTarget.scrollTop) {
-    e.currentTarget.nextElementSibling.style.transform = 'rotate(180deg)';
-  } else if (e.currentTarget.scrollTop === 0) {
-    e.currentTarget.nextElementSibling.style.transform = 'rotate(0deg)';
-  }
+function debounce(func, delay) {
+  let timeoutId;
+  return function (...args) {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => {
+      func.apply(this, args);
+    }, delay);
+  };
 }
 
-refs.scrollButton.addEventListener('click', scrollToHeightBound);
-refs.donationListElement.addEventListener('scroll', onScrollDonationList);
+function scrollOnClick() {
+  const maxScroll =
+    refs.donationListElement.scrollHeight -
+    refs.donationListElement.clientHeight;
+  refs.donationListElement.scroll({
+    top: scrollDir ? maxScroll : 0,
+    behavior: 'smooth',
+  });
+  scrollDir
+    ? (refs.scrollButton.style.transform = 'rotate(180deg)')
+    : (refs.scrollButton.style.transform = 'rotate(0deg)');
+  scrollDir = !scrollDir;
+}
+function autoScroll() {
+  clearInterval(intervalID);
+  clearTimeout(timeoutID);
+  intervalID = setInterval(() => {
+    scrolltop = refs.donationListElement.scrollTop;
+    refs.donationListElement.scrollTop += scrollDir ? 1 : -1;
+    scrollDir =
+      scrolltop === refs.donationListElement.scrollTop ? !scrollDir : scrollDir;
+  }, 30);
+}
+const onScrollDonationList = debounce(function (e) {
+  const maxScroll =
+    refs.donationListElement.scrollHeight -
+    refs.donationListElement.clientHeight;
+  if (refs.donationListElement.scrollTop === maxScroll) {
+    clearInterval(intervalID);
+    clearTimeout(timeoutID);
+    refs.scrollButton.style.transform = 'rotate(180deg)';
+    timeoutID = setTimeout(() => {
+      autoScroll();
+    }, 3000);
+  } else if (refs.donationListElement.scrollTop === 0) {
+    clearInterval(intervalID);
+    clearTimeout(timeoutID);
+    refs.scrollButton.style.transform = 'rotate(0deg)';
+    timeoutID = setTimeout(() => {
+      autoScroll();
+    }, 3000);
+  }
+}, 5);
+
+let scrollDir = true;
+let scrolltop;
+let intervalID;
+let timeoutID;
+
+timeoutID = setTimeout(() => {
+  autoScroll();
+}, 3000);
+
+refs.scrollButton.addEventListener('click', () => {
+  if (intervalID) clearInterval(intervalID);
+  if (timeoutID) clearTimeout(timeoutID);
+  scrollOnClick();
+  timeoutID = setTimeout(() => {
+    autoScroll();
+  }, 3000);
+});
+
+refs.donationListElement.addEventListener('scroll', e => {
+  onScrollDonationList(e);
+});
