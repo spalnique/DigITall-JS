@@ -127,12 +127,6 @@
   color: #fff;
 }
 
-/* .add-remove-button:focus {
-  background-color: #4f2ee8;
-  box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.15);
-  border-color: transparent;
-  color: #fff;
-} */
 .modal-text {
   width: 242px;
   margin: 0 auto;
@@ -234,4 +228,8 @@
 .modal-icon-amazon-dark-theme:hover,
 .modal-icon-apple-dark-theme:hover {
   filter: drop-shadow(0px 3px 3px rgba(255, 255, 255, 0.35));
+}
+
+.modal-label-dark-theme {
+  color: rgba(255, 255, 255, 0.5);
 }

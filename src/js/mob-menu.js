@@ -67,6 +67,8 @@ function onCloseMenuModal() {
   refs.menuOpenButton.classList.remove('hidden');
   refs.menuCloseButton.classList.remove('visible-flex');
   document.body.classList.remove('scroll-ban');
+  menuSignUpButton.removeEventListener('click', onMenuSignUpButtonClick);
+  menuLogoutButton.removeEventListener('click', onMenuLogOutButtonClick);
 }
 
 export function showMenuModal(i) {
@@ -91,12 +93,14 @@ export function onMenuOpenButtonClick() {
   }
 }
 
-const menuLogoutButton = menuModal.element().querySelector('.menu-log-out-btn');
-const menuSignUpButton = menuSignUp
+export const menuLogoutButton = menuModal
+  .element()
+  .querySelector('.menu-log-out-btn');
+export const menuSignUpButton = menuSignUp
   .element()
   .querySelector('.menu-sign-up-btn');
 
-function onMenuLogOutButtonClick() {
+export function onMenuLogOutButtonClick() {
   if (location.pathname.includes('shopping-list')) {
     location.pathname = '/';
   }
