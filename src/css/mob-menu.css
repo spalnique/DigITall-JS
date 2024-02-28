@@ -56,6 +56,9 @@
 }
 
 .menu-nav-link-home {
+  width: 72px;
+  height: 34px;
+  padding: 8px 16px;
   font-weight: 500;
   font-size: 14px;
   line-height: 1.29;
@@ -67,6 +70,8 @@
   display: flex;
   gap: 4px;
   align-items: center;
+  width: fit-content;
+  height: 34px;
   font-weight: 500;
   font-size: 14px;
   line-height: 1.29;
@@ -82,7 +87,7 @@
 }
 
 .menu-nav-icon-shop {
-  fill: #fff;
+  /* fill: #fff; */
 }
 
 .menu-log-out-btn {
@@ -101,7 +106,8 @@
   color: #111;
 }
 
-.menu-log-out-icon {}
+.menu-log-out-icon {
+}
 
 .menu-sign-up-container {
   padding-top: 104px;
