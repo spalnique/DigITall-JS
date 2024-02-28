@@ -15,6 +15,7 @@ import { showElement, setActivePage } from './js/showHideFn';
 import { refs } from './js/refs';
 // import './js/mob-menu';
 import { isUserLoggedIn } from './js/autorization';
+import './js/footer';
 
 isUserLoggedIn();
 setActivePage('header-nav-link-home');
