@@ -104,9 +104,13 @@ export const renderPagination = (domElement, changePagination) => {
 
     if (currentPage === newPage) {
       pageBtn.classList.add('cart-pagination-btn-active');
+      pageBtn.classList.add('cart-shrink');
     } else if (currentPage !== newPage && currentPage > newPage) {
       pageBtn.classList.add('cart-last-arrow-btn');
+      pageBtn.classList.add(`cart-shrink`);
       dotsBtnPrev.classList.add('cart-last-arrow-btn');
+    } else {
+      pageBtn.classList.add(`cart-shrink`);
     }
 
     paginationDiv.appendChild(pageBtn);

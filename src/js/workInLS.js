@@ -10,7 +10,7 @@ export const getLS = key => {
     }
     throw new Error(`I do not find ${prefixKey ? `${prefixKey}_` : ''}${key}`);
   } catch (error) {
-    console.warn('[getLS]: ', error);
+    // console.warn('[getLS]: ', error);
     return null;
   }
 };
