@@ -4,6 +4,7 @@ import icon from '../img/icons.svg';
 import { logout, onFormSubmit } from './autorization';
 import { onMenuCloseButtonClick, onMenuOpenButtonClick } from './mob-menu';
 import { refs as mainRefs } from './refs';
+import {} from './mob-menu';
 export const refs = {
   headerContainer: document.querySelector('.header-container'),
   headerNavigation: document.querySelector('.header-nav-list'),
@@ -66,12 +67,18 @@ function onSingUpButtonClick() {
 }
 
 export function onInstanceSignUpShow(i) {
+  function onTypeEscape(e) {
+    if (e.key === 'Escape') {
+      i.close(document.removeEventListener('keydown', onTypeEscape));
+    }
+  }
   const refsInstance = createInstanceSignUpRefs(instanceSignUp);
   menuDarkTheme(refsInstance);
   refsInstance.buttonClose.addEventListener('click', () => i.close());
   refsInstance.form.addEventListener('submit', onFormSubmit);
   refsInstance.signUpBtn.addEventListener('click', changeInstanceSingUp);
   refsInstance.signInBtn.addEventListener('click', changeInstanceSingUp);
+  document.addEventListener('keydown', onTypeEscape);
 }
 
 function changeInstanceSingUp(e) {

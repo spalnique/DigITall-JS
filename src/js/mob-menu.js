@@ -54,6 +54,15 @@ function onShowMenuModal(i) {
     i.element().querySelector('.menu-user-name').textContent = JSON.parse(
       localStorage.getItem('userInfo')
     );
+    const menuLogoutButton = menuModal
+      .element()
+      .querySelector('.menu-log-out-btn');
+    menuLogoutButton.addEventListener('click', onMenuLogOutButtonClick);
+  } else {
+    const menuSignUpButton = menuSignUp
+      .element()
+      .querySelector('.menu-sign-up-btn');
+    menuSignUpButton.addEventListener('click', onMenuSignUpButtonClick);
   }
 
   refs.headerContainer.classList.add('change-z-index');
@@ -91,12 +100,7 @@ export function onMenuOpenButtonClick() {
   }
 }
 
-const menuLogoutButton = menuModal.element().querySelector('.menu-log-out-btn');
-const menuSignUpButton = menuSignUp
-  .element()
-  .querySelector('.menu-sign-up-btn');
-
-function onMenuLogOutButtonClick() {
+export function onMenuLogOutButtonClick() {
   if (location.pathname.includes('shopping-list')) {
     location.pathname = '/';
   }
@@ -108,6 +112,3 @@ export function onMenuSignUpButtonClick() {
   closeMenuModal(menuSignUp);
   instanceSignUp.show(onInstanceSignUpShow);
 }
-
-menuSignUpButton.addEventListener('click', onMenuSignUpButtonClick);
-menuLogoutButton.addEventListener('click', onMenuLogOutButtonClick);
