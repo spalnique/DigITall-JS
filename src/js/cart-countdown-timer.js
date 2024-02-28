@@ -1,9 +1,11 @@
 import { cartRefs } from '../shopping-list';
 
+const cartTimerWrap = document.querySelector('.cart-timer-wrap');
+
 const createCartCountdownTimerMarkup = () => {
   return `<div class="cart-timer">
       <h3 class="cart-timer-title">
-        Place you order within next 2 hours and get 10% discount!
+        Place your order within next 2 hours and get 10% discount!
       </h3>
       <div class="cart-timer-box">
          <div id="hours" class="cart-timer-item">
@@ -52,7 +54,7 @@ const createCartCountdownTimerMarkup = () => {
     </div>`;
 };
 
-cartRefs.cartTimerWrap.innerHTML = createCartCountdownTimerMarkup();
+cartTimerWrap.innerHTML = createCartCountdownTimerMarkup();
 
 const dom = {
   hours: document.getElementById('hours'),
@@ -68,6 +70,7 @@ const getTime = () => {
   if (lsTime) {
     return lsTime;
   }
+  const addTime = 10000;
   // const addTime = 1000 * 60 * 60 * 2;
   const finishedTime = Date.now() + addTime;
   localStorage.setItem('time', finishedTime);
