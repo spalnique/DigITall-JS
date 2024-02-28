@@ -25,7 +25,6 @@
   align-items: center;
   gap: 9px;
   width: fit-content;
-  transition: scale 300ms ease-in-out;
 }
 
 .menu-user-name {
@@ -65,7 +64,6 @@
   line-height: 1.29;
   letter-spacing: -0.04em;
   text-transform: uppercase;
-  transition: scale 300ms ease-in-out;
 }
 
 .menu-nav-link-shop {
@@ -80,7 +78,6 @@
   letter-spacing: -0.04em;
   text-transform: uppercase;
   color: #fff;
-  transition: scale 300ms ease-in-out;
 }
 
 .make-yellow {
@@ -90,8 +87,6 @@
 }
 
 .menu-nav-icon-shop {
-  fill: #fff;
-  stroke: #fff;
 }
 
 .menu-log-out-btn {
@@ -108,7 +103,6 @@
   line-height: 1.29;
   letter-spacing: -0.04em;
   color: #111;
-  transition: scale 300ms ease-in-out;
 }
 
 .menu-log-out-icon {
@@ -134,10 +128,4 @@
   line-height: 1.29;
   letter-spacing: -0.04em;
   color: #fff;
-}
-.menu-nav-link-home:hover,
-.menu-nav-link-shop:hover,
-.menu-user-profile:hover,
-.menu-log-out-btn:hover {
-  scale: 1.3;
 }
