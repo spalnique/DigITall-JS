@@ -12,6 +12,13 @@
   transition: opacity 0.7s ease;
 }
 
+.button-up:hover {
+  filter: brightness(120%);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+} 
+
 .button-up--show {
   opacity: 1;
 }
+
+
