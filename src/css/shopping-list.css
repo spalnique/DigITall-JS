@@ -702,6 +702,16 @@
 }
 
 /* // ======= dark-theme-styles =======// */
+.dark-theme {
+  background-color: #202024;
+}
+
+.dark-theme header {
+  border-color: #ffffff;
+  color: #ffffff;
+  background-color: #202024;
+}
+
 .dark-theme.main-container {
   background-color: #202024;
 }
