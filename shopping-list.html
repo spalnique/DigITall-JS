@@ -22,9 +22,9 @@
     
     <script type="module" crossorigin src="/DigITall-JS/commonHelpers2.js"></script>
     <link rel="modulepreload" crossorigin href="/DigITall-JS/assets/vendor-4a53a031.js">
-    <link rel="modulepreload" crossorigin href="/DigITall-JS/assets/showHideFn-1c2e66dc.js">
+    <link rel="modulepreload" crossorigin href="/DigITall-JS/assets/showHideFn-755eee01.js">
     <link rel="stylesheet" href="/DigITall-JS/assets/vendor-864241e7.css">
-    <link rel="stylesheet" href="/DigITall-JS/assets/showHideFn-cbf47655.css">
+    <link rel="stylesheet" href="/DigITall-JS/assets/showHideFn-3f9d5da5.css">
     <link rel="stylesheet" href="/DigITall-JS/assets/shopping-list-b0eb1540.css">
   </head>
   <body>
@@ -140,7 +140,100 @@
         <div class="main-shopping-list"></div>
       </div>
     </main>
-    <!-- <footer class="container"></footer> -->
+    <footer class="container footer">
+  <div class="footer-container container">
+    <div class="footer-div-logo">
+      <a class="footer-logo" href="./index.html"
+        ><svg class="footer-logo-icon" width="24" height="24">
+          <use href="/DigITall-JS/assets/icons-ce0b877b.svg#logo-light-dark"></use>
+        </svg>
+        <svg class="footer-nav-logo-icon" width="78" height="14">
+          <use href="/DigITall-JS/assets/icons-ce0b877b.svg#bookshelf-light"></use>
+        </svg>
+      </a>
+    </div>
+    <div class="footer-form-div">
+      <p class="footer-form-text">Subscribe</p>
+      <form class="footer-form">
+        <label class="footer-label">
+          <input
+            type="email"
+            name="email"
+            class="footer-input"
+            placeholder="Discount for Email"
+        /></label>
+        <button type="submit" class="footer-form-btn">
+          Subscribe
+          <!-- <svg class="footer-btn-icon" width="24" height="24">
+                <use href="./images/icons.svg#icon-Frame-3"></use>
+              </svg> -->
+        </button>
+      </form>
+    </div>
+    <div class="footer-soc-icon">
+      <p class="footer-text">Social media</p>
+      <ul class="footer-soc-menu">
+        <li class="footer-soc-list">
+          <a
+            class="footer-soc-link"
+            href=""
+            target="_blank"
+            rel="noopener no-referrer"
+          >
+            <svg class="footer-soc-icon" width="24" height="24">
+              <use href="/DigITall-JS/assets/icons-ce0b877b.svg#icon-instagram-2"></use>
+            </svg>
+          </a>
+        </li>
+        <li class="footer-soc-list">
+          <a
+            class="footer-soc-link"
+            href=""
+            target="_blank"
+            rel="noopener no-referrer"
+          >
+            <svg class="footer-soc-icon" width="24" height="24">
+              <use href="/DigITall-JS/assets/icons-ce0b877b.svg#icon-twitter-1"></use>
+            </svg>
+          </a>
+        </li>
+        <li class="footer-soc-list">
+          <a
+            class="footer-soc-link"
+            href=""
+            target="_blank"
+            rel="noopener no-referrer"
+          >
+            <svg class="footer-soc-icon" width="24" height="24">
+              <use href="/DigITall-JS/assets/icons-ce0b877b.svg#icon-facebook-1"></use>
+            </svg>
+          </a>
+        </li>
+        <li class="footer-soc-list">
+          <a
+            class="footer-soc-link"
+            href=""
+            target="_blank"
+            rel="noopener no-referrer"
+          >
+            <svg class="footer-soc-icon" width="24" height="24">
+              <use href="/DigITall-JS/assets/icons-ce0b877b.svg#icon-linkedin-1"></use>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+    <script>
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          document.body.classList.add('opaque');
+          document.body.classList.remove('transparent');
+        }, 1000);
+      });
+    </script>
     
   </body>
 </html>
