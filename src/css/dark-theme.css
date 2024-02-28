@@ -13,7 +13,8 @@
     color: #fff;
   }
   .header-nav-icon-shop {
-    fill: #111;
+    fill: #fff;
+    stroke: #fff;
   }
   .sidebar-category-text.make-blue {
     color: #eac645;
