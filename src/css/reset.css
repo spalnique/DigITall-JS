@@ -25,6 +25,10 @@ ul {
   list-style-type: none;
 }
 
+li {
+  cursor: pointer;
+}
+
 a {
   color: currentColor;
   text-decoration: none;

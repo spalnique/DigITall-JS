@@ -194,11 +194,11 @@
     width: calc((100% - 96px) / 5);
   }
 
-  .main-category-img {
-    height: 256px;
-  }
-
   .main-category-item-overlay {
     display: flex;
+  }
+
+  .main-category-img {
+    height: 256px;
   }
 }

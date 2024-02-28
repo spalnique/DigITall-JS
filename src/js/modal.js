@@ -83,19 +83,27 @@ function createModalRefs(instance) {
 }
 
 export async function createAndOpenModalWindow(e) {
-  if (
-    (e.target.dataset.action === 'open-modal' && window.innerWidth > 768) ||
-    (e.target !== e.currentTarget && window.innerWidth <= 768)
-  ) {
-    const modalWindowMarkup = await createModalWindowMarkup(e);
-    const modalWindowInstance = basicLightbox.create(modalWindowMarkup, {
-      onClose: () => window.removeEventListener('resize', checkWindowSize),
-    });
-    modalDarkThemeFunction(modalWindowInstance);
-    modalWindowInstance.show(onShowModalWindowInstance);
-  } else {
-    return;
-  }
+  // if (
+  //   (e.target.dataset.action === 'open-modal' && window.innerWidth > 768) ||
+  //   (e.target !== e.currentTarget && window.innerWidth <= 768)
+  // ) {
+  //   const modalWindowMarkup = await createModalWindowMarkup(e);
+  //   const modalWindowInstance = basicLightbox.create(modalWindowMarkup, {
+  //     onClose: () => window.removeEventListener('resize', checkWindowSize),
+  //   });
+  //   modalDarkThemeFunction(modalWindowInstance);
+  //   modalWindowInstance.show(onShowModalWindowInstance);
+  // } else {
+  //   return;
+  // }
+  if (e.target === e.currentTarget) return;
+
+  const modalWindowMarkup = await createModalWindowMarkup(e);
+  const modalWindowInstance = basicLightbox.create(modalWindowMarkup, {
+    onClose: () => window.removeEventListener('resize', checkWindowSize),
+  });
+  modalDarkThemeFunction(modalWindowInstance);
+  modalWindowInstance.show(onShowModalWindowInstance);
 }
 
 function onShowModalWindowInstance(i) {
