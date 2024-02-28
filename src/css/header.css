@@ -16,11 +16,8 @@
   gap: 8px;
   padding: 18px 20px;
   align-items: center;
-  transition: scale 300ms ease-in-out;
 }
-.header-logo-link:hover {
-  scale: 1.03;
-}
+
 .header-nav-logo-icon {
   transition: transform 0.5s ease;
 }
@@ -105,7 +102,7 @@
 .header-menu-open-icon:hover,
 .header-menu-close-icon:hover {
   stroke: #4f2ee8;
-  scale: 1.1;
+  scale: 1.05;
 }
 
 /* =============================================== */
@@ -175,7 +172,6 @@
     line-height: 1.29;
     letter-spacing: -0.04em;
     text-transform: uppercase;
-    transition: scale 300ms ease-in-out;
   }
 
   .header-nav-link-shop {
@@ -190,7 +186,6 @@
     line-height: 1.29;
     letter-spacing: -0.04em;
     text-transform: uppercase;
-    transition: scale 300ms ease-in-out;
   }
 
   .header-btn-wrapper {
@@ -201,12 +196,6 @@
 
   .header-sigh-up-button {
     display: block;
-  }
-
-  .header-nav-link-home:hover,
-  .header-nav-link-shop:hover,
-  .header-user-profile-button:hover {
-    scale: 1.03;
   }
 
   .make-yellow {
@@ -236,7 +225,7 @@
     letter-spacing: -0.04em;
     color: #fff;
     transition: border 300ms ease-in-out, border-radius 300ms ease-in-out,
-      box-shadow 300ms ease-in-out, scale 300ms ease-in-out;
+      box-shadow 300ms ease-in-out;
     /* display: none; */
   }
 
@@ -245,7 +234,6 @@
     border-radius: 12px;
     filter: brightness(120%);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    scale: 1.03;
   }
 
   .header-sigh-up-button:active {
@@ -273,7 +261,6 @@
     border-radius: 36px;
     padding: 8px 12px;
     background-color: #4f2ee8;
-    transition: scale 300ms ease-in-out;
   }
 
   .header-user-icon-wrapper {
