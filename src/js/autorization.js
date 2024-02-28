@@ -5,7 +5,6 @@ import {
   createUserWithEmailAndPassword,
   updateProfile,
   signInWithEmailAndPassword,
-  onAuthStateChanged,
 } from 'firebase/auth';
 
 const firebaseConfig = {
@@ -62,6 +61,7 @@ function signIn(email, password) {
     .catch(error => {
       const errorCode = error.code;
       const errorMessage = error.message;
+      console.log(error);
     });
 }
 

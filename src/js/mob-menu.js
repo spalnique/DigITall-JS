@@ -41,7 +41,7 @@ const menuSignUpMarkup = `<div class="menu-container menu-sign-up-container">
 
 export const menuModal = basicLightbox.create(menuMarkup, {
   className: 'mob-menu-lightbox',
-  onClose: onCloseMenuModal,
+  onClose: () => onCloseMenuModal,
 });
 
 export const menuSignUp = basicLightbox.create(menuSignUpMarkup, {
@@ -50,16 +50,16 @@ export const menuSignUp = basicLightbox.create(menuSignUpMarkup, {
 });
 
 function onShowMenuModal(i) {
+  if (i.element().querySelector('.menu-user-name')) {
+    i.element().querySelector('.menu-user-name').textContent = JSON.parse(
+      localStorage.getItem('userInfo')
+    );
+  }
+
   refs.headerContainer.classList.add('change-z-index');
   refs.menuOpenButton.classList.add('hidden');
   refs.menuCloseButton.classList.add('visible-flex');
   document.body.classList.add('scroll-ban');
-
-  i.element().querySelector('.menu-user-name')
-    ? (i.element().querySelector('.menu-user-name').textContent = JSON.parse(
-        localStorage.getItem('userInfo')
-      ))
-    : '';
 }
 
 function onCloseMenuModal() {
@@ -92,18 +92,21 @@ export function onMenuOpenButtonClick() {
 }
 
 const menuLogoutButton = menuModal.element().querySelector('.menu-log-out-btn');
-menuLogoutButton.addEventListener('click', () => {
+const menuSignUpButton = menuSignUp
+  .element()
+  .querySelector('.menu-sign-up-btn');
+
+function onMenuLogOutButtonClick() {
   if (location.pathname.includes('shopping-list')) {
     location.pathname = '/';
   }
   localStorage.removeItem('userInfo');
   menuModal.close();
-});
-
-const menuSignUpButton = menuSignUp
-  .element()
-  .querySelector('.menu-sign-up-btn');
-menuSignUpButton.addEventListener('click', () => {
+}
+export function onMenuSignUpButtonClick() {
   menuSignUp.close();
   instanceSignUp.show(onInstanceSignUpShow);
-});
+}
+
+menuSignUpButton.addEventListener('click', onMenuSignUpButtonClick);
+menuLogoutButton.addEventListener('click', onMenuLogOutButtonClick);
