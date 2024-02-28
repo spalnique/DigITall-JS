@@ -22,6 +22,11 @@
   gap: 12px;
   align-items: center;
   margin-bottom: 40px;
+  transition: scale 300ms ease-in-out;
+}
+
+.sidebar-donations-title-wrapper:hover {
+  scale: 1.2;
 }
 
 .sidebar-donations-title {
@@ -51,6 +56,11 @@
   align-items: center;
   gap: 16px;
   height: 32px;
+  transition: scale 300ms ease-in-out;
+}
+
+.sidebar-donation-list-name:hover {
+  scale: 1.1;
 }
 
 .sidebar-donation-name-number {
@@ -75,7 +85,11 @@
   border: none;
   width: fit-content;
   align-self: center;
-  transition: transform 250ms ease-in-out 250ms;
+  transition: transform 250ms ease-in-out 250ms, scale 300ms ease-in-out;
+}
+
+.sidebar-scroll-btn:hover {
+  scale: 1.2;
 }
 
 .sidebar-donation-list::-webkit-scrollbar {

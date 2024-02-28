@@ -8,13 +8,15 @@ import {
   createBookMarkup,
   createCategoryMarkup,
   renderContent,
+  renderLoader,
 } from './js/createMarkups';
 import { createAndOpenModalWindow } from './js/modal';
 import { renderTopSellers } from './js/createTopSellers';
 import { showElement, setActivePage } from './js/showHideFn';
 import { refs } from './js/refs';
-// import './js/mob-menu';
+import './js/mob-menu';
 import { isUserLoggedIn } from './js/autorization';
+import './js/footer';
 
 isUserLoggedIn();
 setActivePage('header-nav-link-home');

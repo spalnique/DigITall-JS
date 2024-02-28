@@ -22,4 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-ASpull.txt
+
+# my pull requests
+pullrequests-list.txt

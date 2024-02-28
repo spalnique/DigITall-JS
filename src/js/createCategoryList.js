@@ -6,8 +6,10 @@ import {
   createCategoryMarkup,
   createBookMarkup,
   renderContent,
+  renderLoader,
 } from './createMarkups';
 import { renderTopSellers } from './createTopSellers';
+import { showElement } from './showHideFn';
 
 catList();
 
@@ -60,6 +62,7 @@ async function onCatClick(e) {
     return;
   }
   linkIsActive(e);
+  renderLoader(refs.mainCatWrap);
   const strArr = e.target.dataset.category.split(' ');
   strArr[strArr.length - 1] = `<span>${strArr[strArr.length - 1]}</span>`;
   refs.mainTitle.innerHTML = strArr.join(' ');

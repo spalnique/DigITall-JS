@@ -15,7 +15,7 @@ const menuMarkup = `<div class="menu-container">
    
     <ul id="menu-list" class="menu-nav-list">
       <li class="menu-nav-item">
-          <a class="menu-nav-link menu-nav-link-home" href="./index.html">Home</a>
+          <a class="menu-nav-link menu-nav-link-home make-yellow" href="./index.html">Home</a>
         </li>
       <li class="menu-nav-item">
         <a class="menu-nav-link menu-nav-link-shop shopping-link" href="../shopping-list.html">
@@ -41,7 +41,7 @@ const menuSignUpMarkup = `<div class="menu-container menu-sign-up-container">
 
 export const menuModal = basicLightbox.create(menuMarkup, {
   className: 'mob-menu-lightbox',
-  onClose: onCloseMenuModal,
+  onClose: () => onCloseMenuModal,
 });
 
 export const menuSignUp = basicLightbox.create(menuSignUpMarkup, {
@@ -50,16 +50,16 @@ export const menuSignUp = basicLightbox.create(menuSignUpMarkup, {
 });
 
 function onShowMenuModal(i) {
+  if (i.element().querySelector('.menu-user-name')) {
+    i.element().querySelector('.menu-user-name').textContent = JSON.parse(
+      localStorage.getItem('userInfo')
+    );
+  }
+
   refs.headerContainer.classList.add('change-z-index');
   refs.menuOpenButton.classList.add('hidden');
   refs.menuCloseButton.classList.add('visible-flex');
   document.body.classList.add('scroll-ban');
-
-  i.element().querySelector('.menu-user-name')
-    ? (i.element().querySelector('.menu-user-name').textContent = JSON.parse(
-        localStorage.getItem('userInfo')
-      ))
-    : '';
 }
 
 function onCloseMenuModal() {
@@ -76,20 +76,38 @@ export function closeMenuModal(i) {
   i.close();
   onCloseMenuModal();
 }
+export function onMenuCloseButtonClick() {
+  if (JSON.parse(localStorage.getItem('userInfo'))) {
+    closeMenuModal(menuModal);
+  } else {
+    closeMenuModal(menuSignUp);
+  }
+}
+export function onMenuOpenButtonClick() {
+  if (JSON.parse(localStorage.getItem('userInfo'))) {
+    showMenuModal(menuModal);
+  } else {
+    showMenuModal(menuSignUp);
+  }
+}
 
 const menuLogoutButton = menuModal.element().querySelector('.menu-log-out-btn');
-menuLogoutButton.addEventListener('click', () => {
+const menuSignUpButton = menuSignUp
+  .element()
+  .querySelector('.menu-sign-up-btn');
+
+function onMenuLogOutButtonClick() {
   if (location.pathname.includes('shopping-list')) {
     location.pathname = '/';
   }
   localStorage.removeItem('userInfo');
-  menuModal.close();
-});
+  closeMenuModal(menuModal);
+}
 
-const menuSignUpButton = menuSignUp
-  .element()
-  .querySelector('.menu-sign-up-btn');
-menuSignUpButton.addEventListener('click', () => {
-  menuSignUp.close();
+export function onMenuSignUpButtonClick() {
+  closeMenuModal(menuSignUp);
   instanceSignUp.show(onInstanceSignUpShow);
-});
+}
+
+menuSignUpButton.addEventListener('click', onMenuSignUpButtonClick);
+menuLogoutButton.addEventListener('click', onMenuLogOutButtonClick);
