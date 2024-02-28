@@ -1,32 +1,34 @@
-const STORAGE_KEY = "footer-input";
+import iziToast from 'izitoast';
 
-const form = document.querySelector(".footer-form-btn");
+const STORAGE_KEY = 'footer-input';
 
-form.addEventListener("input", () => {
-    const userEmail = form.elements.email.value;
-    
-    const data = {
-    email: userEmail,   
-    };
+const form = document.querySelector('.footer-form');
+
+form.addEventListener('input', () => {
+  const userEmail = form.elements.email.value;
+
+  const data = {
+    email: userEmail,
+  };
 
   saveToLS(STORAGE_KEY, data);
 });
 
-form.addEventListener("submit", (e) => {
+form.addEventListener('submit', e => {
   e.preventDefault();
 
   // валідація поля email
   const userEmail = form.elements.email.value;
-   if (userEmail.trim() === '') {
+  if (userEmail.trim() === '') {
     iziToast.show({
-        message: `Введіть e-mail`,
-        messageColor: '#FFFFFF',
-        backgroundColor: '#59A10D',
-        position: 'center',
-      });
+      message: `Введіть e-mail`,
+      messageColor: '#FFFFFF',
+      backgroundColor: '#59A10D',
+      position: 'center',
+    });
     return;
   }
-// ====================
+  // ====================
 
   const data = loadFromLS(STORAGE_KEY) || {};
   console.log(data);
@@ -35,7 +37,7 @@ form.addEventListener("submit", (e) => {
   form.reset();
 });
 
-function loadFromLS(key = "empty") {
+function loadFromLS(key = 'empty') {
   const data = localStorage.getItem(key);
   try {
     const result = JSON.parse(data);
@@ -52,7 +54,7 @@ function saveToLS(key, value) {
 
 function restoreData() {
   const data = loadFromLS(STORAGE_KEY) || {};
-  form.elements.email.value = data.email || "";
+  form.elements.email.value = data.email || '';
 }
 
 restoreData();
