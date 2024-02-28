@@ -5,8 +5,8 @@ import {
   createUserWithEmailAndPassword,
   updateProfile,
   signInWithEmailAndPassword,
-  onAuthStateChanged,
 } from 'firebase/auth';
+import { createIziToast } from './iziToast';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCAn6DCGGRmtf9e6SAGV9R6e1JxRK2q4A8',
@@ -47,7 +47,14 @@ function signUp(email, password, name) {
     .catch(error => {
       const errorCode = error.code;
       const errorMessage = error.message;
-      console.log(error);
+      if (errorCode.includes('email-already-in-use')) {
+        createIziToast('Email already in use');
+      } else {
+        createIziToast(
+          'Something went wrong. Please, restart your page and try again.'
+        );
+      }
+      console.log(error.code);
     });
 }
 
@@ -62,6 +69,14 @@ function signIn(email, password) {
     .catch(error => {
       const errorCode = error.code;
       const errorMessage = error.message;
+      if (errorCode.includes('invalid-credential')) {
+        createIziToast('Wrong email or password');
+      } else {
+        createIziToast(
+          'Something went wrong. Please, restart your page and try again.'
+        );
+      }
+      console.log(error);
     });
 }
 

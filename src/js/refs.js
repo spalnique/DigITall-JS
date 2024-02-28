@@ -8,4 +8,5 @@ export const refs = {
   arrowIcon: document.querySelector('.sidebar-arrow-btn'),
   scrollButton: document.querySelector('.sidebar-scroll-btn'),
   shopListWrap: document.querySelector('.main-shopping-list'),
+  checkbox: document.querySelector('#themeToggle'),
 };

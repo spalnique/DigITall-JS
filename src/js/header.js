@@ -2,13 +2,8 @@ import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
 import icon from '../img/icons.svg';
 import { logout, onFormSubmit } from './autorization';
-import {
-  menuModal,
-  menuSignUp,
-  closeMenuModal,
-  showMenuModal,
-} from './mob-menu';
-
+import { onMenuCloseButtonClick, onMenuOpenButtonClick } from './mob-menu';
+import { refs as mainRefs } from './refs';
 export const refs = {
   headerContainer: document.querySelector('.header-container'),
   headerNavigation: document.querySelector('.header-nav-list'),
@@ -40,7 +35,7 @@ const signUpMarkup = `<form class="authorization-form">
   <use href=${icon}#lock></use></svg>
   </label>
   </fieldset>
-  <button class="authorization-button" type="submit">Sign up</button>
+  <button class="submit-button" type="submit">Sign up</button>
   <div class="authorization-button-wrapper">
   <button class="sign-up-btn make-active" type="button">Sign up</button>
   <button class="sign-in-btn js-signin-btn" type="button">Sign in</button></div>
@@ -55,11 +50,14 @@ export const instanceSignUp = basicLightbox.create(signUpMarkup, {
 function createInstanceSignUpRefs(i) {
   return {
     buttonClose: i.element().querySelector('.authorization-button-close'),
+    iconClose: i.element().querySelector('.authorization-button-close svg'),
     form: i.element().querySelector('.authorization-form'),
+    input: i.element().querySelectorAll('.authorization-input'),
     fieldset: i.element().querySelector('.authorization-fieldset'),
-    submitButton: i.element().querySelector('.authorization-button'),
+    submitButton: i.element().querySelector('.submit-button'),
     signUpBtn: i.element().querySelector('.sign-up-btn'),
     signInBtn: i.element().querySelector('.sign-in-btn'),
+    icons: i.element().querySelectorAll('.authorization-label svg'),
   };
 }
 
@@ -69,6 +67,7 @@ function onSingUpButtonClick() {
 
 export function onInstanceSignUpShow(i) {
   const refsInstance = createInstanceSignUpRefs(instanceSignUp);
+  menuDarkTheme(refsInstance);
   refsInstance.buttonClose.addEventListener('click', () => i.close());
   refsInstance.form.addEventListener('submit', onFormSubmit);
   refsInstance.signUpBtn.addEventListener('click', changeInstanceSingUp);
@@ -97,6 +96,7 @@ function onInstanceSignUpClose(i) {
   refsInstance.signInBtn.classList.remove('make-active');
   refsInstance.signUpBtn.classList.add('make-active');
 }
+
 function showLogOutButton(e) {
   const buttonWidth = Math.round(
     e.currentTarget.parentElement.getBoundingClientRect().width
@@ -105,21 +105,32 @@ function showLogOutButton(e) {
   refs.logOutButton.classList.toggle('log-out-visible');
 }
 
-refs.menuOpenButton.addEventListener('click', e => {
-  if (JSON.parse(localStorage.getItem('userInfo'))) {
-    showMenuModal(menuModal);
-  } else {
-    showMenuModal(menuSignUp);
-  }
-});
-refs.menuCloseButton.addEventListener('click', () => {
-  if (JSON.parse(localStorage.getItem('userInfo'))) {
-    closeMenuModal(menuModal);
-  } else {
-    closeMenuModal(menuSignUp);
-  }
-});
-
+refs.menuOpenButton.addEventListener('click', onMenuOpenButtonClick);
+refs.menuCloseButton.addEventListener('click', onMenuCloseButtonClick);
 refs.sighUpButton.addEventListener('click', onSingUpButtonClick);
 refs.showLogOutButton.addEventListener('click', showLogOutButton);
 refs.logOutButton.addEventListener('click', logout);
+
+function menuDarkTheme(i) {
+  if (mainRefs.checkbox.checked) {
+    i.form.classList.add('menu-container-dark-theme');
+    i.iconClose.classList.add('menu-button-close-dark-theme');
+    i.input.forEach(item => {
+      item.classList.add('menu-input-dark-theme');
+    });
+    i.icons.forEach(item => item.classList.add('menu-icon-dark-theme'));
+    i.submitButton.classList.add('menu-submit-button-dark-theme');
+    i.signUpBtn.classList.add('menu-signUp-signIn-button');
+    i.signInBtn.classList.add('menu-signUp-signIn-button');
+  } else {
+    i.form.classList.remove('menu-container-dark-theme');
+    i.iconClose.classList.remove('menu-button-close-dark-theme');
+    i.input.forEach(item => {
+      item.classList.remove('menu-input-dark-theme');
+    });
+    i.icons.forEach(item => item.classList.remove('menu-icon-dark-theme'));
+    i.submitButton.classList.remove('menu-submit-button-dark-theme');
+    i.signUpBtn.classList.remove('menu-signUp-signIn-button');
+    i.signInBtn.classList.remove('menu-signUp-signIn-button');
+  }
+}
