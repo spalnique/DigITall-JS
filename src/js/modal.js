@@ -25,7 +25,6 @@ async function createModalWindowMarkup(e) {
         <button class="modal-button-close" type="button">
         <svg class="modal-icon-close" width="24" height="24">
         <use href=${icon}#x-close></use></svg></button>
-
         <div class="modal-book-wrapper">
         <img
           class="modal-img"
@@ -82,6 +81,11 @@ export async function createAndOpenModalWindow(e) {
     });
     modalDarkThemeFunction(modalWindowInstance);
     modalWindowInstance.show(onShowModalWindow);
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        modalWindowInstance.close();
+      }
+    });
   } else {
     return;
   }
@@ -93,6 +97,7 @@ function onShowModalWindow(i) {
   const closeButton = i.element().querySelector('.modal-button-close');
   const addRemoveButton = i.element().querySelector('.add-remove-button');
   closeButton.addEventListener('click', () => i.close());
+
   addRemoveButton.addEventListener('click', onClickAddRemoveButton);
   window.addEventListener('resize', checkWindowSize);
 }
