@@ -8,6 +8,7 @@ import {
   createBookMarkup,
   createCategoryMarkup,
   renderContent,
+  renderLoader,
 } from './js/createMarkups';
 import { createAndOpenModalWindow } from './js/modal';
 import { renderTopSellers } from './js/createTopSellers';
@@ -43,3 +44,4 @@ async function onMoreButtonClick(e) {
   const catBooks = document.querySelectorAll('.main-category-item');
   catBooks.forEach(x => showElement(x));
 }
+
