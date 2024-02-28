@@ -57,7 +57,7 @@
 
 .cart-timer-title {
   color: #002bff;
-  text-shadow: 1px 1px 1px #fc7fe6, 0 0 20px #4c23f1eb;
+  text-shadow: 1px 1px 1px #f69fe6, 0 0 20px #4c23f1eb;
   font-size: 18px;
   text-align: center;
   font-weight: 500;
@@ -710,6 +710,9 @@
   border-color: #ffffff;
   color: #ffffff;
   background-color: #202024;
+}
+
+.header-logo-icon {
 }
 
 .dark-theme.main-container {

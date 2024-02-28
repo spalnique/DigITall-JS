@@ -70,7 +70,7 @@ const getTime = () => {
   if (lsTime) {
     return lsTime;
   }
-  const addTime = 10000;
+  const addTime = 20000;
   // const addTime = 1000 * 60 * 60 * 2;
   const finishedTime = Date.now() + addTime;
   localStorage.setItem('time', finishedTime);
