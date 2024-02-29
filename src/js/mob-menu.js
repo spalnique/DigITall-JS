@@ -15,7 +15,7 @@ const menuMarkup = `<div class="menu-container">
    
     <ul id="menu-list" class="menu-nav-list">
       <li class="menu-nav-item">
-          <a class="menu-nav-link menu-nav-link-home" href="./index.html">Home</a>
+          <a class="menu-nav-link menu-nav-link-home menu-make-yellow" href="./index.html">Home</a>
         </li>
       <li class="menu-nav-item">
         <a class="menu-nav-link menu-nav-link-shop" href="../shopping-list.html">
@@ -57,21 +57,7 @@ function onShowMenuModal(i) {
     const menuLogoutButton = menuModal
       .element()
       .querySelector('.menu-log-out-btn');
-    const linkHome = menuModal.element().querySelector('.menu-nav-link-home');
-    const linkShop = menuModal.element().querySelector('.menu-nav-link-shop');
-    const linkShopIcon = menuModal
-      .element()
-      .querySelector('.menu-nav-icon-shop');
     menuLogoutButton.addEventListener('click', onMenuLogOutButtonClick);
-    if (window.location.href.includes('index')) {
-      linkHome.classList.add('menu-make-yellow');
-      linkShop.classList.remove('menu-make-yellow');
-      linkShopIcon.classList.remove('menu-make-yellow-icon');
-    } else {
-      linkShop.classList.add('menu-make-yellow');
-      linkShopIcon.classList.add('menu-make-yellow-icon');
-      linkHome.classList.remove('menu-make-yellow');
-    }
   } else {
     const menuSignUpButton = menuSignUp
       .element()
@@ -108,6 +94,20 @@ export function onMenuCloseButtonClick() {
 }
 export function onMenuOpenButtonClick() {
   if (JSON.parse(localStorage.getItem('userInfo'))) {
+    const linkHome = menuModal.element().querySelector('.menu-nav-link-home');
+    const linkShop = menuModal.element().querySelector('.menu-nav-link-shop');
+    const linkShopIcon = menuModal
+      .element()
+      .querySelector('.menu-nav-icon-shop');
+    if (!window.location.href.includes('shopping-list')) {
+      linkHome.classList.add('menu-make-yellow');
+      linkShop.classList.remove('menu-make-yellow');
+      linkShopIcon.classList.remove('menu-make-yellow-icon');
+    } else {
+      linkShop.classList.add('menu-make-yellow');
+      linkShopIcon.classList.add('menu-make-yellow-icon');
+      linkHome.classList.remove('menu-make-yellow');
+    }
     showMenuModal(menuModal);
   } else {
     showMenuModal(menuSignUp);
@@ -115,6 +115,10 @@ export function onMenuOpenButtonClick() {
 }
 
 export function onMenuLogOutButtonClick() {
+  const linkShop = menuModal.element().querySelector('.menu-nav-link-shop');
+  const linkShopIcon = menuModal.element().querySelector('.menu-nav-icon-shop');
+  linkShop.classList.remove('menu-make-yellow');
+  linkShopIcon.classList.remove('menu-make-yellow-icon');
   if (location.pathname.includes('shopping-list')) {
     location.pathname = '/';
   }

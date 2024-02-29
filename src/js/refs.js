@@ -9,4 +9,5 @@ export const refs = {
   scrollButton: document.querySelector('.sidebar-scroll-btn'),
   shopListWrap: document.querySelector('.main-shopping-list'),
   checkbox: document.querySelector('#themeToggle'),
+  mainContent: document.querySelector('.main-content'),
 };

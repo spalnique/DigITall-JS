@@ -1,10 +1,3 @@
-*,
-::after,
-::before {
-  box-sizing: border-box;
-}
-/* ====================================================== */
-
 .cart-sidebar {
   display: none;
 }
@@ -41,7 +34,6 @@
 }
 
 /* // ======= cart-timer-styles =======// */
-
 .cart-timer-wrap {
   align-self: center;
   max-width: 335px;
@@ -218,7 +210,6 @@
   line-height: 1.16667;
   letter-spacing: 0.03em;
   color: #b4afaf;
-
   margin-bottom: 8px;
 }
 
@@ -238,7 +229,6 @@
   max-height: 53px;
   max-width: 193px;
   overflow: hidden;
-
   text-overflow: ellipsis;
 }
 
@@ -295,7 +285,6 @@
 }
 
 /* ======= Cart-trash-btn-styles ======= */
-
 .cart-remove-book-btn {
   border: none;
   background: none;
@@ -315,7 +304,6 @@
   display: inline-block;
   margin: 0 auto;
   position: relative;
-
   -webkit-border-bottom-right-radius: 6px;
   -webkit-border-bottom-left-radius: 6px;
   -moz-border-radius-bottomright: 6px;
@@ -397,7 +385,6 @@
 }
 
 /* ======= Cart-item-glow-styles ======= */
-
 .cart-item-glow {
   box-sizing: border-box;
   outline: none;
@@ -409,15 +396,13 @@
 
 .cart-item-glow:before {
   content: '';
-  background: linear-gradient(
-    45deg,
-    #f5410f,
-    #e87d3a,
-    #eac645,
-    #002bff,
-    #4f2ee8,
-    #f71e8a
-  );
+  background: linear-gradient(45deg,
+      #f5410f,
+      #e87d3a,
+      #eac645,
+      #002bff,
+      #4f2ee8,
+      #f71e8a);
   position: absolute;
   top: -2px;
   left: -2px;
@@ -435,7 +420,6 @@
 /* .cart-item-glow:active {
   color: #000000;
 } */
-
 .cart-item-glow:active:after {
   background: transparent;
 }
@@ -472,7 +456,6 @@
 }
 
 /* ======= Pagination styles ======= */
-
 .cart-pagination-btns {
   display: flex;
   justify-content: center;
@@ -511,6 +494,7 @@
   background: #000000;
   color: #ffffff;
 }
+
 .cart-next-arrow-btn {
   background-color: #eac645;
 }
@@ -519,8 +503,8 @@
   border-radius: 16px;
   border: none;
 }
-/* ========  Tablet styles  ======== */
 
+/* ========  Tablet styles  ======== */
 @media screen and (min-width: 768px) {
   .main-content {
     padding-top: 50px;
@@ -623,7 +607,6 @@
 }
 
 /* // ======= Desctop styles ======= // */
-
 @media screen and (min-width: 1440px) {
   .cart-sidebar {
     display: block;
@@ -671,7 +654,6 @@
   }
 
   /* //====== Countdown-timer-styles ======// */
-
   .cart-timer-wrap {
     max-width: 480px;
     padding-top: 12px;
@@ -703,8 +685,7 @@
   background-color: #202024;
 }
 
-.header-logo-icon {
-}
+.header-logo-icon {}
 
 .dark-theme.main-container {
   background-color: #202024;
@@ -741,6 +722,7 @@
 .dark-theme .cart-book-title {
   color: #ffffff;
 }
+
 .dark-theme .cart-book-description {
   color: #ffffff;
 }

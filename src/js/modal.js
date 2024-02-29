@@ -62,9 +62,9 @@ async function createModalWindowMarkup(e) {
         <button class="add-remove-button modal-button-glow-styles" type="button">${
           checkCartData(result) ? textForRemoveButton : textForAddButton
         }</button>
-        <p class="modal-text">${
+        <span class="modal-text">${
           checkCartData(result) ? textIfBookIsAdded : textIfBookIsRemoved
-        }</p>
+        }</span>
         </div></div>`;
   return markup;
 }
@@ -94,6 +94,12 @@ export async function createAndOpenModalWindow(e) {
 }
 
 function onShowModalWindowInstance(i) {
+  if (!JSON.parse(localStorage.getItem('userInfo'))) {
+    const buttonToggleWrapper = i
+      .element()
+      .querySelector('.button-toggle-wrapper');
+    buttonToggleWrapper.classList.add('hidden');
+  }
   checkWindowSize();
   window.addEventListener('resize', checkWindowSize);
   const closeButton = i.element().querySelector('.modal-button-close');
