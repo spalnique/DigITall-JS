@@ -18,7 +18,6 @@ setActivePage('header-nav-link-shop');
 export const cartRefs = {
   body: document.querySelector('body'),
   logoIcon: document.querySelector('.header-logo-icon:nth-child(2)'),
-  logoIconFooter: document.querySelector('.footer-nav-logo-icon'),
   mainContainer: document.querySelector('.main-container'),
   mainTitle: document.querySelector('.main-title'),
   cartTimerWrap: document.querySelector('.cart-timer-wrap'),
@@ -40,7 +39,6 @@ const changeLogoIcon = isDarkTheme => {
   const path = `${icon}#bookshelf-${theme}`;
   const markup = `<use href="${path}"></use>`;
   cartRefs.logoIcon.innerHTML = markup;
-  cartRefs.logoIconFooter.innerHTML = markup;
 };
 
 export const handleCartDarkTheme = event => {
