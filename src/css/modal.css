@@ -47,8 +47,7 @@
   margin-bottom: 14px;
 }
 
-.modal-book-desc-wrapper {
-}
+.modal-book-desc-wrapper {}
 
 .modal-book-title {
   margin-bottom: 4px;
@@ -82,8 +81,7 @@
   align-items: center;
 }
 
-.modal-buy-link {
-}
+.modal-buy-link {}
 
 .modal-link-amazon-icon {
   mix-blend-mode: luminosity;
@@ -125,7 +123,6 @@
 }
 
 /* // ======= modal-button-glow-styles ======= // */
-
 .modal-button-glow-styles {
   outline: none;
   color: #000000;
@@ -136,15 +133,13 @@
 
 .modal-button-glow-styles::before {
   content: '';
-  background: linear-gradient(
-    45deg,
-    #f5410f,
-    #e87d3a,
-    #eac645,
-    #002bff,
-    #4f2ee8,
-    #f71e8a
-  );
+  background: linear-gradient(45deg,
+      #f5410f,
+      #e87d3a,
+      #eac645,
+      #002bff,
+      #4f2ee8,
+      #f71e8a);
   position: absolute;
   top: -2px;
   left: -2px;
@@ -192,9 +187,9 @@
     background-position: 0 0;
   }
 }
-/* // ======= end-of-button-glow-styles ======= // */
 
 .modal-text {
+  display: block;
   width: 242px;
   margin: 0 auto;
   text-align: center;
