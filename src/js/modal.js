@@ -62,40 +62,35 @@ async function createModalWindowMarkup(e) {
         <button class="add-remove-button" type="button">${
           checkCartData(result) ? textForRemoveButton : textForAddButton
         }</button>
-        <p class="modal-text make-visible">${
+        <p class="modal-text">${
           checkCartData(result) ? textIfBookIsAdded : textIfBookIsRemoved
         }</p>
         </div></div>`;
   return markup;
 }
 
-function createModalRefs(instance) {
-  return {
-    container: instance.element().querySelector('.modal-container'),
-    closeButton: instance.element().querySelector('.modal-button-close'),
-    closeIcon: instance.element().querySelector('.modal-icon-close'),
-    bookTitle: instance.element().querySelector('.modal-book-title'),
-    desc: instance.element().querySelector('.modal-book-desc'),
-    amazonIcon: instance.element().querySelector('.modal-link-amazon-icon'),
-    appleIcon: instance.element().querySelector('.modal-link-apple-icon'),
-    addRemoveButton: instance.element().querySelector('.add-remove-button'),
-  };
-}
-
 export async function createAndOpenModalWindow(e) {
-  if (
-    (e.target.dataset.action === 'open-modal' && window.innerWidth > 768) ||
-    (e.target !== e.currentTarget && window.innerWidth <= 768)
-  ) {
-    const modalWindowMarkup = await createModalWindowMarkup(e);
-    const modalWindowInstance = basicLightbox.create(modalWindowMarkup, {
-      onClose: () => window.removeEventListener('resize', checkWindowSize),
-    });
-    modalDarkThemeFunction(modalWindowInstance);
-    modalWindowInstance.show(onShowModalWindowInstance);
-  } else {
-    return;
-  }
+  // if (
+  //   (e.target.dataset.action === 'open-modal' && window.innerWidth > 768) ||
+  //   (e.target !== e.currentTarget && window.innerWidth <= 768)
+  // ) {
+  //   const modalWindowMarkup = await createModalWindowMarkup(e);
+  //   const modalWindowInstance = basicLightbox.create(modalWindowMarkup, {
+  //     onClose: () => window.removeEventListener('resize', checkWindowSize),
+  //   });
+  //   modalDarkThemeFunction(modalWindowInstance);
+  //   modalWindowInstance.show(onShowModalWindowInstance);
+  // } else {
+  //   return;
+  // }
+  if (e.target === e.currentTarget) return;
+
+  const modalWindowMarkup = await createModalWindowMarkup(e);
+  const modalWindowInstance = basicLightbox.create(modalWindowMarkup, {
+    onClose: () => window.removeEventListener('resize', checkWindowSize),
+  });
+  modalDarkThemeFunction(modalWindowInstance);
+  modalWindowInstance.show(onShowModalWindowInstance);
 }
 
 function onShowModalWindowInstance(i) {
@@ -153,6 +148,7 @@ function modalDarkThemeFunction(instance) {
       .classList,
     addRemoveButton: instance.element().querySelector('.add-remove-button')
       .classList,
+    text: instance.element().querySelector('.modal-text').classList,
   };
   if (refs.checkbox.checked) {
     modalRefsClassList.container.add('modal-container-dark-theme');
@@ -162,6 +158,7 @@ function modalDarkThemeFunction(instance) {
     modalRefsClassList.amazonIcon.add('modal-icon-amazon-dark-theme');
     modalRefsClassList.appleIcon.add('modal-icon-apple-dark-theme');
     modalRefsClassList.addRemoveButton.add('modal-text-dark-theme');
+    modalRefsClassList.text.add('modal-label-dark-theme');
   } else {
     modalRefsClassList.container.remove('modal-container-dark-theme');
     modalRefsClassList.closeIcon.remove('modal-icon-close-dark-theme');
@@ -170,6 +167,7 @@ function modalDarkThemeFunction(instance) {
     modalRefsClassList.amazonIcon.remove('modal-icon-amazon-dark-theme');
     modalRefsClassList.appleIcon.remove('modal-icon-apple-dark-theme');
     modalRefsClassList.addRemoveButton.remove('modal-text-dark-theme');
+    modalRefsClassList.text.remove('modal-label-dark-theme');
   }
 }
 

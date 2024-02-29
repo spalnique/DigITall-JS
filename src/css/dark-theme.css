@@ -12,9 +12,22 @@
   .header-nav-link-shop {
     color: #fff;
   }
+
   .header-nav-icon-shop {
     fill: #fff;
     stroke: #fff;
+  }
+
+  .header-menu-open-icon {
+    stroke: #fff;
+  }
+
+  .header-menu-close-icon {
+    stroke: #fff;
+  }
+
+  .switch {
+    background-image: url(../img/collection/switcher-dark.svg);
   }
   .sidebar-category-text.make-blue {
     color: #eac645;

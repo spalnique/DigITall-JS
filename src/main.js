@@ -44,3 +44,5 @@ async function onMoreButtonClick(e) {
   const catBooks = document.querySelectorAll('.main-category-item');
   catBooks.forEach(x => showElement(x));
 }
+
+

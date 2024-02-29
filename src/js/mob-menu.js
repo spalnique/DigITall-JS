@@ -15,10 +15,10 @@ const menuMarkup = `<div class="menu-container">
    
     <ul id="menu-list" class="menu-nav-list">
       <li class="menu-nav-item">
-          <a class="menu-nav-link menu-nav-link-home make-yellow" href="./index.html">Home</a>
+          <a class="menu-nav-link menu-nav-link-home" href="./index.html">Home</a>
         </li>
       <li class="menu-nav-item">
-        <a class="menu-nav-link menu-nav-link-shop shopping-link" href="../shopping-list.html">
+        <a class="menu-nav-link menu-nav-link-shop" href="../shopping-list.html">
           Shopping List
         <svg class="menu-nav-icon-shop" width="20" height="20">
         <use href=${icon}#icon-uil-cart></use></svg>
@@ -54,6 +54,29 @@ function onShowMenuModal(i) {
     i.element().querySelector('.menu-user-name').textContent = JSON.parse(
       localStorage.getItem('userInfo')
     );
+    const menuLogoutButton = menuModal
+      .element()
+      .querySelector('.menu-log-out-btn');
+    const linkHome = menuModal.element().querySelector('.menu-nav-link-home');
+    const linkShop = menuModal.element().querySelector('.menu-nav-link-shop');
+    const linkShopIcon = menuModal
+      .element()
+      .querySelector('.menu-nav-icon-shop');
+    menuLogoutButton.addEventListener('click', onMenuLogOutButtonClick);
+    if (window.location.href.includes('index')) {
+      linkHome.classList.add('menu-make-yellow');
+      linkShop.classList.remove('menu-make-yellow');
+      linkShopIcon.classList.remove('menu-make-yellow-icon');
+    } else {
+      linkShop.classList.add('menu-make-yellow');
+      linkShopIcon.classList.add('menu-make-yellow-icon');
+      linkHome.classList.remove('menu-make-yellow');
+    }
+  } else {
+    const menuSignUpButton = menuSignUp
+      .element()
+      .querySelector('.menu-sign-up-btn');
+    menuSignUpButton.addEventListener('click', onMenuSignUpButtonClick);
   }
 
   refs.headerContainer.classList.add('change-z-index');
@@ -91,12 +114,7 @@ export function onMenuOpenButtonClick() {
   }
 }
 
-const menuLogoutButton = menuModal.element().querySelector('.menu-log-out-btn');
-const menuSignUpButton = menuSignUp
-  .element()
-  .querySelector('.menu-sign-up-btn');
-
-function onMenuLogOutButtonClick() {
+export function onMenuLogOutButtonClick() {
   if (location.pathname.includes('shopping-list')) {
     location.pathname = '/';
   }
@@ -108,6 +126,3 @@ export function onMenuSignUpButtonClick() {
   closeMenuModal(menuSignUp);
   instanceSignUp.show(onInstanceSignUpShow);
 }
-
-menuSignUpButton.addEventListener('click', onMenuSignUpButtonClick);
-menuLogoutButton.addEventListener('click', onMenuLogOutButtonClick);
