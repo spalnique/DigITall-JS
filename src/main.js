@@ -29,6 +29,7 @@ async function onMoreButtonClick(e) {
   const strArr = e.target.dataset.category.split(' ');
   strArr[strArr.length - 1] = `<span>${strArr[strArr.length - 1]}</span>`;
   refs.mainTitle.innerHTML = strArr.join(' ');
+  refs.mainTitle.scrollIntoView({ behavior: 'smooth' }); //!
 
   const selectedCatData = await fetchData(
     endPoints.category,
@@ -44,5 +45,3 @@ async function onMoreButtonClick(e) {
   const catBooks = document.querySelectorAll('.main-category-item');
   catBooks.forEach(x => showElement(x));
 }
-
-
