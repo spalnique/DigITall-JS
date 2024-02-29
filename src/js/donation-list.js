@@ -59,7 +59,7 @@ const donation = [
 ];
 renderDonations(refs.donationListElement, donation);
 
-function debounce(func, delay) {
+export function debounce(func, delay) {
   let timeoutId;
   return function (...args) {
     clearTimeout(timeoutId);

@@ -45,4 +45,4 @@ async function onMoreButtonClick(e) {
   catBooks.forEach(x => showElement(x));
 }
 
-console.log(window.location.href);
+
