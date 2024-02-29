@@ -186,7 +186,8 @@
   }
 
   .footer-form {
-    margin-right: 20px;
+    /* margin-right: 20px; */
+    margin: 0;
   }
   /* footer-soc-icon {
     margin-bottom: 120px;
@@ -204,8 +205,10 @@
     display: none;
     font-size: 1px;
   }
+
   .footer-soc-menu {
-    margin-left: 70px;
-    margin-top: 25px;
+    /* margin-left: 70px;
+    margin-top: 25px; */
+    margin: 0;
   }
 }
