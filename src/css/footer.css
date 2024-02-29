@@ -58,30 +58,35 @@
   border-radius: 18px;
   border: 1px solid #111;
   outline: transparent;
+  transition: border-radius 300ms ease-in-out, box-shadow 300ms ease-in-out;
+}
+
+.footer-form-input:focus-within {
+  border-radius: 12px;
+  outline: 2px solid #eac645;
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1);
 }
 
 .footer-form-submit-button {
   border: none;
   border-radius: 18px;
   /* background-color: #eac645; */
-  background-color: #4f2ee8;
-  color: #fff;
+  background-color: #eac645;
+  color: #111;
   font-weight: 500;
   font-size: 14px;
   line-height: 1.29;
   letter-spacing: -0.04em;
   width: 184px;
   height: 48px;
-  transition: border 300ms ease-in-out, border-radius 300ms ease-in-out,
-    box-shadow 300ms ease-in-out;
+  transition: border-radius 300ms ease-in-out, box-shadow 300ms ease-in-out;
 }
 
 .footer-form-submit-button:hover,
 .footer-form-submit-button:focus {
-  border: 2px solid #4f2ee8;
   border-radius: 12px;
-  filter: brightness(120%);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  /* filter: brightness(120%); */
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1);
 }
 
 .footer-social-wrapper {
@@ -106,11 +111,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 50%;
+  border-radius: 18px;
   width: 48px;
   height: 48px;
   background-color: #4f2ee8;
+  transition: border-radius 300ms ease-in-out, 300ms ease-in-out;
 }
+
+.footer-social-link:hover {
+  border-radius: 12px;
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1);
+}
+
 .footer-social-icon {
   fill: #fff;
   scale: 0.75;
