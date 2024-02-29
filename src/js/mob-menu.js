@@ -59,12 +59,17 @@ function onShowMenuModal(i) {
       .querySelector('.menu-log-out-btn');
     const linkHome = menuModal.element().querySelector('.menu-nav-link-home');
     const linkShop = menuModal.element().querySelector('.menu-nav-link-shop');
+    const linkShopIcon = menuModal
+      .element()
+      .querySelector('.menu-nav-icon-shop');
     menuLogoutButton.addEventListener('click', onMenuLogOutButtonClick);
     if (window.location.href.includes('index')) {
       linkHome.classList.add('menu-make-yellow');
       linkShop.classList.remove('menu-make-yellow');
+      linkShopIcon.classList.remove('menu-make-yellow-icon');
     } else {
       linkShop.classList.add('menu-make-yellow');
+      linkShopIcon.classList.add('menu-make-yellow-icon');
       linkHome.classList.remove('menu-make-yellow');
     }
   } else {
