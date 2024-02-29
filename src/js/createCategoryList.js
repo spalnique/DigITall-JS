@@ -13,7 +13,10 @@ import { showElement } from './showHideFn';
 
 catList();
 
-refs.catList.addEventListener('click', onCatClick);
+refs.catList.addEventListener('click', e => {
+  onCatClick(e);
+  window.scrollTo({ top: refs.mainTitle.offsetTop - 20, behavior: 'smooth' });
+});
 
 async function catList() {
   const catListData = await fetchData(endPoints.list);
