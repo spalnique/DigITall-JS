@@ -94,6 +94,12 @@ export async function createAndOpenModalWindow(e) {
 }
 
 function onShowModalWindowInstance(i) {
+  if (!JSON.parse(localStorage.getItem('userInfo'))) {
+    const buttonToggleWrapper = i
+      .element()
+      .querySelector('.button-toggle-wrapper');
+    buttonToggleWrapper.classList.add('hidden');
+  }
   checkWindowSize();
   window.addEventListener('resize', checkWindowSize);
   const closeButton = i.element().querySelector('.modal-button-close');
