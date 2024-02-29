@@ -53,6 +53,20 @@
   .cart-item-glow {
     background-color: #111;
   }
+  .footer-container {
+    border: 1.5px solid #fff;
+    background-color: #111;
+  }
+  .footer-logo-icon {
+    fill: #fff;
+  }
+  .footer-logo-text-icon {
+    fill: #fff;
+  }
+
+  .footer-form-input {
+    border-color: #fff;
+  }
 }
 .header-container,
 .main-container,
