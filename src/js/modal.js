@@ -62,9 +62,9 @@ async function createModalWindowMarkup(e) {
         <button class="add-remove-button modal-button-glow-styles" type="button">${
           checkCartData(result) ? textForRemoveButton : textForAddButton
         }</button>
-        <p class="modal-text">${
+        <span class="modal-text">${
           checkCartData(result) ? textIfBookIsAdded : textIfBookIsRemoved
-        }</p>
+        }</span>
         </div></div>`;
   return markup;
 }

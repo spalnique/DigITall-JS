@@ -33,8 +33,6 @@ export function onFormSubmit(e) {
     signIn(email, password);
   }
 
-  menuSignUpButton.removeEventListener('click', onMenuSignUpButtonClick);
-  menuLogoutButton.removeEventListener('click', onMenuLogOutButtonClick);
   e.currentTarget.reset();
 }
 
