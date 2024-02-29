@@ -32,7 +32,6 @@ export function onFormSubmit(e) {
   } else if (whatNeedToDo === 'Sign in') {
     signIn(email, password);
   }
-
   e.currentTarget.reset();
 }
 
