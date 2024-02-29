@@ -21,7 +21,11 @@ import './js/footer';
 isUserLoggedIn();
 setActivePage('header-nav-link-home');
 renderTopSellers();
-refs.mainCatWrap.addEventListener('click', onMoreButtonClick);
+refs.mainCatWrap.addEventListener('click', e => {
+  onMoreButtonClick(e);
+
+  window.scrollTo({ top: refs.mainTitle.offsetTop - 20, behavior: 'smooth' });
+});
 
 async function onMoreButtonClick(e) {
   if (!e.target.dataset.category) return;
@@ -29,7 +33,6 @@ async function onMoreButtonClick(e) {
   const strArr = e.target.dataset.category.split(' ');
   strArr[strArr.length - 1] = `<span>${strArr[strArr.length - 1]}</span>`;
   refs.mainTitle.innerHTML = strArr.join(' ');
-  refs.mainTitle.scrollIntoView({ behavior: 'smooth' }); //!
 
   const selectedCatData = await fetchData(
     endPoints.category,
