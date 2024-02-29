@@ -1,0 +1,82 @@
+.loader {
+  width: 200px;
+  height: 135px;
+  background: #ebc74595;
+  box-sizing: border-box;
+  position: relative;
+  border-radius: 8px;
+  perspective: 1000px;
+}
+
+.loader:before {
+  content: '';
+  font-size: 4px;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  top: 10px;
+  bottom: 10px;
+  border-radius: 8px;
+  background: #f5f5f5 no-repeat;
+  background-size: 60px 2px;
+  background-image: linear-gradient(#c1c1c1 100px, transparent 0),
+    linear-gradient(#c1c1c1 100px, transparent 0),
+    linear-gradient(#c1c1c1 100px, transparent 0),
+    linear-gradient(#c1c1c1 100px, transparent 0),
+    linear-gradient(#c1c1c1 100px, transparent 0),
+    linear-gradient(#c1c1c1 100px, transparent 0),
+    linear-gradient(#c1c1c1 100px, transparent 0),
+    linear-gradient(#c1c1c1 100px, transparent 0),
+    linear-gradient(#c1c1c1 100px, transparent 0),
+    linear-gradient(#c1c1c1 100px, transparent 0),
+    linear-gradient(#c1c1c1 100px, transparent 0),
+    linear-gradient(#c1c1c1 100px, transparent 0),
+    linear-gradient(#c1c1c1 100px, transparent 0),
+    linear-gradient(#c1c1c1 100px, transparent 0),
+    linear-gradient(#c1c1c1 100px, transparent 0),
+    linear-gradient(#c1c1c1 100px, transparent 0),
+    linear-gradient(#c1c1c1 100px, transparent 0),
+    linear-gradient(#c1c1c1 100px, transparent 0),
+    linear-gradient(#c1c1c1 100px, transparent 0),
+    linear-gradient(#c1c1c1 100px, transparent 0);
+
+  background-position: 15px 10px, 15px 20px, 15px 30px, 15px 40px, 15px 50px,
+    15px 60px, 15px 70px, 15px 80px, 15px 90px, 15px 100px, 105px 10px,
+    105px 20px, 105px 30px, 105px 40px, 105px 50px, 105px 60px, 105px 70px,
+    105px 80px, 105px 90px, 105px 100px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+}
+.loader:after {
+  content: '';
+  position: absolute;
+  width: calc(50% - 10px);
+  right: 10px;
+  top: 10px;
+  bottom: 10px;
+  border-radius: 8px;
+  background: #fff no-repeat;
+  background-size: 60px 2px;
+  background-image: linear-gradient(#c1c1c1 100px, transparent 0),
+    linear-gradient(#c1c1c1 100px, transparent 0),
+    linear-gradient(#c1c1c1 100px, transparent 0),
+    linear-gradient(#c1c1c1 100px, transparent 0),
+    linear-gradient(#c1c1c1 100px, transparent 0),
+    linear-gradient(#c1c1c1 100px, transparent 0),
+    linear-gradient(#c1c1c1 100px, transparent 0),
+    linear-gradient(#c1c1c1 100px, transparent 0),
+    linear-gradient(#c1c1c1 100px, transparent 0),
+    linear-gradient(#c1c1c1 100px, transparent 0);
+  background-position: 50% 10px, 50% 20px, 50% 30px, 50% 40px, 50% 50px,
+    50% 60px, 50% 70px, 50% 80px, 50% 90px, 50% 100px, 50% 110px;
+  transform: rotateY(0deg);
+  transform-origin: left center;
+  animation: paging 1s linear infinite;
+}
+
+@keyframes paging {
+  to {
+    transform: rotateY(-180deg);
+  }
+}

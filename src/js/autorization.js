@@ -15,15 +15,15 @@ const firebaseConfig = {
   storageBucket: 'digitall-project10.appspot.com',
   messagingSenderId: '618447253868',
   appId: '1:618447253868:web:8e9934944d76f91f920349',
+  databaseURL: '',
 };
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 
 export function onFormSubmit(e) {
   e.preventDefault();
-  const whatNeedToDo = e.currentTarget.querySelector(
-    '.authorization-button'
-  ).textContent;
+  const whatNeedToDo =
+    e.currentTarget.querySelector('.submit-button').textContent;
   const name = e.target.elements.name.value;
   const email = e.target.elements.email.value;
   const password = e.target.elements.password.value;
@@ -32,6 +32,9 @@ export function onFormSubmit(e) {
   } else if (whatNeedToDo === 'Sign in') {
     signIn(email, password);
   }
+
+  menuSignUpButton.removeEventListener('click', onMenuSignUpButtonClick);
+  menuLogoutButton.removeEventListener('click', onMenuLogOutButtonClick);
   e.currentTarget.reset();
 }
 
@@ -45,9 +48,7 @@ function signUp(email, password, name) {
       instanceSignUp.close();
     })
     .catch(error => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      if (errorCode.includes('email-already-in-use')) {
+      if (error.code.includes('email-already-in-use')) {
         createIziToast('Email already in use');
       } else {
         createIziToast(
@@ -67,9 +68,7 @@ function signIn(email, password) {
       instanceSignUp.close();
     })
     .catch(error => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      if (errorCode.includes('invalid-credential')) {
+      if (error.code.includes('invalid-credential')) {
         createIziToast('Wrong email or password');
       } else {
         createIziToast(

@@ -34,6 +34,14 @@
       </div>
     </main>
     <load src="partials/footer.html" />
+    <script>
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          document.body.classList.add('opaque');
+          document.body.classList.remove('transparent');
+        }, 1000);
+      });
+    </script>
     <script type="module" src="./shopping-list.js"></script>
   </body>
 </html>

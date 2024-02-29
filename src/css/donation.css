@@ -75,7 +75,11 @@
   border: none;
   width: fit-content;
   align-self: center;
-  transition: transform 250ms ease-in-out 250ms;
+  transition: transform 250ms ease-in-out 250ms, scale 300ms ease-in-out;
+}
+
+.sidebar-scroll-btn:hover {
+  scale: 1.02;
 }
 
 .sidebar-donation-list::-webkit-scrollbar {

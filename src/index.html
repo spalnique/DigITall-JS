@@ -20,7 +20,7 @@
     />
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
-  <body>
+  <body class="transparent">
     <load src="partials/header.html" />
     <main class="main-container container">
       <aside class="main-sidebar">
@@ -30,7 +30,6 @@
       <div class="main-content">
         <h2 class="main-title">Best Sellers <span>Books</span></h2>
         <div class="category-list-wrapper"></div>
-        <!-- ============================ -->
         <button class="button-up" type="button">
           <svg class="menu-open-btn-icon" width="24" height="24">
             <use
@@ -40,8 +39,15 @@
         </button>
       </div>
     </main>
-    <!-- <footer class="container"></footer> -->
     <load src="partials/footer.html" />
+    <script>
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          document.body.classList.add('opaque');
+          document.body.classList.remove('transparent');
+        }, 1000);
+      });
+    </script>
     <script type="module" src="./main.js"></script>
   </body>
 </html>

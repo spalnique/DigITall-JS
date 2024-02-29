@@ -9,17 +9,27 @@
 @import url('./mob-menu.css');
 @import url('./main.css');
 @import url('./sidebar.css');
-@import url('./modal.css');
 @import url('./authorization.css');
+@import url('./modal.css');
 @import url('./buttons.css');
 @import url('./footer.css');
+@import url('./loader.css');
+@import url('./dark-theme.css');
 
-/* @import url('./mob-menu.css');
- */
 .visible {
   display: block;
 }
 
 .hidden {
   display: none;
+}
+
+.transparent {
+  opacity: 0;
+  transition: opacity 500ms ease-in-out;
+}
+
+.opaque {
+  opacity: 1;
+  transition: opacity 500ms ease-in-out;
 }

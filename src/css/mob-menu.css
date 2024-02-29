@@ -5,11 +5,9 @@
   width: 375px;
   height: 100vh;
   background-image: url(../img/png/menu-background.png),
-    radial-gradient(
-      189.32% 190.93% at 59.76% -23.42%,
+    radial-gradient(189.32% 190.93% at 59.76% -23.42%,
       rgb(79, 46, 232) 18.02733987569809%,
-      rgb(255, 255, 255) 100%
-    );
+      rgb(255, 255, 255) 100%);
   background-size: contain, cover;
   background-repeat: no-repeat, no-repeat;
   background-position: bottom, center;
@@ -56,18 +54,10 @@
 }
 
 .menu-nav-link-home {
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 1.29;
-  letter-spacing: -0.04em;
-  text-transform: uppercase;
-}
-
-.menu-nav-link-shop {
-  display: flex;
-  gap: 4px;
-  align-items: center;
-  font-weight: 500;
+  width: 72px;
+  height: 34px;
+  padding: 8px 16px;
+  font-weight: 700;
   font-size: 14px;
   line-height: 1.29;
   letter-spacing: -0.04em;
@@ -75,14 +65,23 @@
   color: #fff;
 }
 
-.make-yellow {
-  border-radius: 36px;
-  background-color: #eac645;
-  font-weight: 700;
+.menu-nav-link-shop {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  width: 150px;
+  height: 34px;
+  font-weight: 500 !important;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: #fff;
 }
 
 .menu-nav-icon-shop {
   fill: #fff;
+  stroke: #fff;
 }
 
 .menu-log-out-btn {
@@ -123,4 +122,16 @@
   line-height: 1.29;
   letter-spacing: -0.04em;
   color: #fff;
+}
+
+.menu-make-yellow {
+  color: #111;
+  border-radius: 36px;
+  background-color: #eac645;
+  padding: 8px 16px;
+}
+
+.menu-make-yellow-icon {
+  fill: #111;
+  stroke: #111;
 }

@@ -5,6 +5,7 @@ import amazon from '../img/png/amazon.png';
 import apple from '../img/png/apple-book.png';
 import { fetchData } from './fetchData';
 import { cartDataHandler, checkCartData } from './cartDataHandler';
+import { refs } from './refs';
 
 const textForAddButton = 'Add to shopping list';
 const textForRemoveButton = 'Remove from the shopping list';
@@ -19,12 +20,10 @@ async function createModalWindowMarkup(e) {
   const id = e.target.dataset.id;
   const result = await fetchData(id);
   bookDataById = result;
-
   const markup = `<div class="modal-container">
         <button class="modal-button-close" type="button">
         <svg class="modal-icon-close" width="24" height="24">
         <use href=${icon}#x-close></use></svg></button>
-
         <div class="modal-book-wrapper">
         <img
           class="modal-img"
@@ -60,43 +59,67 @@ async function createModalWindowMarkup(e) {
           width="33"
           height="32"/></a></div></div></div>
         <div class="button-toggle-wrapper">
-          <button class="add-remove-button" type="button">${
-            checkCartData(result) ? textForRemoveButton : textForAddButton
-          }</button>
-          <p class="modal-text make-visible">${
-            checkCartData(result) ? textIfBookIsAdded : textIfBookIsRemoved
-          }</p>
+        <button class="add-remove-button" type="button">${
+          checkCartData(result) ? textForRemoveButton : textForAddButton
+        }</button>
+        <p class="modal-text">${
+          checkCartData(result) ? textIfBookIsAdded : textIfBookIsRemoved
+        }</p>
         </div></div>`;
   return markup;
 }
 
 export async function createAndOpenModalWindow(e) {
-  if ((e.target.dataset.action === 'open-modal' && window.innerWidth > 768) || (e.target !== e.currentTarget && window.innerWidth <= 768)) {
+  // if (
+  //   (e.target.dataset.action === 'open-modal' && window.innerWidth > 768) ||
+  //   (e.target !== e.currentTarget && window.innerWidth <= 768)
+  // ) {
+  //   const modalWindowMarkup = await createModalWindowMarkup(e);
+  //   const modalWindowInstance = basicLightbox.create(modalWindowMarkup, {
+  //     onClose: () => window.removeEventListener('resize', checkWindowSize),
+  //   });
+  //   modalDarkThemeFunction(modalWindowInstance);
+  //   modalWindowInstance.show(onShowModalWindowInstance);
+  // } else {
+  //   return;
+  // }
+  if (e.target === e.currentTarget) return;
+
   const modalWindowMarkup = await createModalWindowMarkup(e);
   const modalWindowInstance = basicLightbox.create(modalWindowMarkup, {
-    onClose: onCloseModalWindow(),
+    onClose: () => window.removeEventListener('resize', checkWindowSize),
   });
   modalDarkThemeFunction(modalWindowInstance);
-  modalWindowInstance.show(onShowModalWindow);} else {
-    return;
-  }
+  modalWindowInstance.show(onShowModalWindowInstance);
 }
 
-function onShowModalWindow(i) {
+function onShowModalWindowInstance(i) {
   checkWindowSize();
-  document.body.classList.add('scroll-ban');
+  window.addEventListener('resize', checkWindowSize);
   const closeButton = i.element().querySelector('.modal-button-close');
   const addRemoveButton = i.element().querySelector('.add-remove-button');
-  closeButton.addEventListener('click', () => i.close());
+  document.body.classList.add('scroll-ban');
+  document.addEventListener('keydown', onTypeEscape);
+  closeButton.addEventListener('click', onCloseButtonClick);
   addRemoveButton.addEventListener('click', onClickAddRemoveButton);
-  window.addEventListener('resize', checkWindowSize);
-}
 
-function onCloseModalWindow() {
-  return () => {
+  function onTypeEscape(e) {
+    if (e.key === 'Escape') {
+      i.close(removeAllEventListeners);
+    }
+  }
+
+  function onCloseButtonClick() {
+    i.close(removeAllEventListeners);
+  }
+
+  function removeAllEventListeners() {
+    document.removeEventListener('keydown', onTypeEscape),
+      addRemoveButton.removeEventListener('click', onClickAddRemoveButton),
+      closeButton.removeEventListener('click', onCloseButtonClick),
+      window.removeEventListener('resize', checkWindowSize);
     document.body.classList.remove('scroll-ban');
-    window.removeEventListener('resize', checkWindowSize);
-  };
+  }
 }
 
 function onClickAddRemoveButton(e) {
@@ -111,20 +134,11 @@ function onClickAddRemoveButton(e) {
   }
 }
 
-function checkWindowSize() {
-  const lightboxContainer = document.querySelector('.basicLightbox');
-  const modalContainer = document.querySelector('.modal-container');
-  if (window.innerHeight < modalContainer.offsetHeight) {
-    lightboxContainer.classList.add('lightbox-scroll');
-  } else {
-    lightboxContainer.classList.remove('lightbox-scroll');
-  }
-}
-
 function modalDarkThemeFunction(instance) {
-  const checkbox = document.querySelector('#themeToggle');
   const modalRefsClassList = {
     container: instance.element().querySelector('.modal-container').classList,
+    closeButton: instance.element().querySelector('.modal-button-close')
+      .classList,
     closeIcon: instance.element().querySelector('.modal-icon-close').classList,
     bookTitle: instance.element().querySelector('.modal-book-title').classList,
     desc: instance.element().querySelector('.modal-book-desc').classList,
@@ -134,8 +148,9 @@ function modalDarkThemeFunction(instance) {
       .classList,
     addRemoveButton: instance.element().querySelector('.add-remove-button')
       .classList,
+    text: instance.element().querySelector('.modal-text').classList,
   };
-  if (checkbox.checked) {
+  if (refs.checkbox.checked) {
     modalRefsClassList.container.add('modal-container-dark-theme');
     modalRefsClassList.closeIcon.add('modal-icon-close-dark-theme');
     modalRefsClassList.bookTitle.add('modal-text-dark-theme');
@@ -143,6 +158,7 @@ function modalDarkThemeFunction(instance) {
     modalRefsClassList.amazonIcon.add('modal-icon-amazon-dark-theme');
     modalRefsClassList.appleIcon.add('modal-icon-apple-dark-theme');
     modalRefsClassList.addRemoveButton.add('modal-text-dark-theme');
+    modalRefsClassList.text.add('modal-label-dark-theme');
   } else {
     modalRefsClassList.container.remove('modal-container-dark-theme');
     modalRefsClassList.closeIcon.remove('modal-icon-close-dark-theme');
@@ -151,5 +167,16 @@ function modalDarkThemeFunction(instance) {
     modalRefsClassList.amazonIcon.remove('modal-icon-amazon-dark-theme');
     modalRefsClassList.appleIcon.remove('modal-icon-apple-dark-theme');
     modalRefsClassList.addRemoveButton.remove('modal-text-dark-theme');
+    modalRefsClassList.text.remove('modal-label-dark-theme');
+  }
+}
+
+function checkWindowSize() {
+  const lightboxContainer = document.querySelector('.basicLightbox');
+  const modalContainer = document.querySelector('.modal-container');
+  if (window.innerHeight < modalContainer.offsetHeight) {
+    lightboxContainer.classList.add('lightbox-scroll');
+  } else {
+    lightboxContainer.classList.remove('lightbox-scroll');
   }
 }
