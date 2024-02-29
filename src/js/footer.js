@@ -45,7 +45,6 @@ form.addEventListener('submit', e => {
 
 function loadFromLS(key) {
   const data = localStorage.getItem(key);
-  console.log(data);
   if (!data) return;
   try {
     const result = JSON.parse(data);
