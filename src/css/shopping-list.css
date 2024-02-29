@@ -503,6 +503,7 @@
 
 .cart-shrink:hover {
   border: 2px solid #4f2ee8;
+  box-shadow: 0.1px 0.1px 0.1px #f69fe6, 0 0 20px #4c23f1eb;
   transform: scale(1.2);
 }
 
@@ -514,6 +515,10 @@
   background-color: #eac645;
 }
 
+.footer-container {
+  border-radius: 16px;
+  border: none;
+}
 /* ========  Tablet styles  ======== */
 
 @media screen and (min-width: 768px) {

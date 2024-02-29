@@ -100,7 +100,7 @@ const timerInterval = setInterval(() => {
 // ======= below code for timer never appear even after reloading/refreshing the page ====== //
 
 // let timerFinished = localStorage.getItem('timerFinished') === 'true';
-//
+
 // const getTime = () => {
 //   const lsTime = localStorage.getItem('time');
 //   if (lsTime) {
@@ -111,24 +111,24 @@ const timerInterval = setInterval(() => {
 //   localStorage.setItem('time', finishedTime);
 //   return finishedTime;
 // };
-//
+
 // const timerInterval = setInterval(() => {
 //   const timeNow = Date.now();
 //   const timer = getTime() - timeNow;
 //   const formattedTime = getFormattedTime(timer);
-//
+
 //   if (formattedTime.seconds < 0 && !timerFinished) {
 //     clearInterval(timerInterval);
 //     localStorage.removeItem('time');
 //     timerFinished = true;
 //     localStorage.setItem('timerFinished', 'true');
 //   }
-//
+
 //   const cartTimerWrap = document.querySelector('.cart-timer-wrap');
 //   if (cartTimerWrap) {
 //     cartTimerWrap.style.display = 'none';
 //   }
-//
+
 //   renderTime(formattedTime, dom);
 // }, 1000);
 
