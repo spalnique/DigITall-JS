@@ -492,24 +492,10 @@
   border-radius: 100%;
 }
 
-/* .cart-pagination-btn-hover:hover {
-  border: 2px solid #4f2ee8;
-  transform: scale(1.2);
-} */
-/* .cart-pagination-btn-active:hover {
-  border: 2px solid #4f2ee8;
-  transform: scale(1.2);
-} */
-
 .cart-pagination-btn-active {
   color: #000000;
   background: #ffffff;
 }
-
-/* .cart-pagination-btn:hover,
-.cart-pagination-btn:focus {
-  border: 2px solid #4f2ee8;
-} */
 
 .cart-shrink {
   transition: transform 0.2s ease-in-out;
