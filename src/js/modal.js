@@ -87,7 +87,10 @@ export async function createAndOpenModalWindow(e) {
 
   const modalWindowMarkup = await createModalWindowMarkup(e);
   const modalWindowInstance = basicLightbox.create(modalWindowMarkup, {
-    onClose: () => window.removeEventListener('resize', checkWindowSize),
+    onClose: () => {
+      window.removeEventListener('resize', checkWindowSize);
+      document.body.classList.remove('scroll-ban');
+    },
   });
   modalDarkThemeFunction(modalWindowInstance);
   modalWindowInstance.show(onShowModalWindowInstance);
