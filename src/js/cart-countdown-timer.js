@@ -63,50 +63,15 @@ const dom = {
 };
 
 // ======= Timer only for presentation ======= //
-let timerFinished = false;
-
-const getTime = () => {
-  const lsTime = localStorage.getItem('time');
-  if (lsTime) {
-    return lsTime;
-  }
-  const addTime = 20000;
-  // const addTime = 1000 * 60 * 60 * 2;
-  const finishedTime = Date.now() + addTime;
-  localStorage.setItem('time', finishedTime);
-  return finishedTime;
-};
-
-const timerInterval = setInterval(() => {
-  const timeNow = Date.now();
-  const timer = getTime() - timeNow;
-  const formattedTime = getFormattedTime(timer);
-
-  if (formattedTime.seconds < 0 && !timerFinished) {
-    // Time is up for the first time
-    clearInterval(timerInterval);
-    localStorage.removeItem('time');
-    timerFinished = true;
-
-    const cartTimerWrap = document.querySelector('.cart-timer-wrap');
-    if (cartTimerWrap) {
-      cartTimerWrap.style.display = 'none';
-    }
-  }
-
-  renderTime(formattedTime, dom);
-}, 1000);
-
-// ======= below code for timer never appear even after reloading/refreshing the page ====== //
-
-// let timerFinished = localStorage.getItem('timerFinished') === 'true';
+// let timerFinished = false;
 
 // const getTime = () => {
 //   const lsTime = localStorage.getItem('time');
 //   if (lsTime) {
 //     return lsTime;
 //   }
-//   const addTime = 1000 * 60 * 60 * 2; // 2 hours in milliseconds
+//   const addTime = 20000;
+//   // const addTime = 1000 * 60 * 60 * 2;
 //   const finishedTime = Date.now() + addTime;
 //   localStorage.setItem('time', finishedTime);
 //   return finishedTime;
@@ -118,19 +83,54 @@ const timerInterval = setInterval(() => {
 //   const formattedTime = getFormattedTime(timer);
 
 //   if (formattedTime.seconds < 0 && !timerFinished) {
+//     // Time is up for the first time
 //     clearInterval(timerInterval);
 //     localStorage.removeItem('time');
 //     timerFinished = true;
-//     localStorage.setItem('timerFinished', 'true');
-//   }
 
-//   const cartTimerWrap = document.querySelector('.cart-timer-wrap');
-//   if (cartTimerWrap) {
-//     cartTimerWrap.style.display = 'none';
+//     const cartTimerWrap = document.querySelector('.cart-timer-wrap');
+//     if (cartTimerWrap) {
+//       cartTimerWrap.style.display = 'none';
+//     }
 //   }
 
 //   renderTime(formattedTime, dom);
 // }, 1000);
+
+// ======= below code for timer never appear even after reloading/refreshing the page ====== //
+
+let timerFinished = localStorage.getItem('timerFinished') === 'true';
+
+const getTime = () => {
+  const lsTime = localStorage.getItem('time');
+  if (lsTime) {
+    return lsTime;
+  }
+  const addTime = 1000 * 60 * 60 * 2; // 2 hours in milliseconds
+  const finishedTime = Date.now() + addTime;
+  localStorage.setItem('time', finishedTime);
+  return finishedTime;
+};
+
+const timerInterval = setInterval(() => {
+  const timeNow = Date.now();
+  const timer = getTime() - timeNow;
+  const formattedTime = getFormattedTime(timer);
+
+  if (formattedTime.seconds < 0 && !timerFinished) {
+    clearInterval(timerInterval);
+    localStorage.removeItem('time');
+    timerFinished = true;
+    localStorage.setItem('timerFinished', 'true');
+  }
+
+  const cartTimerWrap = document.querySelector('.cart-timer-wrap');
+  if (cartTimerWrap) {
+    cartTimerWrap.style.display = 'none';
+  }
+
+  renderTime(formattedTime, dom);
+}, 1000);
 
 function getFormattedTime(time) {
   const formattedTime = {
