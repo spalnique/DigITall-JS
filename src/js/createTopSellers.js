@@ -16,7 +16,12 @@ function createTopSellers(data) {
       strArr[strArr.length - 1] = `<span>${strArr[strArr.length - 1]}</span>`;
       const title = `<h2 class="category-title">${strArr.join(' ')}</h2>`;
       const catMarkup = createCategoryMarkup(x.books, createBookMarkup);
-      const button = createButton('see-more-button', 'See more', x.list_name);
+      const button = createButton(
+        'see-more-button',
+        'See more',
+        x.list_name,
+        'see-more'
+      );
       return title + catMarkup + button;
     })
     .join('');

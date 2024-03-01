@@ -59,12 +59,12 @@ async function createModalWindowMarkup(e) {
           width="33"
           height="32"/></a></div></div></div>
         <div class="button-toggle-wrapper">
-        <button class="add-remove-button" type="button">${
+        <button class="add-remove-button modal-button-glow-styles" type="button">${
           checkCartData(result) ? textForRemoveButton : textForAddButton
         }</button>
-        <p class="modal-text">${
+        <span class="modal-text">${
           checkCartData(result) ? textIfBookIsAdded : textIfBookIsRemoved
-        }</p>
+        }</span>
         </div></div>`;
   return markup;
 }
@@ -87,13 +87,22 @@ export async function createAndOpenModalWindow(e) {
 
   const modalWindowMarkup = await createModalWindowMarkup(e);
   const modalWindowInstance = basicLightbox.create(modalWindowMarkup, {
-    onClose: () => window.removeEventListener('resize', checkWindowSize),
+    onClose: () => {
+      window.removeEventListener('resize', checkWindowSize);
+      document.body.classList.remove('scroll-ban');
+    },
   });
   modalDarkThemeFunction(modalWindowInstance);
   modalWindowInstance.show(onShowModalWindowInstance);
 }
 
 function onShowModalWindowInstance(i) {
+  if (!JSON.parse(localStorage.getItem('userInfo'))) {
+    const buttonToggleWrapper = i
+      .element()
+      .querySelector('.button-toggle-wrapper');
+    buttonToggleWrapper.classList.add('hidden');
+  }
   checkWindowSize();
   window.addEventListener('resize', checkWindowSize);
   const closeButton = i.element().querySelector('.modal-button-close');
@@ -158,6 +167,9 @@ function modalDarkThemeFunction(instance) {
     modalRefsClassList.amazonIcon.add('modal-icon-amazon-dark-theme');
     modalRefsClassList.appleIcon.add('modal-icon-apple-dark-theme');
     modalRefsClassList.addRemoveButton.add('modal-text-dark-theme');
+    modalRefsClassList.addRemoveButton.add(
+      'modal-button-glow-styles-dark-theme'
+    );
     modalRefsClassList.text.add('modal-label-dark-theme');
   } else {
     modalRefsClassList.container.remove('modal-container-dark-theme');
@@ -167,6 +179,9 @@ function modalDarkThemeFunction(instance) {
     modalRefsClassList.amazonIcon.remove('modal-icon-amazon-dark-theme');
     modalRefsClassList.appleIcon.remove('modal-icon-apple-dark-theme');
     modalRefsClassList.addRemoveButton.remove('modal-text-dark-theme');
+    modalRefsClassList.addRemoveButton.remove(
+      'modal-button-glow-styles-dark-theme'
+    );
     modalRefsClassList.text.remove('modal-label-dark-theme');
   }
 }

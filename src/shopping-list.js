@@ -10,12 +10,14 @@ import {
 import { setActivePage } from './js/showHideFn';
 import { isUserLoggedIn } from './js/autorization';
 import { getLS, setLS } from './js/workInLS';
+import icon from './img/icons.svg';
 
 isUserLoggedIn();
 setActivePage('header-nav-link-shop');
 
 export const cartRefs = {
   body: document.querySelector('body'),
+  logoIcon: document.querySelector('.header-logo-icon:nth-child(2)'),
   mainContainer: document.querySelector('.main-container'),
   mainTitle: document.querySelector('.main-title'),
   cartTimerWrap: document.querySelector('.cart-timer-wrap'),
@@ -32,11 +34,19 @@ window.deleteCardFromLSHandler = makeDeleteCardFromLSHandler(refs.shopListWrap);
 
 const checkBox = document.querySelector('#themeToggle');
 
-const handleCartDarkTheme = event => {
-  const { value: isDarkTheme } = getLS('isDarkTheme') || {};
+const changeLogoIcon = isDarkTheme => {
+  const theme = isDarkTheme ? 'dark' : 'light';
+  const path = `${icon}#bookshelf-${theme}`;
+  const markup = `<use href="${path}"></use>`;
+  cartRefs.logoIcon.innerHTML = markup;
+};
 
+export const handleCartDarkTheme = event => {
+  const { value: isDarkTheme } = getLS('isDarkTheme') || {};
+  changeLogoIcon(checkBox.checked);
   if (event ? checkBox.checked : isDarkTheme) {
     cartRefs.body.classList.add('dark-theme');
+
     checkBox.checked = true;
     setLS('isDarkTheme', { value: true });
   } else {
@@ -45,6 +55,7 @@ const handleCartDarkTheme = event => {
     setLS('isDarkTheme', null);
   }
 };
+
 handleCartDarkTheme();
 
 checkBox.addEventListener('click', handleCartDarkTheme);

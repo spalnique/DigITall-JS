@@ -13,7 +13,10 @@ import { showElement } from './showHideFn';
 
 catList();
 
-refs.catList.addEventListener('click', onCatClick);
+refs.catList.addEventListener('click', e => {
+  onCatClick(e);
+  window.scrollTo({ top: refs.mainTitle.offsetTop - 20, behavior: 'smooth' });
+});
 
 async function catList() {
   const catListData = await fetchData(endPoints.list);
@@ -55,8 +58,10 @@ function linkIsActive(e) {
 
 async function onCatClick(e) {
   if (e.target === e.currentTarget) return;
+
   if (!e.target.dataset.category) {
     refs.mainTitle.innerHTML = `Best Sellers <span>Books</span>`;
+    refs.mainTitle.scrollIntoView({ behavior: 'smooth' }); //!
     linkIsActive(e);
     renderTopSellers();
     return;
@@ -66,6 +71,7 @@ async function onCatClick(e) {
   const strArr = e.target.dataset.category.split(' ');
   strArr[strArr.length - 1] = `<span>${strArr[strArr.length - 1]}</span>`;
   refs.mainTitle.innerHTML = strArr.join(' ');
+  refs.mainTitle.scrollIntoView({ behavior: 'smooth' }); //!
   const selectedCatData = await fetchData(
     endPoints.category,
     e.target.dataset.category

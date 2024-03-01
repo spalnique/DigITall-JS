@@ -40,8 +40,8 @@ export const renderPagination = (domElement, changePagination) => {
   const paginationDiv = document.createElement('div');
   paginationDiv.classList.add('cart-pagination-btns');
 
-  const countPageBtn = 3;
-  const isStartDotsBtn = currentPage >= countPageBtn;
+  const countPageBtn = cart.length > 6 ? 3 : 2;
+  const isStartDotsBtn = countPageBtn === 3 && currentPage >= countPageBtn;
 
   const isEndDotsBtn = currentPage !== pages && pages > countPageBtn;
 

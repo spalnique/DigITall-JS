@@ -21,7 +21,11 @@ import './js/footer';
 isUserLoggedIn();
 setActivePage('header-nav-link-home');
 renderTopSellers();
-refs.mainCatWrap.addEventListener('click', onMoreButtonClick);
+refs.mainCatWrap.addEventListener('click', e => {
+  if (e.target.dataset.action !== 'see-more') return;
+  onMoreButtonClick(e);
+  window.scrollTo({ top: refs.mainTitle.offsetTop - 20, behavior: 'smooth' });
+});
 
 async function onMoreButtonClick(e) {
   if (!e.target.dataset.category) return;
@@ -44,5 +48,3 @@ async function onMoreButtonClick(e) {
   const catBooks = document.querySelectorAll('.main-category-item');
   catBooks.forEach(x => showElement(x));
 }
-
-
