@@ -22,8 +22,8 @@ isUserLoggedIn();
 setActivePage('header-nav-link-home');
 renderTopSellers();
 refs.mainCatWrap.addEventListener('click', e => {
+  if (e.target.dataset.action !== 'see-more') return;
   onMoreButtonClick(e);
-
   window.scrollTo({ top: refs.mainTitle.offsetTop - 20, behavior: 'smooth' });
 });
 
