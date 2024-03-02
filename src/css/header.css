@@ -384,7 +384,6 @@
 .log-out-visible {
   display: flex;
   pointer-events: auto;
-  z-index: 0;
-  bottom: -48px;
-  top: auto;
+  z-index: 1;
+  top: 55px;
 }
