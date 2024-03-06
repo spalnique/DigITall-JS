@@ -1,42 +1,51 @@
-const STORAGE_KEY = "footer-input";
+import iziToast from 'izitoast';
 
-const form = document.querySelector(".footer-form-btn");
+const STORAGE_KEY = 'mailing-list';
+const LAST_INPUT = 'input-last-value';
 
-form.addEventListener("input", () => {
-    const userEmail = form.elements.email.value;
-    
-    const data = {
-    email: userEmail,   
-    };
+const form = document.querySelector('.footer-form');
 
-  saveToLS(STORAGE_KEY, data);
-});
+function debounce(func, delay) {
+  let timeoutId;
+  return function (...args) {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => {
+      func.apply(this, args);
+    }, delay);
+  };
+}
+const saveToLSdebounced = debounce(function () {
+  const userEmail = form.elements.email.value;
+  saveToLS(LAST_INPUT, userEmail);
+}, 500);
 
-form.addEventListener("submit", (e) => {
+form.addEventListener('input', saveToLSdebounced);
+
+form.addEventListener('submit', e => {
   e.preventDefault();
 
   // валідація поля email
   const userEmail = form.elements.email.value;
-   if (userEmail.trim() === '') {
+  if (userEmail.trim() === '') {
     iziToast.show({
-        message: `Введіть e-mail`,
-        messageColor: '#FFFFFF',
-        backgroundColor: '#59A10D',
-        position: 'center',
-      });
+      message: `Введіть e-mail`,
+      messageColor: '#FFFFFF',
+      backgroundColor: '#59A10D',
+      position: 'topRight',
+    });
     return;
   }
-// ====================
+  // ====================
 
-  const data = loadFromLS(STORAGE_KEY) || {};
-  console.log(data);
-
-  localStorage.removeItem(STORAGE_KEY);
+  const data = loadFromLS(STORAGE_KEY) || [];
+  data.push(form.elements.email.value);
+  saveToLS(STORAGE_KEY, data);
   form.reset();
 });
 
-function loadFromLS(key = "empty") {
+function loadFromLS(key) {
   const data = localStorage.getItem(key);
+  if (!data) return;
   try {
     const result = JSON.parse(data);
     return result;
@@ -51,8 +60,9 @@ function saveToLS(key, value) {
 }
 
 function restoreData() {
-  const data = loadFromLS(STORAGE_KEY) || {};
-  form.elements.email.value = data.email || "";
+  const data = loadFromLS(LAST_INPUT) || '';
+  form.elements.email.value = data;
 }
 
 restoreData();
+loadFromLS(STORAGE_KEY);

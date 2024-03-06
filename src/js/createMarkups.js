@@ -26,6 +26,7 @@ export function createBookMarkup(data) {
   <h3 class="main-category-title" data-id="${data._id}">${data.title}</h3>
   <p class="main-category-author" data-id="${data._id}">${data.author}</p>
 </div>
+<p class="main-category-item-overlay" data-id="${data._id}" data-action="open-modal">quick view</p>
 </li>`;
 }
 
@@ -64,4 +65,9 @@ function donationListTemplate(data) {
 export function renderDonations(parentElement, donationData) {
   const markup = donationListTemplate(donationData);
   parentElement.innerHTML = markup;
+}
+
+export function renderLoader(parentElement) {
+  parentElement.innerHTML =
+    '<div style="scale: 0.5; padding-top: 150px; display: flex; width:100%; justify-content: center; align-items:center;"><span class="loader"></span></div>';
 }

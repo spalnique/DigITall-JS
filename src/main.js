@@ -8,22 +8,24 @@ import {
   createBookMarkup,
   createCategoryMarkup,
   renderContent,
+  renderLoader,
 } from './js/createMarkups';
 import { createAndOpenModalWindow } from './js/modal';
 import { renderTopSellers } from './js/createTopSellers';
 import { showElement, setActivePage } from './js/showHideFn';
 import { refs } from './js/refs';
-import {
-  renderCart,
-  makeDeleteCardFromLSHandler,
-} from './js/shoppingListHandler';
 import './js/mob-menu';
-import { userIsLoggedIn } from './js/autorization';
+import { isUserLoggedIn } from './js/autorization';
+import './js/footer';
 
-userIsLoggedIn();
+isUserLoggedIn();
 setActivePage('header-nav-link-home');
 renderTopSellers();
-refs.mainCatWrap.addEventListener('click', onMoreButtonClick);
+refs.mainCatWrap.addEventListener('click', e => {
+  if (e.target.dataset.action !== 'see-more') return;
+  onMoreButtonClick(e);
+  window.scrollTo({ top: refs.mainTitle.offsetTop - 20, behavior: 'smooth' });
+});
 
 async function onMoreButtonClick(e) {
   if (!e.target.dataset.category) return;

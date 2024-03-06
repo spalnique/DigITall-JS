@@ -99,8 +99,9 @@
   transition: filter 300ms ease-in-out;
 }
 
-.modal-buy-link:hover img {
-  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.35))
+.modal-link-amazon-icon:hover,
+.modal-link-apple-icon:hover {
+  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.35));
 }
 
 .add-remove-button {
@@ -117,23 +118,78 @@
   background-color: transparent;
   margin: 0 auto;
   margin-bottom: 8px;
-  transition: background-color 300ms ease-in-out, border-color 300ms ease-in-out, color 300ms ease-in-out;
+  transition: background-color 300ms ease-in-out, border-color 300ms ease-in-out,
+    color 300ms ease-in-out;
 }
 
-.add-remove-button:hover {
-  background-color: #4f2ee8;
-  border-color: transparent;
-  color: #fff;
+/* // ======= modal-button-glow-styles ======= // */
+.modal-button-glow-styles {
+  outline: none;
+  color: #000000;
+  position: relative;
+  z-index: 1;
+  transition: 0.5s;
 }
 
-.add-remove-button:focus {
-  background-color: #4f2ee8;
-  box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.15);
-  border-color: transparent;
-  color: #fff;
+.modal-button-glow-styles::before {
+  content: '';
+  background: linear-gradient(45deg,
+      #f5410f,
+      #e87d3a,
+      #eac645,
+      #002bff,
+      #4f2ee8,
+      #f71e8a);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  border-radius: 40px;
+  z-index: -1;
+  filter: blur(7px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.modal-button-glow-styles:active:after {
+  background: transparent;
+}
+
+.modal-button-glow-styles:hover::before {
+  opacity: 1;
+}
+
+.modal-button-glow-styles:after {
+  border-radius: 40px;
+  z-index: -1;
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+
+  50% {
+    background-position: 400% 0;
+  }
+
+  100% {
+    background-position: 0 0;
+  }
 }
 
 .modal-text {
+  display: block;
   width: 242px;
   margin: 0 auto;
   text-align: center;
@@ -207,4 +263,46 @@
     font-size: 12px;
     line-height: 1.17;
   }
+}
+
+/* =========================== MODAL_DARK_THEME ================================= */
+.modal-container-dark-theme {
+  background-color: #202024;
+  border-color: #fff;
+}
+
+.modal-icon-close-dark-theme {
+  stroke: #fff;
+}
+
+.modal-text-dark-theme {
+  color: #fff;
+}
+
+.modal-button-glow-styles-dark-theme:after {
+  background: #202024;
+}
+
+.modal-icon-amazon-dark-theme {
+  filter: brightness(0) invert(1);
+  transition: filter 300ms ease-in-out scale 300ms ease-in-out;
+}
+
+.modal-icon-apple-dark-theme {
+  filter: grayscale(100%);
+  transition: filter 300ms ease-in-out scale 300ms ease-in-out;
+}
+
+.modal-icon-amazon-dark-theme:hover {
+  filter: drop-shadow(0px 3px 3px rgba(255, 255, 255, 0.35)) invert(60%);
+  scale: 1.02;
+}
+
+.modal-icon-apple-dark-theme:hover {
+  filter: drop-shadow(0px 3px 3px rgba(255, 255, 255, 0.35));
+  scale: 1.02;
+}
+
+.modal-label-dark-theme {
+  color: rgba(255, 255, 255, 0.5);
 }

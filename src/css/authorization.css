@@ -1,5 +1,7 @@
 .authorization-lightbox {
-    background-color: #4f2ee8 !important;
+    background: radial-gradient(189.32% 190.93% at 59.76% -23.42%,
+            rgb(79, 46, 232) 18.02733987569809%,
+            rgb(255, 255, 255) 100%) !important;
 }
 
 .authorization-form {
@@ -23,10 +25,16 @@
     right: 14px;
     width: 20px;
     height: 20px;
+    transition: stroke 300ms ease-in-out, transform 300ms ease-in-out;
 }
 
 .authorization-icon-close {
     stroke: #111;
+}
+
+.authorization-button-close:hover .authorization-icon-close {
+    stroke: #4f2ee8;
+    transform: scale(1.1);
 }
 
 .authorization-fieldset {
@@ -63,6 +71,7 @@
     line-height: 1.29;
     letter-spacing: -0.04em;
     color: #111;
+    transition: border-color 300ms ease-in-out;
 }
 
 .authorization-input::placeholder {
@@ -71,10 +80,14 @@
     line-height: 1.13;
     letter-spacing: -0.01em;
     text-transform: uppercase;
-    color: #111;
+    color: inherit;
 }
 
-.authorization-button {
+.authorization-input:hover {
+    border-color: #4f2ee8;
+}
+
+.submit-button {
     width: 100%;
     display: block;
     margin-bottom: 14px;
@@ -88,6 +101,11 @@
     letter-spacing: -0.01em;
     text-transform: uppercase;
     color: #f3f3f3;
+    transition: background-color 300ms ease-in-out;
+}
+
+.submit-button:hover {
+    background-color: #4f2ee8;
 }
 
 .authorization-button-wrapper {
@@ -96,7 +114,8 @@
     justify-content: center;
 }
 
-.authorization-button-wrapper button {
+.sign-up-btn,
+.sign-in-btn {
     padding: 0;
     font-weight: 700;
     font-size: 14px;
@@ -104,6 +123,12 @@
     letter-spacing: -0.01em;
     text-transform: uppercase;
     color: rgba(17, 17, 17, 0.5);
+    transition: transform 300ms ease-in-out;
+}
+
+.sign-up-btn:hover,
+.sign-in-btn:hover {
+    transform: scale(1.1);
 }
 
 @media screen and (min-width: 768px) {
@@ -149,7 +174,7 @@
         line-height: 1.33;
     }
 
-    .authorization-button {
+    .submit-button {
         margin-bottom: 20px;
         padding-top: 20px;
         padding-bottom: 20px;
@@ -157,11 +182,44 @@
         line-height: 1.33;
     }
 
-    .authorization-button-wrapper button {
+    .sign-up-btn,
+    .sign-in-btn {
         font-weight: 700;
         font-size: 18px;
         line-height: 1.33;
     }
+}
+
+/* =======================DARK_THEME============================ */
+.menu-container-dark-theme {
+    background-color: #202024;
+    border-color: #f6f6f6;
+}
+
+.menu-button-close-dark-theme {
+    stroke: #fff;
+}
+
+.menu-input-dark-theme {
+    color: #f6f6f6;
+    border-color: #fff;
+}
+
+.menu-icon-dark-theme {
+    stroke: #fff;
+}
+
+.menu-submit-button-dark-theme {
+    background-color: #f6f6f6;
+    color: #202024;
+}
+
+.menu-submit-button-dark-theme:hover {
+    color: #f6f6f6;
+}
+
+.menu-signUp-signIn-button {
+    color: rgba(246, 246, 246, 0.5);
 }
 
 .make-active {

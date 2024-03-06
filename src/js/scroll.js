@@ -1,23 +1,20 @@
-// =======================
+import { debounce } from './donation-list';
+
 const buttonUp = document.querySelector('.button-up');
 
-buttonUp.addEventListener('click', scrollOnClick);
-
-window.addEventListener('scroll', trackScroll);
-
-function trackScroll() {
-  const offset = window.pageYOffset;
-  const coord = document.documentElement.clientHeight;
-  if (offset > coord) {
+function handlerForWindowScroll() {
+  if (window.innerHeight / 2 < window.scrollY) {
     buttonUp.classList.add('button-up--show');
+    buttonUp.addEventListener('click', handlerForButtonUp);
   } else {
     buttonUp.classList.remove('button-up--show');
+    buttonUp.removeEventListener('click', handlerForButtonUp);
   }
 }
 
-function scrollOnClick() {
-  if (window.pageYOffset > 0) {
-    window.scrollBy(0, -75);
-    setTimeout(scrollOnClick, 0);
-  }
+function handlerForButtonUp() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+
+const scrollHandlerDebounced = debounce(handlerForWindowScroll, 100);
+window.addEventListener('scroll', scrollHandlerDebounced);

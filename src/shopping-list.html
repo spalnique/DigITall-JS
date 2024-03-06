@@ -21,18 +21,27 @@
     <link rel="stylesheet" href="./css/styles.css" />
     <link rel="stylesheet" href="./css/shopping-list.css" />
   </head>
-  <body>
+  <body class="transparent">
     <load src="partials/header.html" />
     <main class="main-container container">
-      <aside class="main-sidebar">
+      <aside class="cart-sidebar">
         <load src="partials/donation-list.html" />
       </aside>
       <div class="main-content">
         <h2 class="main-title">Shopping <span>List</span></h2>
+        <div class="cart-timer-wrap"></div>
         <div class="main-shopping-list"></div>
       </div>
     </main>
-    <!-- <footer class="container"></footer> -->
+    <load src="partials/footer.html" />
+    <script>
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          document.body.classList.add('opaque');
+          document.body.classList.remove('transparent');
+        }, 1000);
+      });
+    </script>
     <script type="module" src="./shopping-list.js"></script>
   </body>
 </html>
